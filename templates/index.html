@@ -132,7 +132,7 @@
 
             <div class="loader3in1Slide-container">
                 <!-- this has two classes -->
-                <div class="loader-in-landingpage-subdiv" style="background-color: orange; position: absolute;">
+                <div class="loader-in-landingpage-subdiv div3in1-fade-lp" style="background-color: orange; position: absolute;">
                     <h>Get Started in 3 </h>
                     <div style="position: absolute; bottom: 0;">
                         <div class="loader-in-landingpage"></div>
@@ -331,7 +331,8 @@
         }
 
 // --------------------------------------------------------------------------------------------------------------
-        const slidingchildelements = document.querySelectorAll(".loader-in-landingpage-subdiv");       
+        
+        const containerelement = document.querySelector(".loader3in1Slide-container");    
         // let sliderNumber = 1;
         // slideCaller(sliderNumber);
 
@@ -350,101 +351,32 @@
         // NB2: The callback passed to the intersectionObserver() constructor,
         // receives a list of (IntersectionObserverEntry objects and the observer) which is why the callback 
         // is described as (entries, observer).
-        const observer = new IntersectionObserver((entries, observer) => {
-            console.log(entries)
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const eachElement = entry.target;
-                    const arrayofallelements = Array.from(slidingchildelements);
-                    const index = arrayofallelements.indexOf(eachElement);
-                    
-                    const delay = index * 3000;
 
-                    Timing = setTimeout(() => {
-                        eachElement.classList.add('div3in1-fade-lp');
-                        eachElement.style.animationDuration = "5s";
-                    }, delay);
-
-                                     
-
-                    // const delay = index * 3000;
-
-                    // Timing = setTimeout(() => {
-                    //     element.classList.add('div3in1-fade-lp');
-                    //     element.style.animationDuration = "5s";
-                    // }, delay);
-
-                    // clearTimeout(Timing);
-                    // element.style.visibility = "visible";
-
-
-                    // setInterval(slideCaller, 15000);
-
-                    // function slideCaller() {
-                    //     let i;
-
-                    //     for (i=0; i<element.length; i++) {
-                    //         if (element[i].style.visibility = "hidden") {
-                    //             myTime = setTimeout(showSlide, 3000);
-                    //         } 
-                    //         function showSlide() {
-                    //             element.style.visibility = "hidden";
-                    //             slidingchildelements[i].style.visibility = "visible";
-                    //         }
-                    //     }
-                    // }
-
-                observer.unobserve(eachElement);
-
-                    // loadContent(entry.target);
-
-                    // function loadContent(element) {
-                        
-                        
-                    // }
-                    
-                    // setInterval(slideCaller, 15000);
-
-                    // function slideCaller() {
-                    //     let i;
-                        // var slidingchildelements = document.getElementsByClassName("loader-in-landingpage-subdiv");
-                        // for (i=0; i<slidingchildelements.length; i++) {
-                        //     if (slidingchildelements[i].style.visibility = "hidden") {
-                        //         myTime = setTimeout(showSlide, 3000);
-                        //     } 
-                        //     function showSlide() {
-                        //         slidingchildelements.style.visibility = "hidden";
-                        //         slidingchildelements[i].style.visibility = "visible";
-                        //     }
-                        // }
-                    // }
-                }
-            });
-        }, options);
-        
-        // add the target element to be observed
-        // this is when the callback we setup for the observer will be executed even if the target 
-        // is currently not visible
-        
-        // slidingchildelements.forEach (eachElement => {
-        //     observer.observe(eachElement);
-        // });
-    
-        
-
-        let i;
-        
-        for (i=0; i<slidingchildelements.length; i++) {
-
-            if (i < slidingchildelements.length) {
-                observer.observe(slidingchildelements[i]);
-            }
-            else if (i == slidingchildelements.length - 1) {
-                observer.observe(slidingchildelements[i]);
-                i=0;
-            }
+        function displayatinterval(myentryArray) {
             
+            if (myentryArray[0].isIntersecting) {
+                const slides = document.querySelectorAll(".loader-in-landingpage-subdiv"); 
+               let currentSlide = 0;
+
+                //    function to move to the next slide
+                function nextSlide() {
+
+                    // remove class from current slide
+                    slides[currentSlide].classList.remove('div3in1-fade-lp');
+
+                    // move to next slide or back to first
+                    currentSlide = (currentSlide + 1) % slides.length;
+
+                    slides[currentSlide].classList.add('div3in1-fade-lp');
+                }
+                setInterval(nextSlide, 4000);
+                
+            }
         }
-        observecalling()
+        
+        let observer = new IntersectionObserver(displayatinterval, options);
+        observer.observe(containerelement);
+        
+        
     </script>
 {% endblock %}
