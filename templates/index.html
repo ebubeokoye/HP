@@ -3,16 +3,32 @@
 {% block body %}
 
     <div class="section-one">
+        <div style="overflow: hidden; width: 970px; margin: auto; height: 1000px; border: 1px solid black;
+            border-radius: 10px; background-color: black; position: relative; top: 0;">
+            <div class ="header-slideshow-landingpage">
+            
+                <img src="{{ url_for ('static', filename='land-icon.jpg') }}" style="width: 910px; height: 1000px;">
+
+                <img src="{{ url_for ('static', filename='kitchen-utensils.jpg') }}" style="width: 910px; height: 1000px;">
+
+                <img src="{{ url_for ('static', filename='couch-furniture.jpg') }}" style="width: 910px; height: 1000px;"> 
+            </div>
+        </div>
+
         <div class="section-one-sub1">
             <div class="header-h-and-P">Housing & Properties</div>
-            <a href="{{ url_for ('buylinkfrompage2') }}" class="header-Buy">Buy</a>
-            <div class="header-Sell">Sell</div>
-            <div class="header-Stories">Stories</div>
-            <div class="header-FAQs">FAQs</div>
-            <div class="header-Resources">Resources
+            <div style="display: flex; justify-content: center; background-color: white; border: 1px solid white;
+                border-radius: 50px; width: 600px; margin-left: 40px;">
+                <a href="{{ url_for ('buylinkfrompage2') }}" class="header-Buy">Buy</a>
+                <div class="header-Sell">Sell</div>
+                <div class="header-Stories">Stories</div>
+                <div class="header-FAQs">FAQs</div>
+                <div class="header-Resources">Resources</div>
+                <a href="signin" class="header-Signin">Sign in</a>
+            </div>
                 <!-- dropdown below come up when user hovers on resources above,
                 jquery was used to achieve this -->
-                <div class="resources-dropdown">
+                <!-- <div class="resources-dropdown">
                     <div style="display: flex; margin-top: 10px; margin-left: 10px;">
                         <div class="box-one-in-resources-dropdown"></div>
                         <div class="other-boxes-in-resources-dropdown"></div>
@@ -22,17 +38,232 @@
                         <div class="other-boxes-in-resources-dropdown"></div>
                     </div>
                     
+                </div> -->
+            
+            <div class="createAccount-container">
+                <div class="header-CreateAccount">
+                    <span>Create free account</span>
+                    <i style="width: 2px; height: 2px; border: 2px solid black; border-radius: 100%;">
+                        <i class="arrow down"></i>
+                    </i>
+                </div>  
+
+                <!-- dropdown for creating free account -->
+                <div class="dropdown-for-createAccount-lp">
+                    <div class="createaccount-user-link">
+                        <a href="createaccount-user" style="text-decoration: none;">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register to Buy</div>
+                        </a>
+                    </div>
+
+                    <div class="createaccount-vendor-link">
+                        <a href="createaccount-vendor">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register as Vendor</div>
+                        </a>
+                    </div>
+
+                    <div class="createaccount-vendor-link">
+                        <a href="createaccount-vendor">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register as Agent</div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            
-            <a href="signin" class="header-Signin">Sign in</a>
-            <a href="registeras" class="header-CreateAccount">Create free account</a>
             <div style="position: static;"></div>
         </div>
+
     </div>
+
+    <div class="customer-vendor-agent-nav">
+        <a style="width: 100px; height: 50px; background-color: lightyellow; 
+            border: 1px yellow; border-radius: 20px;" class="nav-landingpg" onclick="changeBackgroundcolor(1)">
+            <p>Customer</p>
+        </a>
+        <a style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(2)">
+            <p> Agents</p>
+        </a>
+        <a style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(3)">
+            <p>Vendors</p>
+        </a>
+        <a style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(4)">
+            <p>Feature your craft</p>
+        </a>
+    </div>
+
+    <div style="text-align: center; letter-spacing: 1px; font-size: 20px;">
+        <h1 style="text-align: center; font-size: 70px;">Sign up</h1>
+        <div>Unlock next level of ease in land purchase,</div> <br>
+        <div>renting apartments and have wide range home essential and</div> <br>
+        <div>appliances delivered to you within in Lagos, Nigeria.</div>
+        <div style="margin-left: 300px; border-bottom: 3px solid black;
+            margin-top: 20px;">Read about incoming features > </div>
+    </div>
+
+
+        <div style="margin-top: 100px; margin-left: 30px;">
+            <h1 style="width: 800px; height: 100px; margin: auto; font-size: 50px;">Join our growing network > </h1>
+            <div style="display: flex; flex-direction: row; text-align: center;">
+                <div style="flex: 30%; height: 500px; background-color: white; border: 5px solid black;
+                    border-radius: 15px; letter-spacing: 1px;"> 
+                    <h2 style="font-size: 30px;">Start Selling</h2>
+                    Are you a real estate agent, land agent, home essentials vendor<br>
+                    looking to grow your business? Reach <br>
+                    new customers when you  join our network. <br>
+                    See more > <br>
+                </div>
+            
+                <div style="flex: 30%; height: 500px; background-color: white; border: 5px solid black;
+                    border-radius: 15px; margin-left: 10px; letter-spacing: 2px;"> 
+                    <h2 style="font-size: 30px;">Join Our Growing Network</h2>
+                    Are you  a business owner with a business <br>
+                    that matches the scope of the brand (eg- <br>
+                    interior decor, building facilities) <br>
+                    join our promotion/advert list and become <br>
+                    an affiliate. See more >
+                </div>
+            </div>
+        </div>
+        
+        <div style="background-color: green; width: 110%; height: 700px; margin-left: -9px;
+            margin-top: -100px; padding-top: 10px;">
+
+            <div class="loader3in1Slide-container">
+                <!-- this has two classes -->
+                <div class="loader-in-landingpage-subdiv" style="background-color: orange; position: absolute;">
+                    <h>Get Started in 3 </h>
+                    <div style="position: absolute; bottom: 0;">
+                        <div class="loader-in-landingpage"></div>
+                    </div>
+                </div>
+
+                <!-- this has two classes -->
+                <div class="loader-in-landingpage-subdiv" style="background-color: brown; position: absolute;">
+                    <h>Use the app </h>
+                    <div style="position: absolute; bottom: 0;">
+                        <div class="loader-in-landingpage"></div>
+                    </div>
+                </div>
+
+                <div class="loader-in-landingpage-subdiv" style="background-color: grey; position: absolute;">
+                    <h>Goodbye </h>
+                    <div style="position: absolute; bottom: 0;">
+                        <div class="loader-in-landingpage"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
+        <div style="width: 110%; height: 500px; margin-left: -9px; 
+            background-color: green;">
+            <div style="display: flex; flex-direction: row; margin-left: 30px;">
+                <div style="flex: 30%; font-size: 40px; color: white;">
+                    <h2>Housing and properties has you covered</h2>
+                </div>
+                    
+                <div style="flex: 30%; font-size: 20px; color: white; margin-top: 50px;">
+                    <div>Looking to own a land and property in Lagos?</div> <br>
+                    <div>Relocating to Lagos? Searching for a new apartment?</div> <br>
+                    <div>want to set up you new home with necessities?</div> <br>
+                    <div>Sign up on Housing & Properties and get things sorted out</div> <br>
+                    <div>with ease.</div>
+                </div>
+            </div>
+                
+            <div style="position: relative;">
+                <div class="animated-advantages-of-hp">
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
     
-    <div class="section-two">
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+    
+                    <div style="width: 200px; height: 70px; background-color: lightgreen; opacity: 0.5;
+                        border: 1px solid white; border-radius: 15px; margin-left: 10px;">
+                        24/7 support for Customers, Vendors & Agents
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            
+
+
+    
+    <!-- <div class="section-two">
         <div class="section-two-sub1">
             <div style="display: block;">
                 <h1>Loved By Our Customers</h1>
@@ -72,7 +303,7 @@
             <h1>Relocate to and within <br> lagos with ease </h1>
             <h4>Get an apartment of your taste without lifting a leg.</h4>
         </div>
-    </div>
+    </div> -->
 
     <script>
         // document.getElementById("slider-button").addEventListener("click", myCounter);
@@ -80,5 +311,140 @@
         // myCounter function gets called only once by saying add = myCounter(). so therefore the return value
         // of function() of myCounter() is given to add() which is not a function by assignment, instead of myCounter();
         
+        // this is the script for customer, vendor, agent, feature craft row buttons
+        let slideIndex = 1;
+        changeActive(slideIndex);
+
+        function changeBackgroundcolor(n) {
+            // we will called the function changeActive(n) below so that when it is declared further below,
+            // it will be executed within this function changeBackgroundcolor(n)
+            changeActive(slideIndex = n);
+        }
+
+        function changeActive(n) {
+            let i;
+            let navChangeColor = document.getElementsByClassName("nav-landingpg");
+            for (i=0; i<navChangeColor.length; i++) {
+                navChangeColor[i].style.backgroundColor = "lightyellow";
+            }
+            navChangeColor[slideIndex-1].style.backgroundColor = "red";
+        }
+
+// --------------------------------------------------------------------------------------------------------------
+        const slidingchildelements = document.querySelectorAll(".loader-in-landingpage-subdiv");       
+        // let sliderNumber = 1;
+        // slideCaller(sliderNumber);
+
+        // function eachslidein(n) {
+        //     slideCaller(sliderNumber = n);
+        // }
+        // this helps you control the circumstances under which the observer's callback
+        // is invoked
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        //NB1: two items are passed into the intersectionObserver(): 1) the callback function-(entries, observer),
+        // and 2) the options variable. ((entries, observer), options);
+        // NB2: The callback passed to the intersectionObserver() constructor,
+        // receives a list of (IntersectionObserverEntry objects and the observer) which is why the callback 
+        // is described as (entries, observer).
+        const observer = new IntersectionObserver((entries, observer) => {
+            console.log(entries)
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const eachElement = entry.target;
+                    const arrayofallelements = Array.from(slidingchildelements);
+                    const index = arrayofallelements.indexOf(eachElement);
+                    
+                    const delay = index * 3000;
+
+                    Timing = setTimeout(() => {
+                        eachElement.classList.add('div3in1-fade-lp');
+                        eachElement.style.animationDuration = "5s";
+                    }, delay);
+
+                                     
+
+                    // const delay = index * 3000;
+
+                    // Timing = setTimeout(() => {
+                    //     element.classList.add('div3in1-fade-lp');
+                    //     element.style.animationDuration = "5s";
+                    // }, delay);
+
+                    // clearTimeout(Timing);
+                    // element.style.visibility = "visible";
+
+
+                    // setInterval(slideCaller, 15000);
+
+                    // function slideCaller() {
+                    //     let i;
+
+                    //     for (i=0; i<element.length; i++) {
+                    //         if (element[i].style.visibility = "hidden") {
+                    //             myTime = setTimeout(showSlide, 3000);
+                    //         } 
+                    //         function showSlide() {
+                    //             element.style.visibility = "hidden";
+                    //             slidingchildelements[i].style.visibility = "visible";
+                    //         }
+                    //     }
+                    // }
+
+                observer.unobserve(eachElement);
+
+                    // loadContent(entry.target);
+
+                    // function loadContent(element) {
+                        
+                        
+                    // }
+                    
+                    // setInterval(slideCaller, 15000);
+
+                    // function slideCaller() {
+                    //     let i;
+                        // var slidingchildelements = document.getElementsByClassName("loader-in-landingpage-subdiv");
+                        // for (i=0; i<slidingchildelements.length; i++) {
+                        //     if (slidingchildelements[i].style.visibility = "hidden") {
+                        //         myTime = setTimeout(showSlide, 3000);
+                        //     } 
+                        //     function showSlide() {
+                        //         slidingchildelements.style.visibility = "hidden";
+                        //         slidingchildelements[i].style.visibility = "visible";
+                        //     }
+                        // }
+                    // }
+                }
+            });
+        }, options);
+        
+        // add the target element to be observed
+        // this is when the callback we setup for the observer will be executed even if the target 
+        // is currently not visible
+        
+        // slidingchildelements.forEach (eachElement => {
+        //     observer.observe(eachElement);
+        // });
+    
+        
+
+        let i;
+        
+        for (i=0; i<slidingchildelements.length; i++) {
+
+            if (i < slidingchildelements.length) {
+                observer.observe(slidingchildelements[i]);
+            }
+            else if (i == slidingchildelements.length - 1) {
+                observer.observe(slidingchildelements[i]);
+                i=0;
+            }
+            
+        }
+        observecalling()
     </script>
 {% endblock %}

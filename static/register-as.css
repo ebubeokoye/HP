@@ -10,36 +10,7 @@
     background-color: rgb(240, 240, 229);
     margin-top: 0px;
 }
-.createaccount-user-link
-{
-    width: 200px;
-    height: 50px;
-    position: relative;
-    border: 1px solid rgb(20, 50, 100);
-    border-radius: 10px;
-    /* margin-left: 20px; */
-    background-color: rgb(20, 50, 100);
-}
-.createaccount-vendor-link
-{
-    width: 200px;
-    height: 50px;
-    position: relative;
-    border: 1px solid rgb(20, 50, 100);
-    border-radius: 10px;
-    margin-left: 30px;
-    background-color: rgb(20, 50, 100);
-}
-.createaccount-agent-link
-{
-    width: 200px;
-    height: 50px;
-    position: relative;
-    border: 1px solid rgb(20, 50, 100);
-    border-radius: 10px;
-    margin-left: 30px;
-    background-color: rgb(20, 50, 100);
-}
+
 .register-as-user-dropdown
 {
     position: absolute;

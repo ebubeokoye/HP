@@ -7,25 +7,30 @@
 .section-one
 {
     position: relative;
-    width: 100px;
-    background-color: pink;
+    height: 1000px;
+    width: 110%;
+    top: -8px;
+    left: -5px;
+    /* padding-right: 30px; */
+    background-color: lightyellow;
 }
 .section-one-sub1
 {
     position: fixed;
     display: flex;
-    background-color: white;
+    /* background-color: white;
     border-bottom: 5px solid white;
     border-left-width: 0cm;
     border-right-width: 0cm;
     border-style:ridge;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3); */
     /* box-sizing: border-box; */
-    margin-top: -10px;
-    padding-top: 30px;
+    /* margin-top: -10px;
+    padding-top: 30px; */
     margin-left: -10px;
     width: 110%;
     height: 60px;
+    top: 40px;
     text-align: center;
     /* font-weight: 600; */
     letter-spacing: 0.3px;
@@ -34,37 +39,110 @@
 }
 .header-h-and-P
 {
+    border: 1px solid rgb(20, 50, 100);
+    border-radius: 50px;
+    margin-top: 0px;
     margin-left: 30px;
+    width: 210px;
+    height: 50px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    background-color: rgb(20, 50, 100);
+    color: white;
 }
 .header-Buy
 {
+    background-color: white;
+    padding-top: 15px;
+    box-sizing: border-box;
     margin-left: 30px;
 }
 .header-Sell
 {
+    background-color: white;
+    padding-top: 15px;
+    box-sizing: border-box;
     margin-left: 30px;
 }
 .header-Stories
 {
+    padding-top: 15px;
+    box-sizing: border-box;
     margin-left: 30px;
 }
 .header-FAQs
 {
+    padding-top: 15px;
+    box-sizing: border-box;
     margin-left: 30px;
 }
 .header-Resources
 {
+    padding-top: 15px;
+    box-sizing: border-box;
     position: relative;
     margin-left: 30px;
 }
 .header-Signin
 {
+    padding-top: 15px;
+    box-sizing: border-box;
     margin-left: 30px;
 }
 .header-CreateAccount
 {
-    margin-left: 30px;
+    margin-top: 15px;
 }
+.createAccount-container
+{
+    position: relative;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+    /* width: 600px; */
+    margin-left: 40px;
+}
+.dropdown-for-createAccount-lp
+{
+    display: none;
+    position: absolute;
+    margin-left: 40px;
+}
+.createAccount-container:hover .dropdown-for-createAccount-lp
+{
+    display: block;
+}
+.createaccount-user-link
+{
+    width: 200px;
+    height: 50px;
+    /* position: relative; */
+    border: 1px solid white;
+    margin-top: 40px;
+    border-radius: 20%;
+    background-color: white;
+}
+.createaccount-vendor-link
+{
+    width: 200px;
+    height: 50px;
+    /* position: relative; */
+    border: 1px solid white;
+    border-radius: 20%;
+    margin-top: 20px;
+    background-color: white;
+}
+.createaccount-agent-link
+{
+    width: 200px;
+    height: 50px;
+    /* position: relative; */
+    border: 1px solid white;
+    border-radius: 20%;
+    margin-top: 20px;
+    background-color: white;
+}
+
 .resources-dropdown
 {
     position: absolute;
@@ -88,6 +166,142 @@
     margin-left: 10px;
     border: 1px solid pink;
 }
+
+@keyframes headerslideshow
+{
+    /* from {left: 0px;}
+    to {left: -200px;} */
+    /* 25% {background-color: purple;}
+    100% {background-color: brown;} */
+    0% {left: 0px;}
+    50% {left: calc(-910px * 1);}
+    60% {left: calc(-910px * 2);}
+    /* 100% {left: calc(-910px * 3);} */
+}
+.header-slideshow-landingpage
+{
+    width: calc(950px * 3);
+    height: 1000px;
+    position: absolute;
+    animation-name: headerslideshow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-delay: 1s;
+}
+.customer-vendor-agent-nav
+{
+    display: flex;
+    width: 450px;
+    height: 60px;
+    margin: auto;
+    background-color: lightyellow;
+    margin-top: 50px;
+}
+.arrow
+{
+    border: solid;
+    border-color: black;
+    border-width: 0 1.9px 2px 0;
+    height: 1px;
+    width:1px;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-top: -7px; */
+}
+.down
+{
+    transform: rotate(45deg);
+    -webkit-transform:rotate(45deg);
+}
+.animated-advantages-of-hp
+{
+    position: absolute;
+    display: flex;
+    width: 200%;
+    height: 200px;
+    left: 0%;
+    animation-name: advantages-of-hp;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    animation-delay: 2s;
+}
+@keyframes advantages-of-hp
+{
+    from{left: 0%;}
+    to{left: -100%;}
+    /* 0% {left: 0%;}
+    25% {left: calc(-100px * 1);}
+    50% {left: calc(-100px * 2);}
+    75% {left: calc(-100px * 3);}
+    100% {left: calc(-100px * 4);} */
+}
+.loader-in-landingpage
+{
+    position: relative;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    border: 15px solid yellow;
+    border-radius: 50%;
+}
+.loader-in-landingpage::before
+{
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    top: -14.5px;
+    left: -14.5px;
+    border-left: 15px solid black;
+    border-top: 15px solid black;
+    border-right: 15px solid black;
+    border-bottom: 15px solid black;
+    border-radius: 50%;
+    animation: spinloader 4s linear 3;
+    background-color: orange;
+    animation-delay: 3s;
+    transform: rotate(90deg);
+}  
+@keyframes spinloader 
+{
+    0% {transform: rotateZ();}
+    25% {transform: rotateZ(-45deg); border-left: orange;}
+    /* 50% {height: 50%;}
+    75% {height: 75%;}
+    100% {height: 100%;} */
+}
+.loader-in-landingpage-subdiv
+{
+    visibility: hidden;
+    width: 1150px;
+    margin: auto;
+    height: 600px;
+    position: relative;
+    font-size: 40px;
+    border-radius: 15px;
+    margin-top: 120px;
+    margin-left: 50px;
+    /* display: none; */
+}
+.div3in1-fade-lp
+{
+    animation: every3slides 4s linear 1;
+    animation-delay: 2s;
+}
+@keyframes every3slides
+{
+    0%{visibility: visible;}
+    100% {visibility: hidden;}
+}
+
+
+
 
 .section-two
 {
