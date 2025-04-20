@@ -258,6 +258,55 @@
             </div>
         </div>
 
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <div style="flex: 40%; margin-left: 40px;">
+                <button id="get-location" style="width: 100px; height: 100px; border: 1px solid black; border-radius: 50%;">             
+                    LAGOS
+                </button>
+                <p id="status-message" style="color: red;"></p>
+                <div id="map" style="height: 400px; flex: 100%; background-color: purple; border: 1px solid purple;
+                    border-radius: 5pz;"></div>
+            </div>
+            
+            <div style="flex: 40%; margin-left: 20px;">
+                <div style="width: 500px; height: 500px; border: 5px solid black; 
+                    border-radius: 15px; overflow: auto;">
+                    <h2 style="height: 70px; border-bottom: 5px solid black;">Geo-locations covered</h2>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 4px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+
+                    <div style="height: 70px; width: 500px; margin: auto; border-top: 2px solid grey;
+                        border-bottom: 2px solid grey; padding-top: 22px; box-sizing: border-box;">Ikeja
+                    </div>
+                </div>
+            </div>
+        </div>
 
             
 
@@ -377,6 +426,282 @@
         let observer = new IntersectionObserver(displayatinterval, options);
         observer.observe(containerelement);
         
+
+    // -------------------------------------------------------------------------------------------------------------
+    
+    // adding live location options to the website.
+    // To provide users with live location options, implement this using geolocation APIs
+    // and mapping services.
+    // A1) use html5 Geolocation API to get user's current location
+    document.addEventListener('DOMContentLoaded', function() {
+        const getUserLocation = document.getElementById('get-location');
+        const statusMessage = document.getElementById('status-message');
+        // conts nearbyPlaces =
+
+        getUserLocation.addEventListener('click', function() {
+            // The geolocation property returns a geolocation object that can be used to locate user's position.
+            // and first the user has to approve of this, by clicking accept always, or this once etc that pops up 
+            // to access their location. so navigator.geolocation is checking if user grants access
+            if (navigator.geolocation) {
+                statusMessage.textContent = "Getting your location...";
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        // use these coordinates with your map. Here we call the function initializeMap
+                        initializeMap(userLocation);
+                        map.setCenter(getUserLocation);
+                        map.serZoom(14);
+                    },
+                    (error) => {
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                statusMessage.textContent = "location access denied by user";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                statusMessage.textContent = "Location information unavailable";
+                                break;
+                            case error.TIMEOUT:
+                                statusMessage.textContent = "Location request time out";
+                                break;
+                            default: statusMessage.textContent = "An unknown error occured";
+
+                        //     console.error("Error obtaining location:", error.message);
+                        // Handle errors or fallback to IP-based geolocation
+                        }
+                    
+                    }
+                );
+            } else {
+                statusMessage.textContent = "Geolocation not supported by this browser";
+                // console.error("Geolocation not supported by this browser");
+                // provide alternative location selection
+            }
+        });
+    });
+    
+
+    // A2) Integrate a Maps API within the application, google maps is a popular choice
+    function initializeMap(userLocation) {
+        // googlemaps.Map represents the actual map instance displayed on the webpage. it allows you 
+        // to associate elements (like Markers, overlays or custom controls) with a specific map instance
+        const map = new google.maps.Map(document.getElementById("map"), {
+            // the 2 properties below control the initial view of the map. center sets the geographical 
+            // coordinates(latitude & longitude) that the map will initially focus on. while zoom
+            // determines the level of detail shown on the map
+            center: userLocation,
+            zoom: 14
+        });
+        // add a marker for user's current location. it identifies a location on map
+        const marker = new google.maps.Marker ({
+            // position specifies the coordinates, map allows you to associate elements like markers with a
+            // specific map instance displayed on the webpage.
+            position: userLocation,
+            map: map,
+            title: "Your Location"
+        });
+
+        // allow users to select different locations by clicking
+        map.addListener("click", (event) => {
+            marker.setPosition(event.latLng);
+            getAddressFromCoordinates(event.latLng);
+        });
+    }
+
+    // A3 add location search and autocomplete
+    // using google's 'Places Autocomplete' as an example
+    function initializeAutocomplete() {
+        const input = document.getElementById("location-search");
+        const autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.addListener("place_changed", () => {
+            const place = autocomplete.getPlace();
+            if(place.geometry) {
+                const selectedLocation = {
+                    lat: place.geometry.location.lat(),
+                    lng:place.geometry.location.lng(),
+                    address: place.formatted_address
+                };
+                // update map and use this location
+                updateSelectedLocation(selectedLocation);
+            }
+        });
+    }
+
+    // A4) Create a UseFriendly interface: build a selection interface with options like-
+    // *"Use my current location" button
+    // *Search box with autocomplete
+    // *common locations list(for returning users)
+    // *Recent locations(stored in browser storage)
+
+    // A5) Store and process the Selected Location
+    function updateSelectedLocation(location) {
+        // store the selected location for form submission
+        document.getElementById("latitude").value = location.lat;
+        document.getElementById("longitude").value = locaiton.lng;
+        document.getElementById("formatted-address").value = location.address;
+
+        // update the UI to show the selected location
+        document.getElementById("latitude").value = location.lat;
+        document.getElementById("longitude").value =  location.lng;
+        document.getElementById("formatted-address").value = location.address;
+
+        // save to localStorage for future visits if needed
+        saveLocationToHistory(location);
+    }
+    // additional considerations: *privacy- always request user permission before 
+    // accessing location. *fallbacks- provide IP-based geolocation if GPS isnt available
+    // *performance- load mapping libraries asynchronously 
+    // *mobile optimization- ensure touch-friendly controls
+    // *accessibility- make all location functions keyboard accessible
+    
+
+
+
+
+    // B1) lets add clickable live location shopping to the website by combining geolocation,
+        // mapping, and e-commerce functionality:
+    // lets create an interactive store Locator Map
+    // First, build a map that displays shopping/items locations:
+
+    function initializeStoreLocator(userLocation) {
+        // initialize map centered on user's location. Then get the input element that the agents
+        // & vendors filled for items location so that you can choose user's location from them
+        const map = new google.maps.Map(document.getElementById("store-map"), {
+            center: userLocation,
+            zoom: 12
+        });
+
+        // fetch nearby stores from the database (using the location row)
+        fetchNearbyStores(userLocation)
+            .then(stores => {
+                // add each store as a clickable marker
+                stores.forEach(store => {
+                    const marker = new google.maps.Marker({
+                        position: {lat: store.latitude, lng: store.longitude },
+                        map: map,
+                        title: store.name,
+                        icon: {
+                            url: 'store-marker.png',
+                            scaledSize: new google.maps.Size(40,40)
+                        }
+                    });
+
+                    // make the marker clickable to select this store
+                    marker.addListener("click", () => {
+                        selectStore(store);
+                    });
+                    // add info window with preview info
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div class = "store-preview">
+                                <h3>${store.name}</h3>
+                                <p>${store.address}</p>
+                                <p>Open: ${store.hours}</p>
+                                <button onclick = "selectStore(${store.id})">Shop this item</button>
+                            </div>
+                        `
+                    });
+
+                    marker.addListener("mouseover", () => {
+                        infoWindow.open(map, marker);
+                    });
+                });
+            });
+    }
+
+    // 2) lets Build the Back-end API for store data
+    // you'll need endpoints to: fetch stores near coordinates, get inventory by store location,
+    // handle location-specific pricing/availability
+    async function fetchNearbyStores(userLocation) {
+        const response = await fetch('/api/stores/nearby', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                latitude: userLocation.lat,
+                longitude: userLocation.lng,
+                radius: 25
+            })
+        });
+        return await response.json();
+    }
+
+    // 3) Create a Store Selection & Shopping Flow when a user selects a store location:
+    function selectStore(store) {
+        // store the selected location in session
+        sessionStorage.setTime('selectedStoreId', store.id);
+        sessionStorage.setTime('selectedStoreName', store.name);
+        
+        // update User Interface to show selected store
+        document.getElementById('current-store').textContentstore.name;
+
+        // fetch store-specific inventory and update product listings
+        fetchStoreInventory(store.id)
+            .then(inventory => {
+                updateProductAvailability(inventory);
+            });
+
+        // optionally, switch view  from map to products
+        document.getElementById('store-locator').classList.add('collapsed');
+        document.getElementById('product-lisitngs').classList.add('hidden');
+
+        // update URL if needed
+        history.pushState(null, null, `/shop/${store.slug}`);
+    }
+
+    // 4) update product listings based on location
+    function updateProductAvailability(inventory) {
+        const productElements = document.querySelectorAll('.product-item');
+
+        productElements.forEach(productEl => {
+            const productId = productEl.dataset.productId;
+            const stockInfo = inventory[productId];
+
+            const availabilityEl = productEl.querySelector('.availability');
+            const priceEl = productEl.querySelector('.price');
+            const addToCartBtn = productEl.querySelector('.add-to-cart');
+            
+            if (stockinfo) {
+                // update price (may vary by location)
+                priceEl.textContent = `$${stockInfo.price.toFixed(2)}`;
+                
+                // update availability
+                if (stockInfo.quantity > 0) {
+                    availabilityEl.textContent = `In stock ($(stockInfo.quantity))`;
+                    availabilityEl.classList.add('in-stock');
+                    addToCartBtn.disabled = false;
+                } else {
+                    availabilityEl.textContent = 'Out of Stock at this location';
+                    availabilityEl.classList.add('out-of-stock');
+                    addToCartBtn.disabled = true;
+                }
+            } else {
+                availabilityEl.textContent = 'Not available at this location';
+                availabilityEl.classList.add('unavailable');
+                addToCartBtn.disabled = true;
+            }
+        });
+    }
+
+    // 5) Enhance user experience.
+    // store user's preferred location
+    function rememberUserPreference(storeId) {
+        localStorage.setItem('preferredStoreId', storeId);
+    }
+    // let user's switch location easily
+    function addLocationSwitcher() {
+        const switcher = document.getElementById('location-switcher');
+        switcher.addEventListener('click', () => {
+            document.getElementById('store-locator').classList.remove('collapsed');
+            document.getElementById('product-listing').classList.add('faded');
+        });
+    }
         
     </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzticfpXiPQseqeIcs5ddbzJgs8pfaF2M&callback=initializeMap"></script>
 {% endblock %}
