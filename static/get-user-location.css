@@ -1,0 +1,66 @@
+.housing-details-form-hidden
+{
+    display: none;
+    
+}
+.housing-details-form
+{
+    position: absolute;
+    z-index: 1;
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.search-results
+{
+    margin-top: 20px;
+}
+#location-search
+{
+    text-overflow: ellipsis;
+}
+.feat-vendors-slider-container
+{
+    position: relative;
+    margin-left: 40px;
+    width: 1020px;
+    height: 130px;
+    margin: auto;
+    height: 400px;
+    overflow: hidden;
+}
+.feat-vendors-slider
+{
+    display: flex;
+    flex-direction: row;
+    width: 2080px;
+    height: 150px;
+    transition: transform 0.5s ease;
+}
+.vendor-feat-arrow
+{
+    position: absolute;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.5);
+    columns: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.leftarrow-feat-vendors
+{
+    left: 30px;
+    /* transform: translateX(-800px); */
+}
+.rightarrow-feat-vendors
+{
+    right: 10px;
+}

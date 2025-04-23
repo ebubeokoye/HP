@@ -1,0 +1,584 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div style="margin-left: 40px; position: relative;">
+        <!-- <button id="get-location" style="width: 100px; height: 100px; border: 1px solid black; border-radius: 50%;">             
+            LAGOS
+        </button> -->
+        
+        <div id="location" style="background-color: red; width: 300px; height: 20px;"></div>
+        <p id="status-message" style="color: red;"></p>
+        <div id="housing-details-form" class="housing-details-form-hidden housing-details-form">
+            <h3>Where shall we deliver to?</h3>
+            <input type="text" id="location-search">
+            <div id="searchResults" class="search-results"></div>
+            <div id="input-containing-allowed-location"></div>
+            <div id="map" style="height: 300px; width: 200px;"></div>
+        </div>
+    </div>
+
+    <div>
+        <div style="margin-left: 40px;">
+            <h1>Explore Categories</h1>
+            <div style="display: flex; flex-direction: row; justify-content: center;">
+                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>House Essentials</p>
+                </div>
+
+                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Rent Apartment</p>
+                </div>
+
+                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Buy Land</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="feat-vendors-slider-container">
+            <h1>Handpicked Vendors for you (based on proximity/paid for feature)</h1>
+            
+            <div class="feat-vendors-slider" id="featVendorsSlider">
+                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>chi chi stores</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 3px solid black;
+                    border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Femi items</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Sylvia house setup</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Kachi house setup</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Dammy house setup</p>
+                </div>
+            </div>
+            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+        </div>
+    </div>
+
+    <div>
+        <div class="feat-vendors-slider-container">
+            <h1>Handpicked Land agents for you (based on proximity/paid for feature)</h1>
+            
+            <div class="feat-vendors-slider" id="featVendorsSlider">
+                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Femi properties</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 3px solid black;
+                    border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Chibyke properties</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Sylvia homes</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Kachi homes</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Dammy properties</p>
+                </div>
+            </div>
+            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+        </div>
+    </div>
+
+    <div>
+        <div class="feat-vendors-slider-container">
+            <h1>Handpicked House agents for you (based on proximity/paid for feature)</h1>
+            
+            <div class="feat-vendors-slider" id="featVendorsSlider">
+                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Kings properties</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 3px solid black;
+                    border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Eze properties</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Omas homes</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Kevin homes</p>
+                </div>
+
+                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
+                    margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Shilo properties</p>
+                </div>
+            </div>
+            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&loading=async&libraries=places"></script>
+    <script>
+        const slider = document.getElementById('featVendorsSlider');
+        const leftArrowVendors = document.getElementById('leftarrow-feat-vendors');
+        const rightArrowVendors = document.getElementById('rightarrow-feat-vendors');
+
+        // this is the variable which will determine the px(-ve or +ve) to move the slider
+        let position = 0;
+
+        // calculate visible width plus margins(I want to show 3 divs per time)
+        const vendorSlideWidth = 1240; 
+        // calculate the number of slides in slider
+        const vendorSlideCount = slider.children.length;
+
+        // handle left arrow click
+        leftArrowVendors.addEventListener('click', () => {
+            // when position has assumed a -ve value after clicking the right arrow, position is then
+            // less than 0 and so the slider can move right (with the help of giving it a =px)
+            // when the left arrow is clicked
+            if(position < 0) {
+                // this position shows what px will the slider be moved on the x axis when the
+                // function is called
+                position += vendorSlideWidth;
+                updateSliderPosition();
+            }
+        });
+        // the right arrow causes the first translateX. (ie to say that on page load, if the user
+        // clicks the left arrow first, the slider wont move because the slide is at the end anyway)
+        rightArrowVendors.addEventListener('click', () => {
+            // calculate maximum negative position. substract the number of slides displayed per time 
+            //   from the total slides to give you how many times the skider can be moved(for eg twice)
+            // maxPosition will have -ve sign because you have to add negative px for the slides to move
+            // to the left on the X axis
+            const maxPosition = -(vendorSlideWidth * (vendorSlideCount - 3));
+
+            // 0 is > -ve values, so move left (by increase negative position)
+            if (position > maxPosition) {
+                // give position a negative value here, so that it can move the slider left
+                position -= vendorSlideWidth;
+                updateSliderPosition();
+            }
+        });
+
+        // update slider position
+        function updateSliderPosition() {
+            slider.style.transform = `translateX(${position}px)`;
+        }
+
+
+
+        // -----------------------------------------------------------------------------------------------------------
+        // adding live location options to the website.
+        // To provide users with live location options, implement this using geolocation APIs
+        // and mapping services.
+        // A1) use html5 Geolocation API to get user's current location
+        document.addEventListener('DOMContentLoaded', function() {
+            const getUserLocation = document.getElementById('get-location');
+            const statusMessage = document.getElementById('status-message');
+            const housingDetailsForm = document.getElementById('housing-details-form');
+            const allowedLocation = document.getElementById("input-containing-allowed-location");
+            const location = document.getElementById("location");
+            // const card =
+
+            const options = {
+                fields: ["formatted_address", "geometry", "name"],
+                strictBounds: false,
+            };
+            
+
+            
+                // The geolocation property returns a geolocation object that can be used to locate user's position.
+                // and first the user has to approve of this, by clicking accept always, or this once etc that pops up 
+                // to access their location. so navigator.geolocation is checking if user grants access
+                if (navigator.geolocation) {
+                    
+                    statusMessage.textContent = "Getting your location...";
+                        // display form
+                        housingDetailsForm.classList.remove('housing-details-form-hidden');
+                    
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            
+                            // Here we call the function initializeMap
+                            initializeMap();
+                            // when the user click on allow location, 
+                            // const userLocation = {
+                                lat: position.coords.latitude;
+                                lng: position.coords.longitude
+                            // };
+                            
+              
+                            async function processClientLocation(lat, lng) {
+                                try {
+                                    // step1) convert geocode to pluscode
+                                    const fullPlusCode = convertGeoToPlus(lat, lng);
+                                    // step2) try to find reference point
+                                    const referencePoint = await getClientReferencePoint(lat, lng);
+                                    if (referencePoint) {
+                                        // shorten the plus code
+                                        const shortenResult = shortenPlusCode (
+                                            fullPlusCode,
+                                            referencePoint.latitude,
+                                            referencePoint.lontitude,
+                                            referencePoint.locality
+                                        );
+                                        return {
+                                            fullPlusCode: fullPlusCode,
+                                            shortenPlusCode: shortenResult.displayCode,
+                                            referenceUsed: referencePoint.locality
+                                        };
+                                    }
+                                    // else fallback to database lookup
+                                    const databaseReference = findNearestReferencePoint(lat, lng);
+                                    if (databaseReference) {
+                                        return databaseReference;
+                                    }
+                                    // else return just the full code if no reference Point
+                                    return {
+                                        fullPlusCode: fullPlusCode,
+                                        shortenPlusCode: null,
+                                        message: "Generated full plus code only(no reference point provided)"
+                                    };
+                                } catch(error) {
+                                    return{
+                                        success: false,
+                                        message: error.message,
+                                        error: error
+                                    };
+                                }
+                            }
+                         
+                            // let the shortened pluscode appear on the form
+                            allowedLocation.textContent = shortenResult;
+                            allowedLocation.addEventListener('click', function() {
+                                // if location in the form is clicked, let users location appear on the map  
+                                // otherwise the user will manually type in their location in input 
+                                location.textContent = shortenResult;                   
+                                map.setCenter(shortenResult);
+                                map.setZoom(14);
+                                housingDetailsForm.classList.add('housing-details-form-hidden');
+                            });
+                        },
+                        (error) => {
+                            switch(error.code) {
+                                case error.PERMISSION_DENIED:
+                                    statusMessage.textContent = "location access denied by user";
+                                    break;
+                                case error.POSITION_UNAVAILABLE:
+                                    statusMessage.textContent = "Location information unavailable";
+                                    break;
+                                case error.TIMEOUT:
+                                    statusMessage.textContent = "Location request time out";
+                                    break;
+                                default: statusMessage.textContent = "An unknown error occured";
+
+                            //     console.error("Error obtaining location:", error.message);
+                            // Handle errors or fallback to IP-based geolocation
+                            }
+                    
+                        }
+                    );
+                } else {
+                    statusMessage.textContent = "Geolocation not supported by this browser";
+                    // console.error("Geolocation not supported by this browser");
+                    // provide alternative location selection
+                }
+            
+            // A3) add location search and autocomplete
+            // using google's 'Places Autocomplete' as an example
+            
+            const input = document.getElementById("location-search");
+
+            const autocomplete = new google.maps.places.PlaceAutocompleteElement(input, options);
+
+            // bind the maps's bounds(viewport) property to the autocomplete object
+            autocomplete.bindTo("bounds", map);
+            const infowindow = new google.maps.infoWindow();
+            const searchResults = document.getElementById("searchResults");
+            infowindow.setContent(searchResults);
+
+            autocomplete.addListener("place_changed", () => {
+                infowindow.close();
+                marker.setVisible(false);
+
+                const place = autocomplete.getPlace();
+                if (!place.geometry || !place.geometry.location) {
+                    // ie if user entered the name of a place that was not suggested and pressed the enter key
+                    // or if the Place Details request failed.
+                    window.alert("No details available for location: '"+ place.name +" ");
+                    return;
+                }
+                // if the place has geometry, then present it on a map
+                if(place.geometry.viewport) {
+                    location.textContent = place;
+                    // update map and use this location
+                    map.fitBounds(place.geometry.viewport);
+                    const selectedLocation = {
+                        lat: place.geometry.location.lat(),
+                        lng:place.geometry.location.lng(),
+                        address: place.formatted_address
+                    };
+        
+                    updateSelectedLocation(selectedLocation);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+            });
+        });
+    
+
+        // A2) Integrate a Maps API within the application, google maps is a popular choice
+        function initializeMap() {
+            // googlemaps.Map represents the actual map instance displayed on the webpage. it allows you 
+            // to associate elements (like Markers, overlays or custom controls) with a specific map instance
+            const map = new google.maps.Map(document.getElementById("map"), {
+                // the 2 properties below control the initial view of the map. center sets the geographical 
+                // coordinates(latitude & longitude) that the map will initially focus on. while zoom
+                // determines the level of detail shown on the map
+                center: {lat: 0, lng: 0},
+                zoom: 2,
+            });
+            // add a marker for user's current location. it identifies a location on map
+            const marker = new google.maps.AdvancedMarkerElement ({
+                // position specifies the coordinates, map allows you to associate elements like markers with a
+                // specific map instance displayed on the webpage.
+                position: {lat: 0, lng: 0},
+                map: map,
+                title: "Your Location"
+            });           
+        }
+        
+         // allow users to select different locations by clicking
+         map.addListener("click", (event) => {
+                housingDetailsForm.classList.remove('housing-details-form-hidden');
+                marker.setPosition(event.latLng);
+                getAddressFromCoordinates(event.latLng);
+        });
+
+        
+
+        // A4) Create a UseFriendly interface: build a selection interface with options like-
+        // *"Use my current location" button
+        // *Search box with autocomplete
+        // *common locations list(for returning users)
+        // *Recent locations(stored in browser storage)
+
+        // A5) Store and process the Selected Location
+        function updateSelectedLocation(location) {
+            // store the selected location for form submission
+            document.getElementById("latitude").value = location.lat;
+            document.getElementById("longitude").value = locaiton.lng;
+            document.getElementById("formatted-address").value = location.address;
+
+            // update the UI to show the selected location
+            document.getElementById("latitude").value = location.lat;
+            document.getElementById("longitude").value =  location.lng;
+            document.getElementById("formatted-address").value = location.address;
+
+            // save to localStorage for future visits if needed
+            saveLocationToHistory(location);
+        }
+        // additional considerations: *privacy- always request user permission before 
+        // accessing location. *fallbacks- provide IP-based geolocation if GPS isnt available
+        // *performance- load mapping libraries asynchronously 
+        // *mobile optimization- ensure touch-friendly controls
+        // *accessibility- make all location functions keyboard accessible
+    
+
+
+
+
+        // B1) lets add clickable live location shopping to the website by combining geolocation,
+            // mapping, and e-commerce functionality:
+        // lets create an interactive store Locator Map
+        // First, build a map that displays shopping/items locations:
+
+        function initializeStoreLocator(userLocation) {
+            // initialize map centered on user's location. Then get the input element that the agents
+            // & vendors filled for items location so that you can choose user's location from them
+            const map = new google.maps.Map(document.getElementById("store-map"), {
+                center: userLocation,
+                zoom: 12
+            });
+
+            // fetch nearby stores from the database (using the location row)
+            fetchNearbyStores(userLocation)
+                .then(stores => {
+                    // add each store as a clickable marker
+                    stores.forEach(store => {
+                        const marker = new google.maps.Marker({
+                            position: {lat: store.latitude, lng: store.longitude },
+                            map: map,
+                            title: store.name,
+                            icon: {
+                                url: 'store-marker.png',
+                                scaledSize: new google.maps.Size(40,40)
+                            }
+                        });
+
+                        // make the marker clickable to select this store
+                        marker.addListener("click", () => {
+                            selectStore(store);
+                        });
+                        // add info window with preview info
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                                <div class = "store-preview">
+                                    <h3>${store.name}</h3>
+                                    <p>${store.address}</p>
+                                    <p>Open: ${store.hours}</p>
+                                    <button onclick = "selectStore(${store.id})">Shop this item</button>
+                                </div>
+                            `
+                        });
+
+                        marker.addListener("mouseover", () => {
+                            infoWindow.open(map, marker);
+                        });
+                    });
+                });
+        }
+
+        // 2) lets Build the Back-end API for store data
+        // you'll need endpoints to: fetch stores near coordinates, get inventory by store location,
+        // handle location-specific pricing/availability
+        async function fetchNearbyStores(userLocation) {
+            const response = await fetch('/api/stores/nearby', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    latitude: userLocation.lat,
+                    longitude: userLocation.lng,
+                    radius: 25
+                })
+            });
+            return await response.json();
+        }
+
+        // 3) Create a Store Selection & Shopping Flow when a user selects a store location:
+        function selectStore(store) {
+            // store the selected location in session
+            sessionStorage.setTime('selectedStoreId', store.id);
+            sessionStorage.setTime('selectedStoreName', store.name);
+        
+            // update User Interface to show selected store
+            document.getElementById('current-store').textContentstore.name;
+
+            // fetch store-specific inventory and update product listings
+            fetchStoreInventory(store.id)
+                .then(inventory => {
+                    updateProductAvailability(inventory);
+                });
+
+            // optionally, switch view  from map to products
+            document.getElementById('store-locator').classList.add('collapsed');
+            document.getElementById('product-lisitngs').classList.add('hidden');
+
+            // update URL if needed
+            history.pushState(null, null, `/shop/${store.slug}`);
+        }
+
+        // 4) update product listings based on location
+        function updateProductAvailability(inventory) {
+            const productElements = document.querySelectorAll('.product-item');
+
+            productElements.forEach(productEl => {
+                const productId = productEl.dataset.productId;
+                const stockInfo = inventory[productId];
+
+                const availabilityEl = productEl.querySelector('.availability');
+                const priceEl = productEl.querySelector('.price');
+                const addToCartBtn = productEl.querySelector('.add-to-cart');
+            
+                if (stockinfo) {
+                    // update price (may vary by location)
+                    priceEl.textContent = `$${stockInfo.price.toFixed(2)}`;
+                
+                    // update availability
+                    if (stockInfo.quantity > 0) {
+                        availabilityEl.textContent = `In stock ($(stockInfo.quantity))`;
+                        availabilityEl.classList.add('in-stock');
+                        addToCartBtn.disabled = false;
+                    } else {
+                        availabilityEl.textContent = 'Out of Stock at this location';
+                        availabilityEl.classList.add('out-of-stock');
+                        addToCartBtn.disabled = true;
+                    }
+                } else {
+                    availabilityEl.textContent = 'Not available at this location';
+                    availabilityEl.classList.add('unavailable');
+                    addToCartBtn.disabled = true;
+                }
+            });
+        }
+
+        // 5) Enhance user experience.
+        // store user's preferred location
+        function rememberUserPreference(storeId) {
+            localStorage.setItem('preferredStoreId', storeId);
+        }
+        // let user's switch location easily
+        function addLocationSwitcher() {
+            const switcher = document.getElementById('location-switcher');
+            switcher.addEventListener('click', () => {
+                document.getElementById('store-locator').classList.remove('collapsed');
+                document.getElementById('product-listing').classList.add('faded');
+            });
+        }
+        
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initializeMap&libraries=places&v=weekly"></script>
+
+{% endblock %}

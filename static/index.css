@@ -292,14 +292,21 @@
 .div3in1-fade-lp
 {
     opacity: 1;
-    /* animation: every3slides 4s linear 1; */
-    /* animation-delay: 2s; */
 }
-/* @keyframes every3slides
+.FAQ-leftnav
 {
-    0%{visibility: visible;}
-    100% {visibility: hidden;}
-} */
+    overflow-y: scroll;
+    height: 300px;
+    flex: 30%;
+}
+.Ans-rightnav
+{
+    flex: 30%;
+    height: 80%;
+    background-color: yellow;
+    color: white;
+    overflow-y: hidden;
+}
 
 
 

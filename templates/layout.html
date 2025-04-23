@@ -4,8 +4,11 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- open location library for converting geocode to plus code -->
+        <script src="https://cdn.jsdelivr.net/npm/open-location-code@1.0.4/js/openlocationcode.min.js"></script>
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
         <!-- jquery for register-as.html  --> 
         <script>
             $(document).ready(function() {
@@ -38,6 +41,12 @@
                 $(".buyland-searchicon").click(function() {
                     $(".filterby-overlay").css("display", "block");
                 });
+                $(document).click(function() {
+                    $("#housing-details-form").addClass("housing-details-form-hidden");
+                });
+                $(".vendor-feat-arrow").click(function() {
+                    $(".vendor-feat-arrow").addClass("")
+                });
             });  
         </script>
         <!-- user pages css -->
@@ -50,6 +59,8 @@
         <!-- user purchase pages class -->
         <link href="{{ url_for ('static', filename = 'user-rent.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'user-buyland.css') }}" rel="stylesheet">
+
+        <link href="{{ url_for ('static', filename = 'get-user-location.css') }}" rel="stylesheet">
         <!-- land agents pages -->
         <link href="{{ url_for ('static', filename = 'landagent-homepage.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'agent-land-listing.css') }}" rel="stylesheet">

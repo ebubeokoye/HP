@@ -56,7 +56,10 @@ def user_oneacre_buyland_listingpg2():
 def user_viewdetails_general_form():
     return render_template("user-viewdetails-general-form.html")
 
-
+# page to get user location
+@app.route("/get_user_location")
+def get_user_location():
+    return render_template("get-user-location.html")
 
 
 @app.route("/rent")
