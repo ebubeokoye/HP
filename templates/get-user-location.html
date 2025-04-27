@@ -18,147 +18,317 @@
     </div>
 
     <div>
-        <div style="margin-left: 40px;">
-            <h1>Explore Categories</h1>
+        <div>
             <div style="display: flex; flex-direction: row; justify-content: center;">
-                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
-                    border: 1px solid rgb(101, 193, 101); border-radius: 15px;">
+                <a style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px;"
+                    class="three-branches" onclick="changeCategoryDisplay(1)">
                     <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>House Essentials</p>
-                </div>
+                    <p>Vendors</p>
+                </a>
 
-                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
-                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                <a style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;"
+                    class="three-branches" onclick="changeCategoryDisplay(2)">
                     <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Rent Apartment</p>
-                </div>
+                    <p>Land agents</p>
+                </a>
 
-                <div style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
-                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                <a style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;"
+                    class="three-branches" onclick="changeCategoryDisplay(3)">
                     <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Buy Land</p>
-                </div>
+                    <p>House agents</p>
+                </a>
             </div>
         </div>
     </div>
 
-    <div>
-        <div class="feat-vendors-slider-container">
-            <h1>Handpicked Vendors for you (based on proximity/paid for feature)</h1>
-            
-            <div class="feat-vendors-slider" id="featVendorsSlider">
-                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
+
+    <div style="position: relative;">
+        <div class="three-absolute-positions-categories">
+            <div class="feat-vendors-slider-container">
+                <h3>Explore House essentials</h3>
+                <a href="all_vendors_from_userlocation" style="float: right;">
+                    <input type="button" value="see Vendors" style="width: 90px; height: 40px; color: white;
+                        background-color: green; border-radius: 20px;">
+                </a>
+                <div style="clear: both;"></div>
+                
+                <div class="feat-vendors-slider" id="featVendorsSlider">
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5);
+                        border-radius: 15px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Kitchen items</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 3px solid rgba(0,0,0,0.5);
+                        border-radius: 15px; margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Electronics</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Living room aesthetics</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Furniture</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Curtains, rails</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Beddings</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Interior decor</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        margin-left: 20px; background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>others</p>
+                    </div>
+                </div>
+                <!-- the arrows are in absolute position to .feat-vendors-slider-container class -->
+                <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+                <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+            </div>
+        </div>
+
+
+        <div class="three-absolute-positions-categories" id="landCategories">
+            <div class="feat-vendors-slider-container">
+                <h3>Explore all sizes</h3>
+                <a href="all_landagents_from_userlocation" style="float: right;">
+                    <input type="button" value="see Agents" style="width: 90px; height: 40px; color: white;
+                        background-color: green; border-radius: 20px;">
+                </a>
+                <div style="clear: both;"></div>
+                
+                <div class="feat-vendors-slider" id="featVendorsSlider">
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>One acre</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Two acres</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Three acres</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>One plot</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Two plots</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Three plots</p>
+                    </div>
+    
+                    <div style="width: 400px; height: 100px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Four plots</p>
+                    </div>
+    
+                    <div style="width: 400px; height: 100px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Five plots</p>
+                    </div>
+                </div>
+                <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+                <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+            </div>
+        </div>
+
+
+        <div class="three-absolute-positions-categories">
+            <div class="feat-vendors-slider-container">
+                <h3>Explore homes</h3>
+                <a href="all_houseagents_from_userlocation" style="float: right;">
+                    <input type="button" value="see Agents" style="width: 90px; height: 40px; color: white;
+                        background-color: green; border-radius: 20px;">
+                </a>
+                <div style="clear: both;"></div>
+                
+                <div class="feat-vendors-slider" id="featVendorsSlider">
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5);">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Bungalow</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>2 Bedroom Flat</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>3 Bedroom Apartment</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Duplex</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>A room self con</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Mini flat</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Two bedroom apartment</p>
+                    </div>
+    
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                        background-color: rgba(0,0,0,0.5); margin-left: 20px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Semi detached</p>
+                    </div>
+                </div>
+                <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
+                <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="position: relative;">
+        <div class="stores-based-on-user-location">
+            <h2>Items to Brighten your home</h2>
+            <h3>All stores</h3>
+            <div style="display: grid; grid-template-columns: 270px 270px 270px; row-gap: 30px; column-gap: 20px;
+                padding: 10px; width: 950px;">
+
+                <div style="width: 270px; height: 170px; background-color: white; 
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>chi chi stores</p>
                 </div>
 
-                <div style="width: 400px; height: 100px; border: 3px solid black;
-                    border-radius: 15px; margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Femi items</p>
                 </div>
 
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Sylvia house setup</p>
                 </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Kachi house setup</p>
                 </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Dammy house setup</p>
                 </div>
-            </div>
-            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
-            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
-        </div>
-    </div>
 
-    <div>
-        <div class="feat-vendors-slider-container">
-            <h1>Handpicked Land agents for you (based on proximity/paid for feature)</h1>
-            
-            <div class="feat-vendors-slider" id="featVendorsSlider">
-                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Powers house setup</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="stores-based-on-user-location">
+            <h2>Easy, own a land today</h2>
+            <h3>All Land stores</h3>
+            <div style="display: grid; grid-template-columns: 270px 270px 270px; row-gap: 30px; column-gap: 20px;
+                padding: 10px; width: 950px;">
+
+                <div style="width: 270px; height: 170px; background-color: white; 
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Femi properties</p>
                 </div>
 
-                <div style="width: 400px; height: 100px; border: 3px solid black;
-                    border-radius: 15px; margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Chibyke properties</p>
                 </div>
 
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Sylvia homes</p>
                 </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
                     <p>Kachi homes</p>
                 </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
                     <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Dammy properties</p>
+                    <p>Cushon properties/p>
+                </div>
+
+                <div style="width: 270px; height: 170px; background-color: white;
+                    border: 3px solid black; border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Light homes</p>
                 </div>
             </div>
-            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
-            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
         </div>
     </div>
-
-    <div>
-        <div class="feat-vendors-slider-container">
-            <h1>Handpicked House agents for you (based on proximity/paid for feature)</h1>
-            
-            <div class="feat-vendors-slider" id="featVendorsSlider">
-                <div style="width: 400px; height: 100px; border: 3px solid black; border-radius: 15px;">
-                    <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Kings properties</p>
-                </div>
-
-                <div style="width: 400px; height: 100px; border: 3px solid black;
-                    border-radius: 15px; margin-left: 20px;">
-                    <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Eze properties</p>
-                </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
-                    <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Omas homes</p>
-                </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
-                    <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Kevin homes</p>
-                </div>
-
-                <div style="width: 400px; height: 100px; border: 1px solid black; border-radius: 15px;
-                    margin-left: 20px;">
-                    <i class="material-icons" style="font-size: 50px;">house</i>
-                    <p>Shilo properties</p>
-                </div>
-            </div>
-            <button class="vendor-feat-arrow leftarrow-feat-vendors" id="leftarrow-feat-vendors">&#8592;</button>
-            <button class="vendor-feat-arrow rightarrow-feat-vendors" id="rightarrow-feat-vendors">&#8594;</button>
-        </div>
-    </div>
-
+    
     
 
 
@@ -174,7 +344,7 @@
         let position = 0;
 
         // calculate visible width plus margins(I want to show 3 divs per time)
-        const vendorSlideWidth = 1240; 
+        const vendorSlideWidth = 650; 
         // calculate the number of slides in slider
         const vendorSlideCount = slider.children.length;
 
@@ -212,6 +382,54 @@
             slider.style.transform = `translateX(${position}px)`;
         }
 
+
+        // ----------------------------------------------------------------------------------------------------------
+
+        let slideIndex = 1;
+        displayCategories(slideIndex);
+
+        function changeCategoryDisplay(n) {
+            // we will called the function below so that when it is declared further below,
+            // it will be executed within this function changeCategoryDisplay(n)
+            displayCategories(slideIndex = n)
+        }
+        function displayCategories(n) {   
+            let i;
+            let changeCategories = document.getElementsByClassName("three-absolute-positions-categories");
+            for (i=0; i<changeCategories.length; i++) {
+                changeCategories[i].style.display = "none";
+            }
+            changeCategories[slideIndex-1].style.display = "block";
+        }
+
+
+        const threeBranches = document.getElementsByClassName("three-branches");
+        const changeStoresAlongCategory = document.getElementsByClassName("stores-based-on-user-location");
+
+        // display vendor stores as default when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            changeStoresAlongCategory[0].style.display = "block";
+        });
+
+        // display vendor stores when vendor box is clicked
+        threeBranches[0].addEventListener('click', function() {
+            let i;
+            for (i=0; i<changeStoresAlongCategory.length; i++) {
+                changeStoresAlongCategory[i].style.display = "none";
+            }
+            changeStoresAlongCategory[0].style.display = "block";
+        });
+        
+
+        // display land stores when land box is clicked
+        threeBranches[1].addEventListener('click', function() {
+            let i;
+            for (i=0; i<changeStoresAlongCategory.length; i++) {
+                changeStoresAlongCategory[i].style.display = "none";
+            }
+            changeStoresAlongCategory[1].style.display = "block";
+        });
+       
 
 
         // -----------------------------------------------------------------------------------------------------------

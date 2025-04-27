@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="section-one">
+        <div style="overflow: hidden; width: 970px; margin: auto; height: 1000px; border: 1px solid black;
+            border-radius: 10px; background-color: black; position: relative; top: 0;">
+            <div class ="header-slideshow-landingpage">
+        
+                <img src="{{ url_for ('static', filename='land-icon.jpg') }}" style="width: 910px; height: 1000px;">
+
+                <img src="{{ url_for ('static', filename='kitchen-utensils.jpg') }}" style="width: 910px; height: 1000px;">
+
+                <img src="{{ url_for ('static', filename='couch-furniture.jpg') }}" style="width: 910px; height: 1000px;"> 
+            </div>
+        </div>
+
+        <div class="section-one-sub1">
+            <div class="header-h-and-P">Housing & Properties</div>
+            <div style="display: flex; justify-content: center; background-color: white; border: 1px solid white;
+                border-radius: 50px; width: 600px; margin-left: 40px;">
+                <a href="{{ url_for ('buylinkfrompage2') }}" class="header-Buy">Buy</a>
+                <div class="header-Sell">Sell</div>
+                <div class="header-Stories">Stories</div>
+                <div class="header-FAQs">FAQs</div>
+                <div class="header-Resources">Resources</div>
+                <a href="signin" class="header-Signin">Sign in</a>
+            </div>
+
+            <div class="createAccount-container">
+                <div class="header-CreateAccount">
+                    <span>Create free account</span>
+                    <i style="width: 2px; height: 2px; border: 2px solid black; border-radius: 100%;">
+                        <i class="arrow down"></i>
+                    </i>
+                </div>  
+
+                <!-- dropdown for creating free account -->
+                <div class="dropdown-for-createAccount-lp">
+                    <div class="createaccount-user-link">
+                        <a href="createaccount-user" style="text-decoration: none;">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register to Buy</div>
+                        </a>
+                    </div>
+
+                    <div class="createaccount-vendor-link">
+                        <a href="createaccount-vendor">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register as Vendor</div>
+                        </a>
+                    </div>
+
+                    <div class="createaccount-vendor-link">
+                        <a href="createaccount-vendor">
+                            <div style="color: black; padding-top: 15px; box-sizing: border-box;">register as Agent</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="position: static;"></div>
+        </div>
+
+    </div>
+
+    <div class="customer-vendor-agent-nav">
+        <a href="/" style="width: 100px; height: 50px; background-color: lightyellow; 
+            border: 1px yellow; border-radius: 20px;" class="nav-landingpg" onclick="changeBackgroundcolor(1)">
+            <p>Customer</p>
+        </a>
+        <a href="vendor_button_landingpage" style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(2)">
+            <p> Agents</p>
+        </a>
+        <a href="vendor_button_landingpage" style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(3)">
+            <p>Vendors</p>
+        </a>
+        <a style="width: 100px; height: 50px; background-color: lightyellow; border: 1px yellow;
+            border-radius: 20px; margin-left: 10px;" class="nav-landingpg" onclick="changeBackgroundcolor(4)">
+            <p>Feature your craft</p>
+        </a>
+    </div>
+
+    <div style="text-align: center; letter-spacing: 1px; font-size: 20px;">
+        <h1 style="text-align: center; font-size: 70px;">Sign up</h1>
+        <div>Unlock new levels of growth with seamless menu,</div> <br>
+        <div>and orders management, multiple branches and team,</div> <br>
+        <div>easy payouts withdrawal and a lot more. In Lagos, Nigeria.</div>
+        <div style="margin-left: 300px; border-bottom: 3px solid black;
+            margin-top: 20px;">Read about incoming features > </div>
+    </div>
+
+
+{% endblock %}

@@ -296,19 +296,30 @@
 .FAQ-leftnav
 {
     overflow-y: scroll;
-    height: 300px;
+    height: 530px;
     flex: 30%;
 }
 .Ans-rightnav
 {
+    position: relative;
     flex: 30%;
-    height: 80%;
-    background-color: yellow;
+    height: 530px;
+    background-color: #004aad;
     color: white;
     overflow-y: hidden;
 }
-
-
+.Ans-rightnav-slide
+{
+    position: absolute;
+    visibility: visible;
+    width: 100%;
+    height: 500px;
+}
+.customer-vendor-agent-navbutton
+{
+    position: absolute;
+    display: block;
+}
 
 
 .section-two

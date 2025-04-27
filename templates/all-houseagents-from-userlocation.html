@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div style="height: 70px; border-bottom: 1px solid grey;">
+        <div style="display: flex; vertical-align: middle; margin-left: 100px;">
+            <h3 style="color: blue;">Housing&Properties</h3>
+            <p style="margin-left: 300px;">Delivering to (Address)</p>
+            <a href="signin" style="width: 100px; height: 40px; background-color: green; border-radius: 20px;
+                margin-left: 300px;">
+                <p style="color: white;">Login</p>
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <div style="margin-left: 40px;">
+            <div style="display: flex; flex-direction: row; justify-content: center;">
+                <a href="all_vendors_from_userlocation" style="width: 200px; height: 100px;
+                    background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Vendors</p>
+                </a>
+
+                <a href="all_houseagents_from_userlocation" style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>House agents</p>
+                </a>
+
+                <a href="all_landagents_from_userlocation" style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Land agents</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="margin-top: 30px;">
+        <div style="display: flex; flex-direction: row; margin-left: 100px;">
+            <div style="flex: 30%; margin-top: 20px;">
+                <div>
+                    <div>Sort by</div>
+                    <div style="height: 50px; margin-top: 10px; border-bottom: 1px solid grey;">Near me</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Ratings</div>
+                    <div style="height: 50px;">Popular filters</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Bungalow</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey; margin: auto;">2 Bedroom Flat</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey; margin: auto;">3 Bedroom Apartment</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Duplex</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">A room self con</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Mini flat</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Maisonette</div>
+                    <div style="height: 50px; border-bottom: 1px solid grey;">Semi detached</div>
+                </div>
+            </div>
+
+            <div style="flex: 70%;">
+                <input type="text" placeholder="What can we get you?" style="border-radius: 10px;">
+                <h2>Beautiful apartments to make your home</h2>
+                <h3>All Agents</h3>
+                <div style="display: grid; grid-template-columns: 270px 270px 270px; row-gap: 30px; column-gap: 20px;
+                    padding: 10px; width: 950px;">
+
+                    <div style="width: 270px; height: 170px; background-color: white; 
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Kings properties</p>
+                    </div>
+
+                    <div style="width: 270px; height: 170px; background-color: white;
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Eze properties</p>
+                    </div>
+
+                    <div style="width: 270px; height: 170px; background-color: white;
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Omas homes</p>
+                    </div>
+                    <div style="width: 270px; height: 170px; background-color: white;
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Kevin homes</p>
+                    </div>
+                    <div style="width: 270px; height: 170px; background-color: white;
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Shilo properties</p>
+                    </div>
+
+                    <div style="width: 270px; height: 170px; background-color: white;
+                        border: 3px solid black; border-radius: 15px;">
+                        <i class="material-icons" style="font-size: 50px;">house</i>
+                        <p>Powers homes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -61,6 +61,20 @@ def user_viewdetails_general_form():
 def get_user_location():
     return render_template("get-user-location.html")
 
+# when they click on see all vendors from get user location html
+@app.route("/all_vendors_from_userlocation")
+def all_vendors_from_userlocation():
+    return render_template("all-vendors-from-userlocation.html")
+
+# when they click on see all houseagents from get user location html
+@app.route("/all_houseagents_from_userlocation")
+def all_houseagents_from_userlocation():
+    return render_template("all-houseagents-from-userlocation.html")
+
+# when they click on see all landagents from get user location html
+@app.route("/all_landagents_from_userlocation")
+def all_landagents_from_userlocation():
+    return render_template("all-landagents-from-userlocation.html")
 
 @app.route("/rent")
 def rent(): 
@@ -155,4 +169,10 @@ def vendor_kitchenitems_listingpg2():
         return render_template("vendor-kitchenitems-listingpg2.html")
     else:
         return render_template("vendor-kitchenitems-listingpg2.html")
+    
+# this section  is for the vendors when they click vendor button on the landing page
+@app.route("/vendor_button_landingpage")
+def vendor_button_landingpage():
+    return render_template("vendor-landingpage.html")
+
     

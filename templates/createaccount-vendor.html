@@ -1,33 +1,55 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<div class="form">
-    <h2>Let's get Started</h2>
-    <p>Create an account to buy</p>
-    <form action="{{ url_for ('vendor_homepage') }}" method="post">
-        <P>
-            <div>First&LastName</div>
-            <input autocomplete="off" autofocus name="first & lastname" placeholder="First&LastName" type="text">
-        </P>
-        <p>
-            <div>Email address</div>
-            <input autocomplete="off" autofocus name="email" placeholder="Email address" type="email">
-        </p>
-        <p>
-            <div>Phone number</div>
-            <input autocomplete="off" autofocus name="number" placeholder="Phone number" type="tel">
-        </p>
-        <p>
-            <div>Create a password</div>
-            <input autocomplete="off" autofocus name="password" placeholder="Create a password" type="password">
-        </p>
-        <p>
-            <div>Re-type the password</div>
-            <input autocomplete="off" autofocus name="confirm_password" placeholder="Confirm password" type="password">
-        </p>
+<div>
+    <div style="width: 100%; height: 50px; border-bottom: 3px solid #0056b3;">
+        <div style="display: flex;"> < Personal Details</div>
+        <div style="display: flex;"> Login > </Login></div>
+    </div>
+    <div style="width: 500px; margin: auto;">
+        <h3>Let's get you started on Housing&Properties</h3>
+        <p>Create an account to buy</p>
+        <form action="{{ url_for ('vendor_homepage') }}" method="post">
+            <div>
+                <div style="float: left;">
+                    <div>First name</div>
+                    <input autocomplete="off" autofocus name="first & lastname" placeholder="eg Mark" type="text"
+                        style="width: 180px;">
+                </div>
 
-        <input type="submit" value="submit" onsubmit="myHomepage()">
-    </form>
+                <div style="float: right; width: 180px;">
+                    <div>Last name</div>
+                    <input autocomplete="off" autofocus name="first & lastname" placeholder="eg Homey" type="text"
+                    style="width: 180px;">
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div style="margin-top: 100px;">
+                <div>Email address</div>
+                <input autocomplete="off" autofocus name="email" placeholder="Email address" type="email">
+            </div>
+            <div>
+                <select name="code">
+                    <!-- Each option contains a country code with a data-flag attribute for flags-->
+                    <option disabled selected value="">Code</option>
+                    <option value="+234" data-flag="nig">+234</option>
+                    <option value="+242" data-flag="cg">+1</option>
+                </select>
+                <div>Phone number</div>
+                <input autocomplete="off" autofocus name="number" placeholder="Phone number" type="tel">
+            </div>
+            <div>
+                <div>Create a password</div>
+                <input autocomplete="off" autofocus name="password" placeholder="Create a password" type="password">
+            </div>
+            <div>
+                <div>Re-type the password</div>
+                <input autocomplete="off" autofocus name="confirm_password" placeholder="Confirm password" type="password">
+            </div>
+
+            <input type="submit" value="submit" onsubmit="myHomepage()">
+        </form>
+    </div>
 </div>
     
 

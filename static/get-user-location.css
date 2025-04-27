@@ -24,19 +24,19 @@
 .feat-vendors-slider-container
 {
     position: relative;
-    margin-left: 40px;
-    width: 1020px;
-    height: 130px;
+    left: 300px;
+    width: 640px;
     margin: auto;
-    height: 400px;
+    height: 350px;
     overflow: hidden;
 }
 .feat-vendors-slider
 {
     display: flex;
     flex-direction: row;
-    width: 2080px;
+    width: 1750px;
     height: 150px;
+    margin-top: 15px;
     transition: transform 0.5s ease;
 }
 .vendor-feat-arrow
@@ -57,10 +57,21 @@
 }
 .leftarrow-feat-vendors
 {
-    left: 30px;
-    /* transform: translateX(-800px); */
+    left: 5px;
 }
 .rightarrow-feat-vendors
 {
-    right: 10px;
+    right: 5px;
+}
+.three-absolute-positions-categories
+{
+    position: absolute;
+    display: block;
+}
+.stores-based-on-user-location
+{
+    display: none;
+    position: absolute;
+    top: 350px;
+    left: 200px;
 }
