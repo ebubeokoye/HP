@@ -1,0 +1,104 @@
+.top-nav
+{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-bottom: 3px solid #0056b3;
+}
+.personal-details-text
+{
+    flex: 80%;
+    margin-left: 100px;
+}
+.login-link
+{
+    flex: 20%;
+    margin-left: 200px;
+}
+.form-container
+{
+    width: 500px;
+    margin: auto;
+    height: 500px;
+    overflow-y: scroll;
+}
+input
+{
+    background-color: #aaa;
+    color: white;
+    border-bottom: 3px solid #585858;
+    border-radius: 0 0 10px 10px;
+}
+.names-div
+{
+    display: flex;
+    column-gap: 40px;
+    width: 400px;
+    margin-top: 30px;
+}
+.firstname-div
+{
+    flex: 40%;
+}
+.lastname-div
+{
+    flex: 40%;
+}
+.names-input
+{
+    width: 100%;
+    height: 37px;
+    margin-top: 10px;
+}
+.number-container
+{
+    margin-top: 30px;
+}
+.phonenumber-div
+{
+    display: flex;
+    column-gap: 10px;
+    width: 408px;
+    margin-top: 10px;
+}
+.tel-code
+{
+    flex: 20%;
+    background-color: #0056b3;
+    color: white;
+    border-bottom: 3px solid #585858;
+    border-radius: 0 0 10px 10px;
+    height: 43px;
+}
+.tel-input
+{
+    flex: 80%;
+    height: 37px;
+}
+.email-div
+{
+    margin-top: 30px;
+}
+.password-div
+{
+    margin-top: 30px;
+}
+.confmpassword-div
+{
+    margin-top: 30px;
+}
+.email-password-inputs
+{
+    width: 400px;
+    height: 37px;
+    margin-top: 10px;
+}
+.submit-input
+{
+    width: 410px;
+    height: 55px;
+    margin-top: 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: #0056b3;
+}
