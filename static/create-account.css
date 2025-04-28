@@ -102,3 +102,15 @@ input
     color: white;
     background-color: #0056b3;
 }
+/* remove spinners/step buttons for inputs of type number */
+/* 1) for chrome, safari, newer versions of opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+/* 2) for firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

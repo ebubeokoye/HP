@@ -30,6 +30,37 @@ def createaccountlandtagent():
 def createaccounthousingagent():
     return render_template("createaccount-housing-agent.html")
 
+# OTP pages to verify email
+@app.route("/verify_useremail_otp", methods=["GET", "POST"])
+def verify_useremail_otp():
+    if request.method == "POST":
+        return render_template("verify-useremail-otp.html")
+    else:
+        return render_template("verify-useremail-otp.html")
+    
+@app.route("/verify_vendoremail_otp", methods=["GET", "POST"])
+def verify_vendoremail_otp():
+    if request.method == "POST":
+        return render_template("verify-vendoremail-otp.html")
+    else:
+        return render_template("verify-vendoremail-otp.html")
+    
+@app.route("/verify_landagentemail_otp", methods=["GET", "POST"])
+def verify_landagentemail_otp():
+    if request.method == "POST":
+        return render_template("verify-landagentemail-otp.html")
+    else:
+        return render_template("verify-landagentemail-otp.html")
+    
+@app.route("/verify_houseagentemail_otp", methods=["GET", "POST"])
+def verify_houseagentemail_otp():
+    if request.method == "POST":
+        return render_template("verify-houseagentemail-otp.html")
+    else:
+        return render_template("verify-houseagentemail-otp.html")
+
+
+
 # when the user clicks on Buy from the landing page
 @app.route("/buylinkfrompage2", methods=["POST"])
 def buylinkfrompage2():
