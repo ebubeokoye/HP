@@ -2,12 +2,13 @@
 
 {% block body %}
 
-    <div class="top-nav">
+    <div class="top-nav" style="position: relative;">
         <div class="personal-details-text"> < Verify Email Address</div>
         <div class="login-link"> Login > </Login></div>
     </div>
 
     <div>
+
 
         <div style="display: flex; flex-direction: column; align-items: center; width: 800px; margin: auto;
             height: 450px; overflow-y: scroll;">
@@ -20,6 +21,27 @@
 
             <form action="{{ url_for ('vendor_homepage') }}" method="post" style=" margin-top: 120px;
             display: flex; flex-direction: column; align-items: center; width: 600px;">
+
+                <!-- this next div below will create a prompt for the user to set up store after the input at
+                the bottom with id="verify-otp-button-user" and type="button" is clicked -->
+
+                <!-- Nb: bottom: 0; is this div below responds because there is a set height(450px) for its
+                parent container above. It is also positioned absolute to the first ancestor -->
+                <div style="position: absolute; z-index: 1; bottom: 0px; width: 600px; display: none;
+                    border: 2px solid black; background-color: white;" id="prompt-to-setup-store-in-otp-page">
+                    <div style="width: 600px; height: 100px; background-color: #0056b3;"></div>
+                    <h2>Sign up complete!</h2>
+                    <div>Set up your store with a step by step checklist on how to get</div> <br>
+                    <div>your store ready for activation</div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div>Add store information</div>
+                        <div>Setup store operations</div>
+                        <div>Create your catalog</div>
+                         
+                        <input type="submit" value="Verify email" style="width: 410px; height: 55px; color: white;
+                            background-color: #0056b3; margin-top: 120px;">
+                    </div>
+                </div>
                 
                 <div style="display: flex; justify-content: center;">
                     <input autocomplete="off" autofocus type="number"
@@ -43,11 +65,23 @@
                     </a>
                 </div>
                 
-                <a href="homepage">
-                    <input type="submit" value="Verify email" style="width: 410px; height: 55px; color: white;
-                    background-color: #0056b3; margin-top: 120px;">
-                </a>
+                <input type="button" value="Verify email" style="width: 410px; height: 55px; color: white;
+                    background-color: #0056b3; margin-top: 120px;" id="verify-otp-button-user">
             </form>
         </div>
     </div>
+
+
+
+    <script>
+
+        let promptToSetupvendorstore = document.getElementById("prompt-to-setup-store-in-otp-page");
+        let verifyOTPButtonUser = document.getElementById("verify-otp-button-user");
+
+        verifyOTPButtonUser.addEventListener('click', function() {
+            promptToSetupvendorstore.style.display = "block";
+        });
+
+
+    </script>
 {% endblock %}
