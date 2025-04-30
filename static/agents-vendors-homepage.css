@@ -1,0 +1,62 @@
+
+.toggle-switch
+        {
+            position: relative;
+            display: inline-block;
+            width: 36px;
+            height: 20px;
+            margin-top: -1px;
+            margin-left: 12px;
+        }
+        /* hide default checkbox */
+        .toggle-switch input
+        {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            display: none;
+        }
+        /* the track ie the longer circular slide*/
+        .slider-round
+        {
+            position: absolute;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 24px;
+            width: 100%;
+            height: 100%;
+            transition: background-color 0.5s, transform 0.3s;
+            transition-timing-function: ease-in;
+        }
+        /* the small circular slider */
+        .slider-round::before
+        {
+            content: "";
+            position: absolute;
+            height: 16px;
+            /* The width is half the width of its parent (.toggle-switch) */
+            width: 18px;
+            padding-top: 1px;
+            left: 2.5px;
+            bottom: 1px;
+            background-image: linear-gradient(to right, white 0%, white 50%, black 50%, black 100%);
+            border: 1px solid black;
+            border-radius: 90%;
+            /* transition is used to 1) change the values of properties 2) give duration for a transform to happen*/
+            transition: background-image 0.3s ease-in 0.2s, transform 0.5s;
+        }
+        /* toggled state */
+        .toggle-switch
+        input:checked+.slider-round
+        {
+            transition-delay: 0.3s;
+            background-color: #4004b7;
+        }
+        .toggle-switch
+        input:checked+.slider-round::before
+        {
+            /* transform is used */
+            transform: translateX(12px) rotate(360deg);
+            background-image: linear-gradient(to right, white 0%, white 50%, white 50%, white 100%);
+        }

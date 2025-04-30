@@ -19,9 +19,23 @@
         <div style="width: 800px; margin: auto; height: 200px; background-color: #f7f2f2; margin-top: 30px;
             border-radius: 15px; padding: 20px; box-sizing: border-box;">
             <div>Set up your store</div>
-            <p style="text-indent: 50px;">You have a to-do list to set up your store fully</p>
-            <p style="text-indent: 50px;">Set up store operations</p>
-            <p style="text-indent: 50px;">Create your menu</p>
+            <div>You have a to-do list to set up your store fully</div>
+
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Add store information</label>         
+            </div>
+
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Set up store operations</label>         
+            </div>
+            
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Create your menu</label>         
+            </div>
+
             <a>
                 <div>Continue Setup ></div>
             </a>
@@ -140,6 +154,67 @@
             </div>
         </div>
     </div>
+
+    <div class="agent-homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <div style="color: black; position: absolute;">Orders</div>
+            <a href="housing_agent_homepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+    
+            <div style="color: black; position: absolute;">House listing</div>
+            <a href="agent_housing_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+    
+            <div style="color: black; position: absolute;">Inbox/appointments</div>
+            <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+    
+            <div style="color: black; position: absolute;">Insights</div>
+            <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+    
+            <div style="color: black; position: absolute;">Account</div>
+            <a href="houseagent_profilepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="agent-homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <div style="color: black; position: absolute;">Orders</div>
+            <a href="housing_agent_homepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">House listing</div>
+            <a href="agent_housing_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Inbox/appointments</div>
+            <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Insights</div>
+            <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Account</div>
+            <a href="houseagent_profilepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+    
+    </div>
+
 
     
 

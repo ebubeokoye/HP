@@ -1,46 +1,86 @@
 {% extends "layout.html" %}
 {% block body %}
+    <div>
+        <div style="display: flex; align-items: center; width: 100%; height: 100px;">
+            <div style="flex: 80%; margin-left: 40px;">
+                <h2>Orders</h2>
+            </div>
+            <div style="display: flex; flex: 20%;">
+                <div>Open</div>
+                <label class="toggle-switch" id="toggleSwitch">
+                    <input type="checkbox" id="toggle-checkbox" checked>
+                    <span class="slider-round" id="myBtn" onclick="createModal()"></span>
+                </label>
+            </div>
+        </div>
 
-<div>---</div>
-<div>---</div>
+        <div style="display: flex; flex-direction: column; width: 800px; margin: auto; height: 200px;
+            background-color: #f7f2f2; padding: 20px;">
+            <div>Set up your store</div>
+            <div>You have a to-do list to set up your store fully</div>
 
-<div class="agent-homepage-scrollboxes-container">
-    <div class="agent-homepage-scrollbox1">
-        <div>Ongoing orders</div>
-    </div>
-    <div class="agent-homepage-scrollbox2">
-        <div>Completed orders</div>
-    </div>
-    <div class="agent-homepage-scrollbox3">
-        <div>Cancelled appointments</div>
-    </div>
-    <div class="agent-homepage-scrollbox4">Extra</div>
-</div>
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Add store information</label>         
+            </div>
 
-<div class="agent-homepage-navlist-container">
-    <div class="user-homepage-navlist-subdiv">
-        <a href="land_agent_homepage" class="agent-homepage-navlist-link">
-            <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
-        </a>
-        <div style="color: black; position: absolute;">Orders</div>
-        <a href="agent_land_listing" class="agent-homepage-navlist-link">
-            <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
-        </a>
-        <div style="color: black; position: absolute;">Land listing</div>
-        <a href="agent_rent_listing" class="agent-homepage-navlist-link">
-            <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
-        </a>
-        <div style="color: black; position: absolute;">Inbox</div>
-        <a href="agent_houseitems_listing" class="agent-homepage-navlist-link">
-            <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
-        </a>
-        <div style="color: black; position: absolute;">Appointments</div>
-        <a href="landagent_profilepage" class="agent-homepage-navlist-link">
-            <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
-        </a>
-        <div style="color: black; position: absolute;">Account</div>
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Set up store operations</label>         
+            </div>
+
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">Create your menu</label>         
+            </div>
+
+            <div>Continue Setup ></div>
+        </div>
     </div>
+
+    <!-- this div below will be displayed after the land agents have setup the 3 steps in their store/profile -->
+    <div class="agent-homepage-scrollboxes-container" style="display: none;">
+        <div class="agent-homepage-scrollbox1">
+            <div>Ongoing orders</div>
+        </div>
+        <div class="agent-homepage-scrollbox2">
+            <div>Completed orders</div>
+        </div>
+        <div class="agent-homepage-scrollbox3">
+            <div>Cancelled appointments</div>
+        </div>
+        <div class="agent-homepage-scrollbox4">Extra</div>
+    </div>
+
+    <div class="agent-homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="land_agent_homepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <div style="color: black; position: absolute;">Orders</div>
+            <a href="agent_land_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <div style="color: black; position: absolute;">Land listing</div>
+            <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <div style="color: black; position: absolute;">Inbox</div>
+            <a href="agent_houseitems_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <div style="color: black; position: absolute;">Appointments</div>
+            <a href="landagent_profilepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <div style="color: black; position: absolute;">Account</div>
+        </div>
     
-</div>
+    </div>
+
+    <div style="position: fixed; bottom: 80px; right: 40px; width: 50px; height: 50px; border-radius: 50%;
+        background-color: #0056b3; display: flex; justify-content: center; align-items: center;">
+        <i class="material-icons" style="font-size: 35px; color: white; text-align: center;">message</i>
+    </div>
 
 {% endblock %}
