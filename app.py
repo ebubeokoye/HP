@@ -141,6 +141,13 @@ def landing_agent_oneacre_listingpg2():
         return render_template("landing-agent-oneacre-listingpg2.html")
     else:
         return render_template("landing-agent-oneacre-listingpg2.html")
+    
+@app.route("/landagent_profilepage", methods=["GET", "POST"])
+def landagent_profilepage():
+    if request.method == "POST":
+        return render_template("landagent-profilepage.html")
+    else:
+        return render_template("landagent-profilepage.html")
 
 # this section is for the housing agent
 
@@ -165,7 +172,6 @@ def housing_agent_bungalow_listingpg2():
     else:
         return render_template("housing-agent-bungalow-listingpg2.html")
 
-
 @app.route("/form_to_add_item_housingagent")
 def form_to_add_item_housingagent():
     return render_template("form-to-add-item-housingagent.html")
@@ -178,6 +184,14 @@ def form_to_edit_item_housingagent():
 @app.route("/insights_page_housingagent")
 def insights_page_housingagent():
     return render_template("insightspage-housingagent.html")
+
+@app.route("/houseagent_profilepage", methods=["GET", "POST"])
+def houseagent_profilepage():
+    if request.method == "POST":
+        return render_template("houseagent-profilepage.html")
+    else:
+        return render_template("houseagent-profilepage.html")
+
 
 # this section is for the vendor after they've registered/logged in
 @app.route("/vendor_homepage", methods=["GET", "POST"])
@@ -200,6 +214,13 @@ def vendor_kitchenitems_listingpg2():
         return render_template("vendor-kitchenitems-listingpg2.html")
     else:
         return render_template("vendor-kitchenitems-listingpg2.html")
+    
+@app.route("/vendor_profilepage", methods=["GET", "POST"])
+def vendor_profilepage():
+    if request.method == "POST":
+        return render_template("vendor-profilepage.html")
+    else:
+        return render_template("vendor-profilepage.html")
     
 # this section  is for the vendors when they click vendor button on the landing page
 @app.route("/vendor_button_landingpage")

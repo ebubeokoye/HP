@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <div class="top-nav" style="position: relative;">
+    <div class="top-nav">
         <div class="personal-details-text"> < Verify Email Address</div>
         <div class="login-link"> Login > </Login></div>
     </div>
@@ -18,14 +18,14 @@
                 <div>markhomey@gmail.com</div>
             </div>
 
-            <form action="{{ url_for ('housing_agent_homepage') }}" method="post" style=" margin-top: 120px;
+            <form action="{{ url_for ('houseagent_profilepage') }}" method="post" style=" margin-top: 120px;
             display: flex; flex-direction: column; align-items: center; width: 600px;">
 
                 <!-- this next div below will create a prompt for the user to set up store after the input at
                 the bottom with id="verify-otp-button-user" and type="button" is clicked -->
 
-                <!-- Nb: bottom: 0; is this div below responds because there is a set height(450px) for its
-                parent container above. It is also positioned absolute to the first ancestor -->
+                <!-- Nb: bottom: 0; in this div below responds to the bottom of the web page not to the bottom
+                of its parent container because the parent container is not set as position: relative. -->
 
                 <div style="position: absolute; z-index: 1; bottom: 0px; width: 600px; display: none;
                     border: 2px solid black; background-color: white;" id="prompt-to-setup-store-in-otp-page">
@@ -38,7 +38,7 @@
                         <div>Setup store operations</div>
                         <div>Create your catalog</div>
                          
-                        <input type="submit" value="Verify email" style="width: 410px; height: 55px; color: white;
+                        <input type="submit" value="Set up store" style="width: 410px; height: 55px; color: white;
                             background-color: #0056b3; margin-top: 120px;">
                     </div>
                 </div>
