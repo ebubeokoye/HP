@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div style="width: 100vw; height: 100vh; position: fixed; top: 0;">
+        <div style="height: 100%; display: flex; flex-direction: column; gap: 10px; align-items: center;
+            position: fixed; top: 0; bottom: 20px; width: 90%; margin: auto;">
+            <h2>Housing & Properties</h2>
+            <div style="width: 700px; height: 400px; background-color: blanchedalmond;"></div>
+            <div>Drive store sales,</div>
+            <div>boost recognition.</div>
+            <div>Sell to active Housing & Properties customers &</div>
+            <div>grow your store.</div>
+
+            <a href="createaccount-vendor">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 700px; height: 50px; background-color: #0056b3; margin-top: 25px;
+                    border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; text-align: center;
+                    color: white;" id="logout">
+                    <p>Get started</p>
+                </div> 
+            </a>
+            
+            <a href="signin">
+                <div>Login to your account</div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

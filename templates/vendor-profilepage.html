@@ -39,6 +39,7 @@
             <a>
                 <div>Continue Setup ></div>
             </a>
+
         </div>
 
         <div style="width: 800px; margin: auto;">
@@ -140,17 +141,38 @@
                 </div>
             </div>
             
-            <div style="margin-top: 50px; border-top: 2px solid #aaa">
-                <a>
-                    <div style="width: 700px; margin: auto; height: 50px; border: 1px solid red; margin-top: 30px;
-                        border-radius: 15px; padding-left: 40px; display: flex; align-items: center;">
-                        <div>Logout</div>
-                    </div>   
-                </a>          
+            <div style="margin-top: 50px; border-top: 2px solid #aaa">          
+                <div style="width: 700px; margin: auto; height: 50px; border: 1px solid red; margin-top: 30px;
+                    border-radius: 15px; padding-left: 40px; display: flex; align-items: center;"
+                        id="logout">
+                    <div>Logout</div>
+                </div>                 
             </div>
+
 
             <div style="width: 800px; margin: auto; margin-top: 40px; text-align: center;">
                 <div>v1.0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- when logout is clicked, this appears at the middle of the viewport -->
+    <div style="display: none; flex-direction: column; align-items: center; position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%; background-color: rgba(0,0,0,0.3);" id="modal-to-logout">
+        <div style="width: 800px;
+            margin: auto; height: 200px; color: white; background-color: rgb(56, 55, 55); z-index: 1;">
+            <div style="padding: 30px; margin: auto;">
+                <div>Hold on...</div>
+                <div style="margin-top: 20px;">Are you sure you want to log out?</div>
+                <div style="display: flex; justify-content: center; width: 800px; margin-top: 70px;
+                    margin-left: 50px;">
+                    <a id="cancel-logout-btn">
+                        <div>NO</div>
+                    </a>
+                    <a href="after_logout_page" style="margin-left: 50px; text-decoration: none; color: white;">
+                        <div>YES</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -238,6 +260,20 @@
                 }
             });
         }
+
+        // --------------------------------------------------------------------------------------------------------
+
+        let logOut = document.getElementById("logout");
+        let modalToLogout = document.getElementById("modal-to-logout");
+        logOut.addEventListener('click', function() {
+
+            modalToLogout.style.display = "flex";
+            cancelLogoutBtn = document.getElementById("cancel-logout-btn");
+
+            cancelLogoutBtn.addEventListener('click', function() {
+                modalToLogout.style.display = "none";
+            });
+        });
         
 
 
