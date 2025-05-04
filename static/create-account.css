@@ -8,11 +8,13 @@
 .personal-details-text
 {
     flex: 80%;
+    margin: auto;
     margin-left: 100px;
 }
 .login-link
 {
     flex: 20%;
+    margin: auto;
     margin-left: 200px;
 }
 .form-container

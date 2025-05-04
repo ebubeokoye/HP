@@ -148,6 +148,13 @@ def landagent_profilepage():
         return render_template("landagent-profilepage.html")
     else:
         return render_template("landagent-profilepage.html")
+    
+@app.route("/landagent_kyc_form", methods=["GET", "POST"])
+def landagent_kyc_form():
+    if request.method == "POST":
+        return render_template("KYC-landagent-form.html")
+    else:
+        return render_template("KYC-landagent-form.html")
 
 # this section is for the housing agent
 
@@ -191,6 +198,13 @@ def houseagent_profilepage():
         return render_template("houseagent-profilepage.html")
     else:
         return render_template("houseagent-profilepage.html")
+    
+@app.route("/houseagent_kyc_form", methods=["GET", "POST"])
+def houseagent_kyc_form():
+    if request.method == "POST":
+        return render_template("KYC-houseagent-form.html")
+    else:
+        return render_template("KYC-houseagent-form.html")
 
 
 # this section is for the vendor after they've registered/logged in
@@ -221,6 +235,17 @@ def vendor_profilepage():
         return render_template("vendor-profilepage.html")
     else:
         return render_template("vendor-profilepage.html")
+    
+@app.route("/vendor_kyc_form", methods=["GET", "POST"])
+def vendor_kyc_form():
+    if request.method == "POST":
+        return render_template("KYC-vendorform.html")
+    else:
+        return render_template("KYC-vendorform.html")
+    
+@app.route("/store_info_and_operations_page")
+def store_info_and_operations_page():
+    return render_template("store-info-and-operations-page.html")
     
 # this section  is for the vendors when they click vendor button on the landing page
 @app.route("/vendor_button_landingpage")

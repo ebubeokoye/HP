@@ -3,7 +3,7 @@
 {% block body %}
     <div>
         <div style="width: 100%; height: 100px; background-color: #f7f2f2;">
-            <h2>Profile</h2>
+            <h2 style="margin-left: 100px;">Profile</h2>
         </div>
         <div style="width: 800px; margin: auto; height: 200px; background-color: #f7f2f2; margin-top: 30px;
             border-radius: 15px; padding: 20px; box-sizing: border-box;">
@@ -15,10 +15,15 @@
             <div>Store full address</div>
         </div>
 
-        <div style="width: 800px; margin: auto; height: 200px; background-color: #f7f2f2; margin-top: 30px;
+        <div style="width: 800px; margin: auto; height: 250px; background-color: #f7f2f2; margin-top: 30px;
             border-radius: 15px; padding: 20px; box-sizing: border-box;">
             <div>Set up your store</div>
             <div>You have a to-do list to set up your store fully</div>
+
+            <div style="display: flex; align-items: center;">            
+                <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
+                <label for="storeinfo-checkbox" style="margin-left: -183px;">KYC/Business verification</label>         
+            </div>
 
             <div style="display: flex; align-items: center;">            
                 <input type="checkbox" id="storeinfo-checkbox" style="margin-left: -185px; padding: 0;">
@@ -54,7 +59,21 @@
         </div>
 
         <div style="width: 800px; margin: auto; border-top: 2px solid #aaa; margin-top: 30px;">
-            <div style="display: flex; align-items: center; width: 800px; height: 80px;"
+            <a href="landagent_kyc_form">
+                <div style="display: flex; align-items: center; text-overflow: ellipsis;
+                    margin-top: 30px; width: 800px; height: 80px;"
+                    class="personal-profile-accordion">
+                    <div style="flex: 70%;">KYC/Business verification</div>
+                    <div style=" flex: 20%; text-align: center; background-color: lightgreen; border: 1px solid green;
+                        border-radius: 15px; padding: 5px;">Rejected</div>
+                    <div style="margin-left: 450px; flex: 10%;"> > </div>
+                </div>
+            </a>        
+        </div>
+
+        <div style="width: 800px; margin: auto; margin-top: 30px;">
+            <div style="display: flex; align-items: center; white-space: nowrap; text-overflow: ellipsis;
+                border-top: 2px solid #aaa; margin-top: 30px; width: 800px; height: 80px;"
                 class="personal-profile-accordion">
                 <div style=" flex: 90%;">Store Profile</div>
                 <div style="margin-left: 600px; flex: 10%;"> v </div>
