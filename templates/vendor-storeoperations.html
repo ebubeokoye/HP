@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+    <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; margin-top: -10px;
+        background-color: #959ca3;">
+        <div style="margin: auto; margin-left: 100px;"> < Store operations</div>
+    </div>
+
+    <div>
+        <div style="display: flex; flex-direction: column; gap: 20px; width: 800px; margin: auto;">
+            <div style="display: flex; width: 800px; height: 60px; border-bottom: 2px solid #959ca3;">
+                <div style="flex: 100%; margin: auto;"> Delivery/Order Information</div>
+            </div>
+
+            <div style="display: flex; width: 800px; height: 30px;">
+                <div style="flex: 100%; margin: auto;"> Specify opening times on specific days</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 240px 240px 240px; row-gap: 20px; column-gap: 20px;
+                    padding: 10px; width: 800px;">
+                <div style="width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 100%; margin: auto;">Day</div>
+                    </div>
+                    <input type="text" value="default" readonly style="width: 240px; height: 40px; background-color: #959ca3;
+                    border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;">
+                </div>
+                    
+                <div style="width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 100%; margin: auto;">Open</div>
+                    </div>
+                    <input type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                    border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;">
+                </div>
+                
+                <div style="width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 100%; margin: auto;">Close</div>
+                    </div>
+                    <input type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                    border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;">
+                </div>   
+                
+                <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 100%; margin: auto;">Day</div>
+                    </div>
+                    <select type="text" name="days of the week"
+                        style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                        <div style="position: absolute; top: -20px; width: 300px; height: 300px;">
+                            <option disabled selected value="">Select</option>
+                            <option value="Sunday">Sunday</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                        </div>
+                    </select>
+                </div>
+            
+                <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 100%; margin: auto;">Open</div>
+                    </div>
+                    <input type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                    border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;">
+                </div>
+                
+                <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                    <div style="display: flex; width: 240px; height: 40px;">
+                        <div style="flex: 90%; margin: auto;">Close</div>
+                        <div style="flex: 10%; margin: auto; margin-left: 20px;">
+                            <div style="display: flex; justify-content: center; align-items: center;
+                                width: 30px; height: 30px; border-radius: 50%; background-color: #959ca3;">
+                                <i class="material-icons" style="font-size: 20px; color: white; text-align: center;"
+                                >delete</i>
+                            </div>
+                        </div>             
+                    </div>            
+                    <input type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                    border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                    border-bottom-left-radius: 15px;">
+                </div>
+
+                
+                
+                <div style="color: #0056b3;">+Add specific days</div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 25px; width: 800px; margin: auto;">
+            <div style="margin-top: 20px;">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Payment Information</div>
+                    <div style="flex: 20%;">What is this?</div>
+                </div>
+                <div style="display: flex; width: 800px; height: 40px; border-radius: 15px; background-color: #959ca3;
+                    margin-top: 20px;">
+                    <div style="margin: auto; margin-left: 20px;">No bank added yet</div>
+                </div>
+            </div>
+            
+            <a>
+                <div style="color: #0056b3;">+Add new bank account</div>
+            </a>
+            <div>
+                <input type="submit" value="Save Changes" style="width: 800px; height: 50px;
+                    color: white; background-color: #0056b3; margin-top: 25px; border-radius: 15px;">
+            </div> 
+        </div>
+    </div>
+
+
+    <div style="position: fixed; bottom: 50px; right: 100px; width: 50px; height: 50px; border-radius: 50%;
+        background-color: #0056b3; display: flex; justify-content: center; align-items: center; z-index: 1;">
+        <i class="material-icons" style="font-size: 35px; color: white; text-align: center;">message</i>
+    </div>
+
+
+    <script>
+
+        // get current date
+        const today = new Date();
+        // Get day of the week as a number  (0-6, where 0 is Sunday and 6 is Saturday)
+        const dayNumber = today.getDay();
+
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const todayName = days[dayNumber];
+        console.log("Today is" + todayName);
+    </script>
+{% endblock %}

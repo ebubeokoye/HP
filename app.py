@@ -252,6 +252,13 @@ def store_info_and_operations_page():
 def vendor_button_landingpage():
     return render_template("vendor-landingpage.html")
 
+@app.route("/vendor_storeoperations", methods=["GET", "POST"])
+def vendor_storeoperations():
+    if request.method == "POST":
+        return render_template("vendor-storeoperations.html")
+    else:
+        return render_template("vendor-storeoperations.html")
+
 # This if for the after logout, the page that serves them a login option back   
 @app.route("/after_logout_page")
 def after_logout_page():
