@@ -11,14 +11,14 @@
                 <p>Category</p>
                 <select name="category" class="house-agent-additem-selectmenu">
                     <option disabled selected value=""></option>
-                    <option name="bungalow">Bungalow</option>
-                    <option name="2 Bedroom Flat">2 Bedroom Flat</option>
-                    <option name="3 Bedroom Flat">3 Bedroom Flat</option>
-                    <option name="Duplex">Duplex</option>
-                    <option name="A room self con">A room self con</option>
-                    <option name="Mini flat">Mini flat</option>
-                    <option name="Maisonette">Maisonette</option>
-                    <option name="Semi detached">Semi detached</option>
+                    <option name="One acre">One acre</option>
+                    <option name="Two acres">Two acres</option>
+                    <option name="Three acres">Three acres</option>
+                    <option name="One plot">One plot</option>
+                    <option name="Two plots">Two plots</option>
+                    <option name="Three plots">Three plots</option>
+                    <option name="Four plots">Four plots</option>
+                    <option name="Five plots">Five plots</option>
                 </select>
                 <!-- this is the option for them to update their category list -->
                 <p style="color: green;"> + Add category </p>
@@ -109,55 +109,9 @@
                 <button type="button" class="multifiles-nav-arrow multifiles-rightarrow" id="multifiles-rightarrow">&#8594;</button>
                 <div id="error-message"></div>
             </div>
-            
-            <div style="display: flex; align-items: center; gap: 15px; width: 620px; margin: auto;">
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">POP?</div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="pop-yes">
-                            <label for="pop-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style= "width: 15px; height: 15px;" id="pop-no">
-                            <label for="pop-no" style="font-size: 15px;">no</label>                        
-                        </div>
-                    </div>
-                </div>
 
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">Running clean water?</div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="water-yes">
-                            <label for="water-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="water-no">
-                            <label for="water-no" style="font-size: 15px;">no</label>                        
-                        </div>
-                    </div>
-                </div>
-
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">Prepaid meter?</div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-yes">
-                            <label for="prepaid-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
-                            <label for="prepaid-no" style="font-size: 15px;">no</label>                        
-                        </div>
-                    </div>
-                </div>
-        
-            </div>
-
-
-            <div style="width: 620px; margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
-                <p>Other house facilities eg proximity to road</p>
+            <div style="width: 620px; margin: auto;">
+                <p>Description</p>
                 <!-- edit to allow numbers and texts -->
                 <input autocomplete="off" name="property location" type="text"  class="house-agent-additem-input">
             </div>
@@ -166,7 +120,6 @@
 
         </form>
     </div>
-
 
     <div style="position: relative;">
         <div style="position: fixed; bottom: 50px; right: 100px; width: 50px; height: 50px; border-radius: 50%;

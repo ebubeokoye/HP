@@ -62,7 +62,7 @@
                         <p>Kitchen items</p>
                     </div>
     
-                    <div style="width: 200px; height: 80px; border: 3px solid rgba(0,0,0,0.5);
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5);
                         border-radius: 15px; margin-left: 20px; background-color: rgba(0,0,0,0.5);">
                         <i class="material-icons" style="font-size: 50px;">house</i>
                         <p>Electronics</p>
@@ -122,7 +122,7 @@
                 
                 <div class="feat-vendors-slider" id="featVendorsSlider">
                     <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
-                        background-color: rgba(0,0,0,0.5);">
+                        background-color: rgba(0,0,0,0.5); box-sizing: border-box;">
                         <i class="material-icons" style="font-size: 50px;">house</i>
                         <p>One acre</p>
                     </div>
@@ -157,13 +157,13 @@
                         <p>Three plots</p>
                     </div>
     
-                    <div style="width: 400px; height: 100px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
                         background-color: rgba(0,0,0,0.5); margin-left: 20px;">
                         <i class="material-icons" style="font-size: 50px;">house</i>
                         <p>Four plots</p>
                     </div>
     
-                    <div style="width: 400px; height: 100px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
+                    <div style="width: 200px; height: 80px; border: 1px solid rgba(0,0,0,0.5); border-radius: 15px;
                         background-color: rgba(0,0,0,0.5); margin-left: 20px;">
                         <i class="material-icons" style="font-size: 50px;">house</i>
                         <p>Five plots</p>
@@ -345,11 +345,15 @@
 
         // calculate visible width plus margins(I want to show 3 divs per time)
         const vendorSlideWidth = 650; 
+        // set maximum number of times slide should move when right arrow is clicked
+        let slideCount = 1;
         // calculate the number of slides in slider
         const vendorSlideCount = slider.children.length;
 
         // handle left arrow click
         leftArrowVendors.addEventListener('click', () => {
+            // reset counter
+            slideCount = 1;
             // when position has assumed a -ve value after clicking the right arrow, position is then
             // less than 0 and so the slider can move right (with the help of giving it a =px)
             // when the left arrow is clicked
@@ -358,7 +362,9 @@
                 // function is called
                 position += vendorSlideWidth;
                 updateSliderPosition();
+                slideCount++;
             }
+            
         });
         // the right arrow causes the first translateX. (ie to say that on page load, if the user
         // clicks the left arrow first, the slider wont move because the slide is at the end anyway)
@@ -369,12 +375,16 @@
             // to the left on the X axis
             const maxPosition = -(vendorSlideWidth * (vendorSlideCount - 3));
 
-            // 0 is > -ve values, so move left (by increase negative position)
-            if (position > maxPosition) {
-                // give position a negative value here, so that it can move the slider left
-                position -= vendorSlideWidth;
-                updateSliderPosition();
+            if (slideCount < vendorSlideCount / 3) {
+                // 0 is > -ve values, so move left (by increase negative position)
+                if (position > maxPosition) {
+                    // give position a negative value here, so that it can move the slider left
+                    position -= vendorSlideWidth;
+                    updateSliderPosition();
+                    slideCount++;
+                }
             }
+            
         });
 
         // update slider position

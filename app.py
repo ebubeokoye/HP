@@ -134,6 +134,13 @@ def agent_land_listing():
         return redirect("/agent_land_listing")
     else:
         return render_template("agent-land-listing.html")
+    
+@app.route("/form_to_add_item_landagent")
+def form_to_add_item_landagent():
+    if request.method == "POST":
+        return render_template("form-to-add-item-landagent.html")
+    else:
+        return render_template("form-to-add-item-landagent.html")
         
 @app.route("/landing_agent_oneacre_listingpg2", methods=["GET", "POST"])
 def landing_agent_oneacre_listingpg2():
@@ -221,6 +228,13 @@ def vendor_listing():
         return render_template("vendor-listing.html")
     else:
         return render_template("vendor-listing.html")
+    
+@app.route("/form_to_add_item_vendor")
+def form_to_add_item_vendor():
+    if request.method == "POST":
+        return render_template("form-to-add-item-vendor.html")
+    else:
+        return render_template("form-to-add-item-vendor.html")
     
 @app.route("/vendor_kitchenitems_listingpg2", methods=["GET", "POST"])
 def vendor_kitchenitems_listingpg2():
