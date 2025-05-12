@@ -43,7 +43,17 @@
                     <input autocomplete="off" name="picture" type="file" style="height: 100%; width: 100%; margin: auto;
                     border: 2px solid green; background-color: whitesmoke; opacity: 1;">
                 </p>
+
+                <div style="position: relative; margin-top: 15px; width: 400px; height: 200px;
+                    border-radius: 15px; background-color: #e4e7eb;">                 
+                    <input type="file" accept=".jpg, .png" style="position: absolute; left: 0; top: 0;
+                        width: 800px; height: 400px; border-radius: 15px; opacity: 0;"
+                        id="coverimage-fileInput">
+                    <img src="land-icon.jpg" style="position: absolute; left: 0; top: 0; width: 800px;
+                        height: 400px; display: none; object-fit: cover;" id="imagePreview">
+                </div>
             </div>
+            <div id="error-message"></div>
 
             <p style="height: 40px;">
                 <p>Description/house facilities eg water supply</p>
@@ -81,4 +91,72 @@
         </div>
         
     </div>
+
+    
+    <script>
+
+
+let logoimagefileInput = document.getElementById("logoimage-fileInput");
+        let logoImgPreview = document.getElementById("logoImgPreview");
+        let logoErrorMessage = document.getElementById("logoerror-message");
+
+        logoimagefileInput.addEventListener('change', function() {
+            logoErrorMessage.style.display = "none";
+    
+            if (logoimagefileInput.files.length > 0) {
+                const file = logoimagefileInput.files[0];
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    logoImgPreview.src = e.target.result;
+                    logoImgPreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            logoErrorMessage.textContent = message;
+            logoErrorMessage.style.display = "block";
+        }
+
+        // ---------------------------------------------------------------------------------------------------------
+
+        let coverimagefileInput = document.getElementById("coverimage-fileInput");
+        let imagePreview = document.getElementById("imagePreview");
+        let errorMessage = document.getElementById("error-message");
+
+        coverimagefileInput.addEventListener('change', function() {
+            errorMessage.style.display = "none";
+    
+            if (coverimagefileInput.files.length > 0) {
+                const file = coverimagefileInput.files[0];
+
+                const fileType = file.type;
+                if (fileType !== 'image/jpg' && fileType !== 'image/png') {
+                    showError('Please select only JPG or PNG images.');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                if (file.size > 1048576) {
+                    showError('File size exceeds 1MB, Please choose a smaller image');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = "block";
+        }
+    </script>
 {% endblock %}

@@ -857,6 +857,73 @@
 
 
         // ---------------------------------------------------------------------------------------------------------
+
+
+        let logoimagefileInput = document.getElementById("logoimage-fileInput");
+        let logoImgPreview = document.getElementById("logoImgPreview");
+        let logoErrorMessage = document.getElementById("logoerror-message");
+
+        logoimagefileInput.addEventListener('change', function() {
+            logoErrorMessage.style.display = "none";
+    
+            if (logoimagefileInput.files.length > 0) {
+                const file = logoimagefileInput.files[0];
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    logoImgPreview.src = e.target.result;
+                    logoImgPreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            logoErrorMessage.textContent = message;
+            logoErrorMessage.style.display = "block";
+        }
+
+        // ---------------------------------------------------------------------------------------------------------
+
+        let coverimagefileInput = document.getElementById("coverimage-fileInput");
+        let imagePreview = document.getElementById("imagePreview");
+        let errorMessage = document.getElementById("error-message");
+
+        coverimagefileInput.addEventListener('change', function() {
+            errorMessage.style.display = "none";
+    
+            if (coverimagefileInput.files.length > 0) {
+                const file = coverimagefileInput.files[0];
+
+                const fileType = file.type;
+                if (fileType !== 'image/jpg' && fileType !== 'image/png') {
+                    showError('Please select only JPG or PNG images.');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                if (file.size > 1048576) {
+                    showError('File size exceeds 1MB, Please choose a smaller image');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = "block";
+        }
+
+
+        // ---------------------------------------------------------------------------------------------------------
        
        
         const storeoperationsForm = document.getElementById("store-operations-form");
