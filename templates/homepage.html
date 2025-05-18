@@ -1,72 +1,360 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div style="margin-top: 0px;">
-        <div style="color: white; margin-left: 40px;">
-            <div style="height: 200px;">
-                <div style="width: 70%; height: 150px; margin: auto; background-color: rgb(20, 50, 100);
-                    border: 1px solid rgb(20, 50, 100); border-radius: 15px; position: relative;">
-                    <h1 style="position: absolute; color: white;">GET STARTED</h1>
+    <div style="margin-top: 0px; background-color: whitesmoke;">
+
+        <div style="display: flex; align-items: center; justify-content: center; height: 70px;
+            background-color: white;">
+            <div>Delivering to (Address)</div>
+        </div>
+
+        <div style="background-color: white; padding-top: 15px; padding-bottom: 40px;">
+            <div style="display: flex; flex-direction: row; justify-content: center;">
+                <a href="user_vendors" style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px;"
+                    class="three-branches" onclick="changeCategoryDisplay(1)">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Vendors</p>
+                </a>
+
+                <a href="buyland" style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;"
+                    class="three-branches" onclick="changeCategoryDisplay(2)">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>Land agents</p>
+                </a>
+
+                <a href="rent" style="width: 200px; height: 100px; background-color: rgb(101, 193, 101);
+                    border: 1px solid rgb(101, 193, 101); border-radius: 15px; margin-left: 20px;"
+                    class="three-branches" onclick="changeCategoryDisplay(3)">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <p>House agents</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="container-homepage-explore" id="hide-scrollbars-homepage">
+            <p style="margin-left: 70px;">Explore</p>
+            <div class="flexdisplay-homepage-explore">
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Insurance company</div>
+                </div>       
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Legal consultations firm</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Cleaning agency</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Construction supplies</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Relocation services</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Mortgage provider</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Appliance/ac installation</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Fumigation services</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Water treatment</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Electrical fixes</div>
+                </div>
+                <div class="homepage-box-explore">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="homepage-img-explore">
+                    <div>Plumbing fixes</div>
                 </div>
             </div>
-            <div>---</div>
-            <div>---</div>
-            <div>---</div>
-            <div>---</div>
-            <h3>Welcome to housing & properties</h3>
         </div>
-        <div class="homepage-container-land" >
-            <p>Land & properties</p>
+
+        <div class="homepage-container-land" id="hide-scrollbars-homepage">
+            <p style="margin-left: 70px;">Land near you</p>
             <div class="homepage-boxes-container-land">
-                <div class="homepage-box1-land">
+                <div class="homepage-box-land">
                     <img src="{{url_for ('static', filename='land-icon.jpg') }}"
-                        style="width: 250px; height: 150px;">
-                    <div class="homepage-land-text">1plot</div>
+                        class="homepage-img-land">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Femi properties</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Three acres</div>
+                        <div style="flex: 30%;"> N15,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>           
+                <div class="homepage-box-land">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-land">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Sylvia homes</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Two plots</div>
+                        <div style="flex: 30%;"> N6,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>            
+                <div class="homepage-box-land">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-land">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Light homes</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Five plots</div>
+                        <div style="flex: 30%;"> N12,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div>      
                 </div>
+
+                
+                <div class="homepage-box-land">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-land">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Cushon properties</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Three acres</div>
+                        <div style="flex: 30%;"> N13,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
             
-                <div class="homepage-box2-land">
-                    <div>2plots</div>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px; width: 100%;">
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Location + price
                 </div>
-                <div class="homepage-box3-land">
-                    <div>etc</div>
-                </div>
-            </div>
-        </div>
-
-        <div>---</div>
-        <div>---</div>
-
-        <div class="homepage-container-rent">
-            <p>wide range rent options</p>
-            <div class="homepage-boxes-container-rent">
-                <div class="homepage-box1-rent">
-                <div class="homepage-option1-text">Duplex</div>
-                </div>
-                <div class="homepage-box2-rent">
-                    <div>1 room self con</div>
-                </div>
-                <div class="homepage-box3-rent">
-                    <div>etc</div>
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Category + price
                 </div>
             </div>
         </div>
 
-        <div class="homepage-container-rent">
-            <p>wide range Household Items</p>
+        <div class="homepage-container-rent" id="hide-scrollbars-homepage">
+            <p style="margin-left: 70px;">Apartments near you</p>
             <div class="homepage-boxes-container-rent">
-                <div class="homepage-box1-rent">
-                    <img src="{{url_for ('static', filename='couch-furniture.jpg') }}"
-                        style="width: 250px; height: 150px;">
-                    <div class="homepage-option1-text">Furnitures</div>
+                <div class="homepage-box-rent">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-rent">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Chibyke properties</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Duplex</div>
+                        <div style="flex: 30%;"> N9,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+
+                <div class="homepage-box-rent">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-rent">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Kachi homes</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">A room self con</div>
+                        <div style="flex: 30%;"> N1,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-                <div class="homepage-box2-rent">
-                    <img src="{{url_for ('static', filename='kitchen-utensils.jpg') }}"
-                        style="width: 250px; height: 150px;">
-                    <div>Kitchen utensils</div>
+
+                <div class="homepage-box-rent">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-rent">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Peruvian homes</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Maisonette</div>
+                        <div style="flex: 30%;"> N5,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-                <div class="homepage-box3-rent">
-                    <div>etc</div>
+
+                <div class="homepage-box-rent">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-rent">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Ashton homes</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 30%;">Semi detached</div>
+                        <div style="flex: 30%;"> N4.5,000,000</div>
+                        <div style="flex: 30%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.3(200)</div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
+            </div> 
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px; width: 100%;">
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Location + price
+                </div>
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Category + price
+                </div>
+            </div> 
+        </div>
+    
+        <div class="homepage-container-vendors" id="hide-scrollbars-homepage">
+            <p style="margin-left: 70px;">Household vendors near you</p>
+            <div class="homepage-boxes-container-vendors">
+                <div class="homepage-box-vendors">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-vendors">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Blenco supermarket</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 5%;">From</div>
+                        <div style="flex: 20%; margin-left: -5px; border-right: 2px solid rgba(175, 173, 173, 0.847);"> N850</div>
+                        <div style="flex: 35%;">30-40mins</div>
+                        <div style="flex: 20%;"> Open</div>
+                        <div style="flex: 20%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="homepage-box-vendors">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-vendors">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Femi furnitures</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 5%;">From</div>
+                        <div style="flex: 20%;"> N2000</div>
+                        <div style="flex: 35%;"> 7-17mins</div>
+                        <div style="flex: 20%;"> Closed</div>
+                        <div style="flex: 20%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="homepage-box-vendors">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-vendors">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">chi chi Beddings</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 5%;">From</div>
+                        <div style="flex: 20%;"> N2000</div>
+                        <div style="flex: 35%;"> 11-23mins</div>
+                        <div style="flex: 20%;"> Open</div>
+                        <div style="flex: 20%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="homepage-box-vendors">
+                    <img src="{{url_for ('static', filename='land-icon.jpg') }}"
+                        class="homepage-img-vendors">
+                    <div style="display: flex; margin-top: 10px;">
+                        <div style="flex: 80%; font-size: 18px;">Fidelis Arts</div>
+                        <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                        <div style="flex: 5%;">From</div>
+                        <div style="flex: 20%;"> N700</div>
+                        <div style="flex: 33%;">15-25mins</div>
+                        <div style="flex: 20%;">Closed</div>
+                        <div style="flex: 20%;">
+                            <div style="display: flex; gap: 2px;">
+                                <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                <div style="flex: 80%;">4.2(200)</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>       
             </div>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px; width: 100%;">
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Location + price
+                </div>
+                <div style="background-color: cornflowerblue; width: 100px; height: 50px; text-align: center;
+                    border-radius: 18px;">Category + price
+                </div>
+            </div> 
         </div>
 
 
@@ -75,7 +363,7 @@
                 <a href="homepage" class="user-homepage-navlist-link">
                     <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
                 </a>
-                <a href="buyland" class="user-homepage-navlist-link">
+                <a href="user_allcategories_nav" class="user-homepage-navlist-link">
                     <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
                 </a>
                 <a href="rent" class="user-homepage-navlist-link">

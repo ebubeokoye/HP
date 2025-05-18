@@ -79,9 +79,9 @@ def homepage():
 def buyland(): 
     return render_template("user-buyland.html")
 
-@app.route("/user_oneacre_buyland_listingpg2")
-def user_oneacre_buyland_listingpg2():
-    return render_template("user-oneacre-buyland-listingpg2.html")
+@app.route("/user_eachlandcategory_listing")
+def user_eachlandcategory_listing():
+    return render_template("user-eachlandcategory-listing.html")
 
 @app.route("/user_viewdetails_general_form")
 def user_viewdetails_general_form():
@@ -111,9 +111,13 @@ def all_landagents_from_userlocation():
 def rent(): 
     return render_template("user-rent.html")
 
-@app.route("/houseitems")
-def houseitems(): 
-    return render_template("houseitems.html")
+@app.route("/user_vendors")
+def user_vendors(): 
+    return render_template("user-buyvendors.html")
+
+@app.route("/user_allcategories_nav")
+def user_allcategories_nav(): 
+    return render_template("user-all-vendor-agents-categoriesnav.html")
 
 @app.route("/user-account")
 def useraccount(): 
