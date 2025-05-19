@@ -11,80 +11,71 @@
         
         <div style="margin-top: 30px; padding-bottom: 20px;">
             <div style="display: flex; gap: 15px; justify-content: center; align-items: center;">
-                <div class="rent-location" onclick="displayFilterSlideup('display-location-slideup-container')">
-                    <div class="user-rent-pg1-filterby-redirect">
-                        Filter Categories
-                    </div>
-                </div>
                 <!-- it takes the user to a new page -->
                 <input type="search" placeholder="Search item eg Air conditioner, pots, bed" 
-                    style="width: 350px; height: 50px; border-radius: 15px;">
+                    style="width: 500px; height: 50px; border-radius: 15px;">
             </div>
-            <div class="display-location-slideup-container" id="display-location-slideup-container">
-                <div id="display-filter-slideup" class="display-filter-slideup">  
-                    <span id="close-filter-display" class="close-filter-display">&times;</span>   
-                    <div style="display: flex; justify-content: center; height: 100px; line-height: 100px;">Choose one or more</div>       
-                    <div style="margin-left: 10px; border-bottom: 2px solid gray;">
-                        <div style="display: flex; height: 50px; align-items: center;">
-                            <input type="checkbox" id="locationsprice-checkbox-userrent" style="width: 18px; height: 18px;">
-                            <label for="locationsprice-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
-                                line-height: 50px;">Price</label>                    
-                        </div>
-    
-                        <div style="display: none; gap: 25px; margin-left: 10px;" id="pricemax-min">
-                            <div style="position: relative;">
-                                <input autocomplete="off" placeholder="Above" type="number" class="maxmin-input-userrent"
-                                    style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
-                                    box-sizing: border-box;">
-                                <div style="position: absolute; top: 10px; left: 10px;"
-                                    class="maxmin-text-userrent">Above</div>
-                            </div>
-                            
-                            <div style="position: relative;">
-                                <input autocomplete="off" placeholder="Below" type="number" class="maxmin-input-userrent"
-                                    style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
-                                    box-sizing: border-box;">
-                                <div style="position: absolute; top: 10px; left: 10px;" class="maxmin-text-userrent">Below</div>
-                            </div>                
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <h3 style="margin-left: 100px;">Shop by category</h3>
+                <div style="display: flex; justify-content: center; gap: 5px; width: 80%; margin: auto; height: 50px;">
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">message</i>
+                            <div>Kitchen items</div>
                         </div>
                     </div>
-       
-                    <div style="margin-left: 10px; border-bottom: 2px solid gray;">
-                        <div style="display: flex; align-items: center; height: 50px;">
-                            <input type="checkbox" id="location-checkbox-userrent" style="width: 18px; height: 18px;">
-                            <label for="location-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
-                                line-height: 50px;">Location</label>
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">message</i>
+                            <div>Electronics</div>
                         </div>
-                        <ul style="display: none; width: 250px; overflow: scroll; margin-left: 10px; border: 2px solid black;"
-                            id="location-list-userrent" class="location-list-userrent">
-                            <li>Ajeromi-Ifelodun</li>
-                            <li>Alimosho</li>
-                            <li>Kosofe</li>
-                            <li>Mushin</li>
-                            <li>Oshodi-Isolo</li>
-                            <li>OjoIkorodu</li>
-                            <li>Surulere</li>
-                            <li>Agege</li>
-                            <li>Ifako-Ijaye</li>
-                            <li>Somolu</li>
-                            <li>Amuwo-Odofin</li>
-                            <li>Lagos Mainland</li>
-                            <li>Ikeja</li>
-                            <li>Eti-Osa</li>
-                            <li>Badagry</li>
-                            <li>Apapa</li>
-                            <li>Lagos Island</li>
-                            <li>Epe</li>
-                            <li>Ibeju-Lekki</li>
-                        </ul>
                     </div>
-                    <div style="height: 50px; margin: auto;">
-                        <input type="submit" style="height: 50px; width: 300px; color: white;
-                        background-color: #0056b3;" value="Apply">
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">message</i>
+                            <div>Living room aesthetics</div>
+                        </div>
                     </div>
-                </div>       
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">message</i>
+                            <div>Furniture</div>
+                        </div>
+                    </div>
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">cart</i>
+                            <div>Curtains, rails</div>
+                        </div>
+                    </div>
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">cart</i>
+                            <div>Beddings</div>
+                        </div>
+                    </div>
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">bag</i>
+                            <div>Interior decor</div>
+                        </div>
+                    </div>
+                    <div style="flex: 10%;">
+                        <div style="display: flex; flex-direction: column; align-items: center;
+                            justify-content: center;">
+                            <i class="material-icons" style="font-size: 20px; color: black;">plate</i>
+                            <div>Arts</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
 
         <!-- filter display by house type -->
             <div class="display-housetype-slideup-container" id="display-housetype-slideup-container">

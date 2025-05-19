@@ -1,0 +1,717 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    
+    <section style="position: relative; top: 0;" id="body-filterland">
+        <div style="display: flex; align-items: center; height: 70px; width: 100%; margin-top: -10px;
+            background-color: #f7f2f2">
+            <div style="margin-left: 100px;"> < Category + price</div>
+        </div>
+        <div style="position: fixed; bottom: 50px; width: 100%; margin: 0; display: flex; gap: 15px;
+            justify-content: center; align-items: center;">
+            <div class="rent-location" onclick="displayFilterSlideup('display-location-slideup-container')">
+                <div class="user-rent-pg1-filterby-redirect">
+                    Filter price + Location
+                </div>
+            </div>
+            <!-- it takes the user to a new page -->
+            <div class="rent-category" id="rent-category" onclick="displayHousetypeSlideup('display-housetype-slideup-container')">
+                <div class="user-rent-pg1-filterby-redirect">
+                    Filter by Price + Land size
+                </div>
+            </div>
+        </div>
+
+        <div class="display-location-slideup-container" id="display-location-slideup-container">
+            <div id="display-filter-slideup" class="display-filter-slideup">  
+                <span id="close-filter-display" class="close-filter-display">&times;</span>   
+                <div style="display: flex; justify-content: center; height: 100px; line-height: 100px;">Choose one or more</div>       
+                <div style="margin-left: 10px; border-bottom: 2px solid gray;">
+                    <div style="display: flex; height: 50px; align-items: center;">
+                        <input type="checkbox" id="landagent-locationsprice-checkbox-userrent" style="width: 18px; height: 18px;">
+                        <label for="landagent-locationsprice-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
+                            line-height: 50px;">Price</label>                    
+                    </div>
+
+                    <div style="display: none; gap: 25px; margin-left: 10px;" id="landlocation-pricemax-min">
+                        <div style="position: relative;">
+                            <input autocomplete="off" placeholder="Above" type="number"
+                            class="landagent-maxmin-input-userrent"
+                                style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
+                                box-sizing: border-box;">
+                            <div style="position: absolute; top: 10px; left: 10px;"
+                                class="landagent-maxmin-text-userrent">Above</div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <input autocomplete="off" placeholder="Below" type="number" class="landagent-maxmin-input-userrent"
+                                style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
+                                box-sizing: border-box;">
+                            <div style="position: absolute; top: 10px; left: 10px;"
+                                class="landagent-maxmin-text-userrent">Below</div>
+                        </div>                
+                    </div>
+                </div>
+   
+                <div style="margin-left: 10px; border-bottom: 2px solid gray;">
+                    <div style="display: flex; align-items: center; height: 50px;">
+                        <input type="checkbox" id="landagent-location-checkbox-userrent" style="width: 18px; height: 18px;">
+                        <label for="landagent-location-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
+                            line-height: 50px;">Location</label>
+                    </div>
+                    <ul style="display: none; width: 250px; overflow: scroll; margin-left: 10px; border: 2px solid black;"
+                        id="landagent-location-list-userrent" class="location-list-userrent">
+                        <li>Ajeromi-Ifelodun</li>
+                        <li>Alimosho</li>
+                        <li>Kosofe</li>
+                        <li>Mushin</li>
+                        <li>Oshodi-Isolo</li>
+                        <li>OjoIkorodu</li>
+                        <li>Surulere</li>
+                        <li>Agege</li>
+                        <li>Ifako-Ijaye</li>
+                        <li>Somolu</li>
+                        <li>Amuwo-Odofin</li>
+                        <li>Lagos Mainland</li>
+                        <li>Ikeja</li>
+                        <li>Eti-Osa</li>
+                        <li>Badagry</li>
+                        <li>Apapa</li>
+                        <li>Lagos Island</li>
+                        <li>Epe</li>
+                        <li>Ibeju-Lekki</li>
+                    </ul>
+                </div>
+                <div style="height: 50px; margin: auto;">
+                    <input type="submit" style="height: 50px; width: 300px; color: white;
+                    background-color: #0056b3;" value="Apply">
+                </div>
+            </div>       
+        </div>
+
+
+    <!-- filter display by house type -->
+        <div class="display-housetype-slideup-container" id="display-housetype-slideup-container">
+            <div id="display-housetypefilter-slideup" class="display-housetypefilter-slideup">  
+                <span id="close-housetype-display" class="close-housetype-display">&times;</span>   
+                <div style="display: flex; justify-content: center; height: 100px; line-height: 100px;">Choose one or more</div>       
+                <div style="margin-left: 10px; border-bottom: 2px solid gray;">
+                    <div style="display: flex; height: 50px; align-items: center;">
+                        <input type="checkbox" id="landsizeprice-checkbox-userrent" style="width: 18px; height: 18px;">
+                        <label for="landsizeprice-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
+                            line-height: 50px;">Price</label>                    
+                    </div>
+
+                    <div style="display: none; gap: 25px; margin-left: 10px;" id="landsize-pricemax-min-userrent">
+                        <div style="position: relative;">
+                            <input autocomplete="off" placeholder="Above" type="number"
+                                class="maxmin-landsizeinput-userrent"
+                                style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
+                                box-sizing: border-box;">
+                            <div style="position: absolute; top: 10px; left: 10px;"
+                                class="landsize-maxmin-text-userrent">Above</div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <input autocomplete="off" placeholder="Below" type="number"
+                                class="maxmin-landsizeinput-userrent"
+                                style="width: 150px; height: 50px; padding-left: 8px; padding-top: 15px; outline: none;
+                                box-sizing: border-box;">
+                            <div style="position: absolute; top: 10px; left: 10px;"
+                                class="landsize-maxmin-text-userrent">Below</div>
+                        </div>                
+                    </div>
+                </div>
+   
+                <div style="margin-left: 10px; border-bottom: 2px solid gray;">
+                    <div style="display: flex; align-items: center; height: 50px;">
+                        <input type="checkbox" id="landsize-checkbox-userrent" style="width: 18px; height: 18px;">
+                        <label for="landsize-checkbox-userrent" style="width: 100%; padding-left: 15px; height: 50px;
+                            line-height: 50px;">Category</label>
+                    </div>
+                    <ul style="display: none; width: 250px; overflow: scroll; margin-left: 10px; border: 2px solid black;"
+                        id="landsize-list-userrent" class="housetype-list-userrent">
+                        <li>One acre</li>
+                        <li>Two acre</li>
+                        <li>Three acre</li>
+                        <li>One plot</li>
+                        <li>Two plots</li>
+                        <li>Three plots</li>
+                        <li>Four plots</li>
+                        <li>Five plots</li>
+                    </ul>
+                </div>
+                <div style="height: 50px; margin: auto;">
+                    <input type="submit" style="height: 50px; width: 300px; color: white;
+                    background-color: #0056b3;" value="Apply">
+                </div>
+            </div>       
+        </div>
+
+        
+            <div style="display: flex; gap: 5px; margin: auto; margin-top: 20px;">
+                <div style="flex: 10%; height: 30px; background-color: black; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('1')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; width: 100%; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 15px; text-align: center;">house</i>
+                        <div>One acre</div>
+                    </div>
+                </div>
+            
+                <div style="flex: 10%; height: 30px; background-color: black; margin-left: 10px; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('2')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Two acres</div>
+                    </div>
+                </div>
+            
+                <div style="flex: 10%; height: 30px; background-color: black; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('3')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Three acres</div>
+                    </div>
+                </div>
+
+                <div style="flex: 10%; height: 30px; background-color: black; margin-left: 10px; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('4')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>One plot</div>
+                    </div>
+                </div>
+            
+                <div style="flex: 10%; height: 30px; background-color: black; position: relative;
+                border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('5')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Two plots</div>
+                    </div>
+                </div>
+
+                <div style="flex: 10%; height: 30px; background-color: black; margin-left: 10px; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('6')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Three plots</div>
+                    </div>
+                </div>
+
+                <div style="flex: 10%; height: 30px; background-color: black; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('7')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Four plots</div>
+                    </div>
+                </div>
+                <div style="flex: 10%; height: 30px; background-color: black; margin-left: 10px; position: relative;
+                    border: 1px solid lightslategray; border-radius: 15px;" onclick="displaylandsInCategory('8')">
+                    <div style="position: absolute; left: 20px; display: flex; flex-direction: column;
+                        align-items: center; height: 30px; color: white;">
+                        <i class="material-icons" style="font-size: 20px; text-align: center;">house</i>
+                        <div>Five plots</div>
+                    </div>
+                </div>
+            </div>
+    
+
+    <!--0ne plot lands-->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; background-color: whitesmoke;"
+            class="landsin-each-landcategory">
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Femi properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black;
+                        text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Ikeja</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Kudo properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Lagos Island</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Goodland properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Alimosho</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        </div>
+
+    <!-- Two plots lands -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; background-color: whitesmoke"
+            class="landsin-each-landcategory">
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">AZ properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black;
+                        text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Epe</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">QEvy properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Lagos Island</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">GOP properties</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex;">
+                    <div style="flex: 30%;">Ibeju-Lekki</div>
+                    <div style="flex: 30%; background-color: green;">View facilities</div> 
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        </div>      
+    </section>
+
+    <!-- filter by location -->
+    <section style="display: none;">
+        <div style="display: flex; align-items: center; height: 70px; width: 100%; margin-top: -10px;
+            background-color: #f7f2f2">
+            <div style="margin-left: 100px;"> < Location + price</div>
+        </div>
+        <ul class="homepage-land-filterby-location">
+            <li>Ajeromi-Ifelodun</li>
+            <li>Alimosho</li>
+            <li>Kosofe</li>
+            <li>Mushin</li>
+            <li>Oshodi-Isolo</li>
+            <li>OjoIkorodu</li>
+            <li>Surulere</li>
+            <li>Agege</li>
+            <li>Ifako-Ijaye</li>
+            <li>Somolu</li>
+            <li>Amuwo-Odofin</li>
+            <li>Lagos Mainland</li>
+            <li>Ikeja</li>
+            <li>Eti-Osa</li>
+            <li>Badagry</li>
+            <li>Apapa</li>
+            <li>Lagos Island</li>
+            <li>Epe</li>
+            <li>Ibeju-Lekki</li>
+        </ul>
+    </section>
+
+
+    <div class="homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="homepage" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="buyland" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="rent" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="houseitems" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="register-as.html" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+
+
+    
+
+    <script>
+        let landIndex = 1;
+        changeActiveLand(landIndex);
+
+        function displaylandsInCategory(n) {
+            // we will called the function changeActiveAns() below so that when it is declared further below,
+            // it will be executed within this function changeAnsDisplay()
+            changeActiveLand(landIndex = n);
+        }
+
+        function changeActiveLand(n) {
+            let i;
+            let landsinCategory = document.getElementsByClassName("landsin-each-landcategory");
+            // change all the slides display to none
+            for (i=0; i < landsinCategory.length; i++) {
+                landsinCategory[i].style.display = 'none';
+            }
+            // this is the slide that gets displayed. since indexing starts from 0, to get the slides
+            // index will have to remove one from the values(1,2 or 3) they are passing in. so then we 
+            // change the visibility of that slide back to visible. of which this will also make the first
+            // slide a default display because AnsSlideIndex will be 1, 1-1 = 0
+            landsinCategory[landIndex-1].style.display = 'flex';
+
+            // updateParentHeight(landsinCategory[i].parentElement);   
+        }
+        // this function will be called above
+        // function updateParentHeight(container) {
+        //     // reset height for measurement
+        //     container.style.height = 'auto';
+        //     // calculate needed height based on visible children
+        //     let maxHeight = 0;
+        //     const children = container.children;
+
+        //     for (let i = 0; i<children.length; i++) {
+        //         const child = children[i];
+        //         if (child.style.display !== 'none') {
+        //             const childBottom = child.offsetTop + child.offsetHeight;
+        //             maxHeight = Math.max(maxHeight, childBottom);
+        //         }
+        //     }
+        //     const padding = 50;
+        //     maxHeight += padding;
+
+        //     container.style.height = maxHeight + 'px';
+        // }
+
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+        // first of all, remove the two filter slide ups from view. they already have height: 0
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterDisplay = document.getElementById("display-location-slideup-container");
+            filterDisplay.style.overflow = 'hidden';
+        });
+
+               // --------------------------------------------------------------------
+
+        function displayFilterSlideup(filterId) {
+            const filterDisplay = document.getElementById(filterId);
+            const closeFilterDisplay = document.getElementById("close-filter-display");
+
+            const bodyUserrent = document.getElementById("body-filterland");
+
+            // calculate the officiial height of the document here
+
+            // when the document loads, the original class moves it 100px below its normal position
+            // and with the help of display:none, its not displayed at all. But when the filter is clicked,
+            // the class below with translatey(0) and display: flex comes on,
+            
+            filterDisplay.classList.add('active');
+            // return to css default overflow to be able to scroll
+            filterDisplay.style.overflow = '';
+            // use this function below to add an interval for the transition in the classList above
+            requestAnimationFrame(() => {
+                // housetypeFilterDisplay.classList.add('active');
+                bodyUserrent.style.height = "90vh";
+                bodyUserrent.style.overflow = "hidden";                
+            });
+       
+            document.addEventListener('wheel', preventDefaultScrolling, {passive: false});
+            document.addEventListener('touchmove', preventDefaultScrolling, {passive: false});
+            document.addEventListener('keydown', preventScrollKeys);
+            
+            closeFilterDisplay.addEventListener('click', function() {
+                filterDisplay.classList.remove('active');  
+                // now very importants, change the properties below after the classList/transition
+                //  has been removed not simultaneously
+                filterDisplay.addEventListener('transitionend', function hideOverflow() {
+                    filterDisplay.style.overflow = 'hidden';
+                    bodyUserrent.style.height = "auto";
+                    bodyUserrent.style.overflow = "hidden";
+                    filterDisplay.removeEventListener('transitionend', hideOverflow);
+                }, {once: true});   
+                
+
+                document.removeEventListener('wheel', preventDefaultScrolling, {passive: false});
+                document.removeEventListener('touchmove', preventDefaultScrolling, {passive: false});
+                document.removeEventListener('keydown', preventScrollKeys);     
+            });
+        }
+        function preventDefaultScrolling(e) {
+            const filterSlideup = document.getElementById("display-filter-slideup");
+            // dont prevent scroll on the filter display, and let it not scroll past its height
+            // because the entire document will begin to scroll
+            if (e.target === filterSlideup || filterSlideup.contains(e.target)) {
+                if (filterSlideup.scrollHeight > filterSlideup.clientHeight) {
+                    return;
+                }
+            }
+            // then disable other parts of the document
+            e.preventDefault();
+            return false;
+        }
+        // prevent scrolling with  arrow/space keys
+        function preventScrollKeys(e) {
+            const filterSlideup = document.getElementById("display-filter-slideup");
+            
+            if (e.target === filterSlideup || filterSlideup.contains(e.target)) {
+                if (filterSlideup.scrollHeight > filterSlideup.clientHeight) {
+                    return;
+                }
+            }
+            // Space: 32, PageUp: 33, PageDown: 34, End: 35, Home: 36, Left: 37, Up: 38, Right: 39, Down: 40
+            const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+            if (keys.includes(e.keyCode)) {
+                return false;
+            }
+        }
+
+
+        // -----------------------------------------------------------------------
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const openPricemaxMin = document.getElementById("landagent-locationsprice-checkbox-userrent");
+            const pricemaxMin = document.getElementById("landlocation-pricemax-min");
+
+            openPricemaxMin.addEventListener('change', function() {
+                if (pricemaxMin.style.display === 'none') {
+                pricemaxMin.style.display = 'flex';
+                } else {
+                    pricemaxMin.style.display = 'none';
+                }
+        
+            }); 
+            const aboveInputUserrent = document.getElementsByClassName("landagent-maxmin-input-userrent");
+            const aboveTextDisplay = document.getElementsByClassName("landagent-maxmin-text-userrent");
+        
+            for (let i=0; i<aboveInputUserrent.length; i++) {
+                let placeHold = '';
+                aboveInputUserrent[i].addEventListener('focus', function() {
+                    placeHold = '';
+                    placeHold += this.placeholder;
+                    this.placeholder = '';
+                    aboveTextDisplay[i].classList.add("showabove");
+                });
+                aboveInputUserrent[i].addEventListener('blur', function() {
+                    
+                    if(!this.value) {
+                        this.placeholder = '';
+                        aboveTextDisplay[i].classList.remove("showabove");            
+                        this.placeholder = placeHold;
+                        placeHold = '';
+                    } else {
+                        aboveTextDisplay[i].classList.remove("showabove");
+                    }           
+                });  
+            } 
+            
+            
+
+                // -----------------------------------------------------------------------
+
+            const locationCheckboxUserrent = document.getElementById("landagent-location-checkbox-userrent"); 
+            const locationListUserrent = document.getElementById("landagent-location-list-userrent");
+            locationCheckboxUserrent.addEventListener('change', function() {
+                if (locationListUserrent.style.display === 'none') {
+                    locationListUserrent.style.display = 'inline';
+                } else {
+                    locationListUserrent.style.display = 'none';
+                }
+            });
+        });
+
+        
+    // ------------------------------------------------------------------------------------------------------------
+        
+        // firstly, remove the two filter slide ups from view. they already have height: 0
+        document.addEventListener('DOMContentLoaded', function() {
+            const housetypeDisplay = document.getElementById("display-housetype-slideup-container");
+            housetypeDisplay.style.overflow = 'hidden';
+        });
+
+        // const rentCategory = document.getElementById("rent-category");
+        // const housetypeFilterDisplay = document.getElementById("display-housetype-slideup-container");
+        function displayHousetypeSlideup(filterId) {
+            const housetypeFilterDisplay = document.getElementById(filterId)
+            const closeHousetypeDisplay = document.getElementById("close-housetype-display");
+
+            const bodyUserrent = document.getElementById("body-filterland");
+
+            // when the document loads, the original class moves it 100px below its normal position
+            // and with the help of display:none, its not displayed at all. But when the filter is clicked,
+            // the class below with translatey(0) and display: flex comes on,
+
+            housetypeFilterDisplay.classList.add('active');
+            // return to css default overflow
+            bodyUserrent.style.overflow = '';
+            // use this function below to add an interval for the transition in the classList above
+            requestAnimationFrame(() => {
+                // housetypeFilterDisplay.classList.add('active');
+                bodyUserrent.style.height = "90vh";
+                bodyUserrent.style.overflow = "hidden";                
+            });
+
+            document.addEventListener('wheel', preventDefaultScrollingTwo, {passive: false});
+            document.addEventListener('touchmove', preventDefaultScrollingTwo, {passive: false});
+            document.addEventListener('keydown', preventScrollKeysTwo);
+
+            closeHousetypeDisplay.addEventListener('click', function() {              
+                housetypeFilterDisplay.classList.remove('active'); 
+                // now very important, chnage the properties below after the classList/transition 
+                // has been removed not simultaneously
+                housetypeFilterDisplay.addEventListener('transitionend', function hidehouseOverflow() {
+                    housetypeFilterDisplay.style.overflow = 'hidden';
+                    bodyUserrent.style.height = "auto";
+                    bodyUserrent.style.overflow = "hidden";
+                    housetypeFilterDisplay.removeEventListener('transitionend', hidehouseOverflow);
+                }, {once: true});
+                    
+                document.removeEventListener('wheel', preventDefaultScrollingTwo, {passive: false});
+                document.removeEventListener('touchmove', preventDefaultScrollingTwo, {passive: false});
+                document.removeEventListener('keydown', preventScrollKeysTwo);                     
+            });
+        };
+        function preventDefaultScrollingTwo(e) {
+            const housetypeFilterSlideup = document.getElementById("display-housetypefilter-slideup");
+            // dont prevent scroll on the filter display, and let it not scroll past its height
+            // because the entire document will begin to scroll
+            if (e.target === housetypeFilterSlideup || housetypeFilterSlideup.contains(e.target)) {
+                if (housetypeFilterSlideup.scrollHeight > housetypeFilterSlideup.clientHeight) {
+                    return;
+                }
+            }
+            // then disable other parts of the document
+            e.preventDefault();
+            return false;
+        }
+        // prevent scrolling with  arrow/space keys
+        function preventScrollKeysTwo(e) {
+            const housetypeFilterSlideup = document.getElementById("display-housetypefilter-slideup");
+            
+            if (e.target === housetypeFilterSlideup || housetypeFilterSlideup.contains(e.target)) {
+                if (housetypeFilterSlideup.scrollHeight > housetypeFilterSlideup.clientHeight) {
+                    return;
+                }
+            }
+            // Space: 32, PageUp: 33, PageDown: 34, End: 35, Home: 36, Left: 37, Up: 38, Right: 39, Down: 40
+            const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+            if (keys.includes(e.keyCode)) {
+                // if (housetypeFilterSlideup.scrollHeight > housetypeFilterSlideup.clientHeight) {
+                //     return;
+                // }
+                return false;
+            }
+        }
+
+
+            // -----------------------------------------------------------------------
+
+        document.addEventListener('DOMContentLoaded', function() { 
+            const openPricemaxMin = document.getElementById("landsizeprice-checkbox-userrent");
+            const pricemaxMin = document.getElementById("landsize-pricemax-min-userrent");
+
+            openPricemaxMin.addEventListener('change', function() {
+                if (pricemaxMin.style.display === 'none') {
+                pricemaxMin.style.display = 'flex';
+                } else {
+                    pricemaxMin.style.display = 'none';
+                }
+        
+            }); 
+            const aboveInputUserrent = document.getElementsByClassName("maxmin-landsizeinput-userrent");
+            const aboveTextDisplay = document.getElementsByClassName("landsize-maxmin-text-userrent");
+        
+            for (let i=0; i<aboveInputUserrent.length; i++) {
+                let placeHold = '';
+                aboveInputUserrent[i].addEventListener('focus', function() {
+                    placeHold = '';
+                    placeHold += this.placeholder;
+                    this.placeholder = '';
+                    aboveTextDisplay[i].classList.add("showabove");
+                });
+                aboveInputUserrent[i].addEventListener('blur', function() {
+                    
+                    if(!this.value) {
+                        this.placeholder = '';
+                        aboveTextDisplay[i].classList.remove("showabove");            
+                        this.placeholder = placeHold;
+                        placeHold = '';
+                    } else {
+                        aboveTextDisplay[i].classList.remove("showabove");
+                    }           
+                });  
+            }  
+            
+            
+                // -----------------------------------------------------------------------
+
+            const locationCheckboxUserrent = document.getElementById("landsize-checkbox-userrent"); 
+            const locationListUserrent = document.getElementById("landsize-list-userrent");
+            locationCheckboxUserrent.addEventListener('change', function() {
+                if (locationListUserrent.style.display === 'none') {
+                    locationListUserrent.style.display = 'inline';
+                } else {
+                    locationListUserrent.style.display = 'none';
+                }
+            });
+        });
+
+
+    </script>
+
+{% endblock %}

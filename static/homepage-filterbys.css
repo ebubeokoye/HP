@@ -1,0 +1,33 @@
+.homepage-land-filterby-location {
+    width: 500px;
+    margin: auto;
+    background-color: black;
+    color: white;
+}
+.homepage-land-filterby-location li {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid grey;
+    list-style-type: none;
+}
+.landagent-maxmin-text-userrent
+{
+    font-size: 0;
+    transform: translateY(10px);
+    transition: transform 0.2s ease-in-out;
+}
+.landagent-maxmin-text-userrent.showabove {
+    font-size: 15px;
+    transform: translateY(0);
+}
+
+.landsize-maxmin-text-userrent
+{
+    font-size: 0;
+    transform: translateY(10px);
+    transition: transform 0.2s ease-in-out;
+}
+.landsize-maxmin-text-userrent.showabove {
+    font-size: 15px;
+    transform: translateY(0);
+}

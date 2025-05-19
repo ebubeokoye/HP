@@ -123,6 +123,14 @@ def user_allcategories_nav():
 def useraccount(): 
     return render_template("user-account.html")
 
+@app.route("/user_filterby_for_landagents")
+def user_filterby_for_landagents(): 
+    return render_template("user-filterby-for-landagents.html")
+
+@app.route("/user_filterby_for_houseagents")
+def user_filterby_for_houseagents(): 
+    return render_template("user-filterby-for-houseagents.html")
+
 # this section is for the land agent
 
 @app.route("/land_agent_homepage", methods=["GET", "POST"])
