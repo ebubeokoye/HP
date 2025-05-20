@@ -83,7 +83,7 @@
         </div>
 
         <div class="homepage-container-land" id="hide-scrollbars-homepage">
-            <p style="margin-left: 70px;">Land near you</p>
+            <p style="margin-left: 70px;">Featured Land Agents</p>
             <div class="homepage-boxes-container-land">
                 <div class="homepage-box-land">
                     <img src="{{url_for ('static', filename='land-icon.jpg') }}"
@@ -171,7 +171,7 @@
         </div>
 
         <div class="homepage-container-rent" id="hide-scrollbars-homepage">
-            <p style="margin-left: 70px;">Apartments near you</p>
+            <p style="margin-left: 70px;">Featured home Agents</p>
             <div class="homepage-boxes-container-rent">
                 <div class="homepage-box-rent">
                     <img src="{{url_for ('static', filename='land-icon.jpg') }}"
@@ -259,7 +259,7 @@
         </div>
     
         <div class="homepage-container-vendors" id="hide-scrollbars-homepage">
-            <p style="margin-left: 70px;">Household vendors near you</p>
+            <p style="margin-left: 70px;">Featured vendors</p>
             <div class="homepage-boxes-container-vendors">
                 <div class="homepage-box-vendors">
                     <img src="{{url_for ('static', filename='land-icon.jpg') }}"
@@ -352,6 +352,67 @@
                     </div>
                 </div> 
             </a>
+        </div>
+
+        <!-- this is the list of all stores & agents within users geolocation whether on promo or not,
+         and this will be on the Page soon as the page opens -->            
+        <div style="display: flex; flex-direction: column; gap: 20px; background-color: whitesmoke;
+        padding-top: 5px; margin-top: 10px;">
+            <div style="width: 350px; margin: auto; font-size: 20px;">All for your location</div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Blenco supermarket</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black;
+                        text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                    <div style="flex: 5%;">From</div>
+                    <div style="flex: 20%; margin-left: -5px; border-right: 2px solid rgba(175, 173, 173, 0.847);"> N850</div>
+                    <div style="flex: 35%;">30-40mins</div>
+                    <div style="flex: 20%;"> Open</div>
+                    <div style="flex: 20%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Chekas homes</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                    <div style="flex: 30%;">A room self con</div>
+                    <div style="flex: 30%;"> N1,000,000</div>
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="rent-pg1-samples-container1">
+                <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                <div style="display: flex;">
+                    <div style="flex: 80%;">Goodland minimart</div>
+                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                    <div style="flex: 30%;">Three acres</div>
+                    <div style="flex: 30%;"> N13,000,000</div>
+                    <div style="flex: 30%;">
+                        <div style="display: flex; gap: 2px;">
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                            <div style="flex: 80%;">4.2(200)</div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
         </div>
 
 
