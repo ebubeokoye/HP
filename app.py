@@ -107,6 +107,7 @@ def all_houseagents_from_userlocation():
 def all_landagents_from_userlocation():
     return render_template("all-landagents-from-userlocation.html")
 
+# user navigations after registration
 @app.route("/rent")
 def rent(): 
     return render_template("user-rent.html")
@@ -115,9 +116,13 @@ def rent():
 def user_vendors(): 
     return render_template("user-buyvendors.html")
 
-@app.route("/user_allcategories_nav")
+@app.route("/user_land_house_nav3")
+def user_land_house_nav3(): 
+    return render_template("user-land-house-nav3.html")
+
+@app.route("/user_vendorsearch_nav")
 def user_allcategories_nav(): 
-    return render_template("user-all-vendor-agents-categoriesnav.html")
+    return render_template("user-vendorsearch-nav.html")
 
 @app.route("/user-account")
 def useraccount(): 

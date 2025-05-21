@@ -130,3 +130,15 @@
     margin-top: 5px;
     border-radius: 15px;
 }
+
+/* VENDOR SECTION */
+/* remove clear button in chrome */
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+/* remove clear button in chrome  */
+input[type="search"]::-ms-clear {
+    display: none;
+    width: o;
+    height: 0;
+}

@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <div>
+        <div style="position: relative; width: 500px; height: 50px; margin: auto; margin-top: 35px;">
+            <input autocomplete="off" type="search" placeholder="Vendor, item eg Air conditioner, pots, bed" 
+                style="width: 500px; height: 50px; border-radius: 15px; background-color: #dcdada;"
+            id="user-buyvendor-searchinput">
+            <span style="position: absolute; right: 10px; top: 50%; width: 35px; height: 35px;
+                display: flex; align-items: center; justify-content: center; transform: translateY(-50%);"
+                id="container-close-search">
+                <span id="close-filter-display" class="close-filter-display">&times;</span>   
+            </span>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 20px; width: 700px; margin: auto;
+            margin-top: 40px;">
+            <div style="font-size: 25px;">Buy house items</div>
+            <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                <div style="width: 30%; height: 50px; background-color: yellow;">
+                    <div>Kitchen items</div>
+                </div>
+                <div style="width: 30%; height: 50px; background-color: green;">
+                    <div>Electronics</div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                <div style="width: 30%; height: 50px; background-color: pink;">
+                    <div>Living room</div>
+                </div>
+                <div style="width: 30%; height: 50px; background-color: blueviolet;">
+                    <div>furnitures</div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                <div style="width: 30%; height: 50px; background-color: bisque;">
+                    <div>Curtains, rails</div>
+                </div>
+                <div style="width: 30%; height: 50px; background-color: brown;">
+                    <div>Beddings</div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                <div style="width: 30%; height: 50px; background-color: bisque;">
+                    <div>Interior Decor</div>
+                </div>
+                <div style="width: 30%; height: 50px; background-color: brown;">
+                    <div>Arts</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="homepage" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="buyland" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="rent" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="houseitems" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="register-as.html" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+
+{% endblock %}

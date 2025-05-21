@@ -1,0 +1,270 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div>
+        <div>
+            <div style="display: flex; gap: 15px; justify-content: center; align-items: center;">
+                <div class="rent-location" onclick="displayFilterSlideup('display-location-slideup-container')">
+                    <div class="user-rent-pg1-filterby-redirect">
+                        Land
+                    </div>
+                </div>
+                <!-- it takes the user to a new page -->
+                <div class="rent-category" id="rent-category" onclick="displayHousetypeSlideup('display-housetype-slideup-container')">
+                    <div class="user-rent-pg1-filterby-redirect">
+                        Home
+                    </div>
+                </div>
+            </div>
+
+            <!-- this appears when land button is clicked -->
+            <div style="display: flex; flex-direction: column; gap: 20px; width: 700px; margin: auto; margin-top: 30px;">
+                <div style="display: flex; gap: 20px; width: 100%; height: 50px;">
+                    <input type="search" placeholder="Search by Area, Estate, or" style="flex: 60%; height: 100%;">
+                    <div style="position: relative; flex: 30%; height: 100%; border: 1px solid olive;
+                        padding: 10px; box-sizing: border-box;">
+                        <div style="display: flex; align-items: center; width: 100%;
+                            height: 100%;" class="texts-above-dropdowns">
+                            <div style="flex: 80%;">
+                                <div>Land size</div>
+                            </div>
+                            <div style="flex: 20%; justify-self: flex-end; justify-items: flex-end;">
+                                <div>v</div>
+                            </div>
+                        </div>  
+                        <div style=" height: 200px;" class="dropdowns-to-sort-by">
+                            <ul>
+                                <li>One plot</li>
+                                <li>Two plots</li>
+                                <li>Two plots</li>
+                                <li>One acre</li>
+                                <li>Two acres</li>
+                                <li>Three acres</li>
+                                <li>Four acres</li>
+                                <li>Five acres</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 20px; width: 100%; height: 50px;">
+                    <div style="position: relative; flex: 40%; height: 100%; border: 1px solid olive;
+                        padding: 10px; box-sizing: border-box;">
+                        <div style="display: flex; align-items: center; width: 100%;
+                            height: 100%;" class="texts-above-dropdowns">
+                            <div style="flex: 80%;">
+                                <div>Sort</div>
+                            </div>
+                            <div style="flex: 20%; justify-self: flex-end; justify-items: flex-end;">
+                                <div>v</div>
+                            </div>
+                        </div>  
+                        <div style="height: 200px;" class="dropdowns-to-sort-by">
+                            <ul>
+                                <li>Most Recent</li>
+                                <li>Lowest price</li>
+                                <li>Highest price</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="position: relative; flex: 40%; height: 100%; border: 1px solid olive;
+                        padding: 10px; box-sizing: border-box;">
+                        <div style="display: flex; align-items: center; width: 100%;
+                            height: 100%;" class="texts-above-dropdowns">
+                            <div style="flex: 80%;">
+                                <div>Agent type</div>
+                            </div>
+                            <div style="flex: 20%; justify-self: flex-end; justify-items: flex-end;">
+                                <div>v</div>
+                            </div>
+                        </div>  
+                        <div class="dropdowns-to-sort-by" style="height: 200px;">
+                            <ul>
+                                <li>Most rated</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="display: flex; gap: 20px; width: 100%; height: 50px;">
+                    <div style="position: relative; flex: 40%; height: 100%; border: 1px solid olive;
+                        padding: 10px; box-sizing: border-box;">
+                        <div style="display: flex; align-items: center; width: 100%;
+                            height: 100%;" class="texts-above-dropdowns">
+                            <div style="flex: 80%;">
+                                <div>Min. Price</div>
+                            </div>
+                            <div style="flex: 20%; justify-self: flex-end; justify-items: flex-end;">
+                                <div>v</div>
+                            </div>
+                        </div>  
+                        <div style="height: 200px; overflow: scroll;" class="dropdowns-to-sort-by">
+                            <ul>
+                                <li>500,000</li>
+                                <li>600,000</li>
+                                <li>700,000</li>
+                                <li>800,000</li>
+                                <li>900,000</li>
+                                <li>1,000,000</li>
+                                <li>3,000,000</li>
+                                <li>5,000,000</li>
+                                <li>7,000,000</li>
+                                <li>10,000,000</li>
+                                <li>20,000,000</li>
+                                <li>40,000,000</li>
+                                <li>50,000,000</li>
+                                <li>100,000,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="position: relative; flex: 40%; height: 100%; border: 1px solid olive;
+                        padding: 10px; box-sizing: border-box;">
+                        <div style="display: flex; align-items: center; width: 100%;
+                            height: 100%;" class="texts-above-dropdowns">
+                            <div style="flex: 80%;">
+                                <div>Max. Price</div>
+                            </div>
+                            <div style="flex: 20%; justify-self: flex-end; justify-items: flex-end;">
+                                <div>v</div>
+                            </div>
+                        </div>  
+                        <div style="height: 200px; overflow: scroll;" class="dropdowns-to-sort-by">
+                            <ul>
+                                <li>1,000,000</li>
+                                <li>2,000,000</li>
+                                <li>3,000,000</li>
+                                <li>4,000,000</li>
+                                <li>5,000,000</li>
+                                <li>10,000,000</li>
+                                <li>20,000,000</li>
+                                <li>30,000,000</li>
+                                <li>40,000,000</li>
+                                <li>50,000,000</li>
+                                <li>100,000,000</li>
+                                <li>200,000,000</li>
+                                <li>500,000,000</li>
+                                <li>1,000,000,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 500px; height: 50px; border-radius: 15px; margin: auto; margin-top: 20px;">
+                    <input value="Search" style="width: 500px; height: 50px; border-radius: 15px;
+                        background-color: #0056b3;">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 30px; background-color: rgb(235, 234, 234); width: 700px; margin: auto;
+                margin-top: 120px;">
+                <div style="flex: 20%; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="width: 80px; height: 100px; border-radius: 20px; background-color: greenyellow;"></div>
+                    <div>Recent</div>
+                </div>
+                <div style="flex: 20%; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="width: 80px; height: 100px; border-radius: 20px; background-color: red"></div>
+                    <div>New Projects</div>
+                </div>
+                <div style="flex: 20%; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="width: 80px; height: 100px; border-radius: 20px; background-color: greenyellow;"></div>
+                    <div>Luxury</div>
+                </div>           
+            </div>
+            <div style="display: flex; flex-direction: column; width: 300px; margin: auto; margin-top: 40px;"
+            class="recent-search-homelandnav">
+                <div>
+                    <div>Recent search</div>
+                </div>
+                <div>
+                    <div>Surulere</div>
+                </div>
+                <div>
+                    <div>Magodo</div>
+                </div>
+                <div>
+                    <div>Yaba</div>
+                </div>
+            </div>
+
+            <!-- this will be on the page initially -->
+            <div style="margin-left: 100px; margin-top: 60px;">
+                <div style="font-size: 20px;">Featured Estates</div>
+                    <div style="display: flex; gap: 20px; background-color: whitesmoke;
+                    padding-top: 5px; margin-top: 10px;">       
+                    <div class="rent-pg1-samples-container1">
+                        <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                        <div style="display: flex;">
+                            <div style="flex: 80%;">Fig Estate</div>
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                            <div style="flex: 30%;">Three acres</div>
+                            <div style="flex: 30%;"> N13,000,000</div>
+                            <div style="flex: 30%;">
+                                <div style="display: flex; gap: 2px;">
+                                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                    <div style="flex: 80%;">4.2(200)</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="rent-pg1-samples-container1">
+                        <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                        <div style="display: flex;">
+                            <div style="flex: 80%;">Goodland properties</div>
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                            <div style="flex: 30%;">Three acres</div>
+                            <div style="flex: 30%;"> N13,000,000</div>
+                            <div style="flex: 30%;">
+                                <div style="display: flex; gap: 2px;">
+                                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                    <div style="flex: 80%;">4.2(200)</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="rent-pg1-samples-container1">
+                        <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+                        <div style="display: flex;">
+                            <div style="flex: 80%;">Goodland properties</div>
+                            <i class="material-icons" style="flex: 20%; font-size: 20px; color: black; text-align: center;">favorite</i>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 13px;">
+                            <div style="flex: 30%;">Three acres</div>
+                            <div style="flex: 30%;"> N13,000,000</div>
+                            <div style="flex: 30%;">
+                                <div style="display: flex; gap: 2px;">
+                                    <i class="material-icons" style="flex: 20%; font-size: 20px; color: yellow; text-align: center;">star</i>
+                                    <div style="flex: 80%;">4.2(200)</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const dropdownsForsorting = document.querySelectorAll(".dropdowns-to-sort-by");
+        const textsAboveDropdowns = document.getElementsByClassName("texts-above-dropdowns")
+        for (let i=0; i<textsAboveDropdowns.length; i++) {
+            textsAboveDropdowns[i].addEventListener('click', function() {
+                let dropdownsEach = this.nextElementSibling;
+                const dropdownisActive = dropdownsEach.classList.contains('activedropdown');
+                // on the first click, it closes all dropdowns including its own 
+                dropdownsForsorting.forEach(dropdownFilter => {
+                    dropdownFilter.classList.remove('activedropdown');
+                });
+                // but on a second click, it opens its own dropdown. if it clicks again, it closes all dropdown
+                //  including its own. And so on
+                if (!dropdownisActive) {
+                    dropdownsEach.classList.add('activedropdown');
+                }
+            });
+        }
+    </script>
+{% endblock %}
