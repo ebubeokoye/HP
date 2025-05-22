@@ -1,0 +1,6 @@
+.vendor-subcategories-display {
+    display: block;
+}
+.vendor-subcategories-display.inactivesubcatg {
+    display: none;
+}
