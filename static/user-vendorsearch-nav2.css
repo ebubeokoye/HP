@@ -4,3 +4,62 @@
 .vendor-subcategories-display.inactivesubcatg {
     display: none;
 }
+.flexDisplay  {
+    display: flex !important;
+}
+.blockDisplay  {
+    display: block !important;
+}
+/* #fullitem-img-slideshow  { */
+    /* width: calc(550px * 2); */
+    /* animation-name: itemsImgslideshow;
+    animation-duration: 10.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 3s; */
+/* } */
+/* @keyframes itemsImgslideshow
+{ */
+    /* there will be 2 pauses of 3s each and the two movements will take 0.5 s each. So total animation 
+    duration is 5+5+0.3+0.3 = 10.6s */
+    /* the % for 0.3s move: 10.6s = 100%, 0.3s = ? ie 2.83% */
+    /* 0% {margin-left: 0;}
+    2.83% {margin-left: -500px;} */
+    /* the % for 5s pause: 10.6s = 100%, 5s = ? ie 47.17% +(2.83%) */
+    /* 50% {margin-left: -500px;} */
+    /* the % for 0.3s move: 10.6s = 100%, 0.3s = ? ie 2.83% +(50%) */
+    /* 52.83% {margin-left: 0;} */
+    
+    /* pause at 0px for 5s */
+    /* 100% {margin-left: 0;}
+} */
+
+.lightbox-container {
+    max-width: 25%;
+    text-align: center;
+}
+.main-image {
+    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.thumbnail {
+    /* object-fit: cover; */
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border 0.3s ease;
+}
+.thumbnail:hover {
+    border: 1px solid #007bff;
+}
+.thumbnail.active {
+    border: 1px solid red;
+}
