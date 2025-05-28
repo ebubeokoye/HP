@@ -1,0 +1,32 @@
+.cartnoneDisplay {
+    display: none !important;
+}
+.item-counter-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 1px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    /* for safari */
+    -webkit-appearance: none;
+    /* for firefox */
+    -moz-appearance: none;
+}
+.item-counter-value {
+    border: none;
+    background: none;
+    color: black;
+    padding: 0;
+    width: 50px;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+    appearance: textfield;
+    /* for safari */
+    -webkit-appearance: textfield;
+    /* for firefox */
+    -moz-appearance: textfield;
+}

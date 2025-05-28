@@ -124,6 +124,10 @@ def user_land_house_nav3():
 def user_allcategories_nav(): 
     return render_template("user-vendorsearch-nav.html")
 
+@app.route("/user_cart_nav4")
+def user_cart_nav4(): 
+    return render_template("user-cart-nav4.html")
+
 @app.route("/user-account")
 def useraccount(): 
     return render_template("user-account.html")

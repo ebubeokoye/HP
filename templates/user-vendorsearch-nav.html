@@ -234,7 +234,7 @@
                 <div style="flex: 65%; margin-left: 100px;">< Ados Furniture</div>
                 <div style="flex: 10%; align-items: center; justify-items: flex-end;">
                     <span style="width: 30px; height: 30px; line-height: 30px; border-radius: 50%; border: 1px solid blue;">
-                        <i class="material-icons" style="justify-self: flex-end; font-size: 20px; color: black; text-align: center;">Share</i>
+                        <i class="material-icons" style="justify-self: flex-end; font-size: 20px; color: black; text-align: center;">share</i>
                     </span>
                 </div>
                 <div style="flex: 10%; align-items: center; justify-items: flex-end;">
@@ -244,7 +244,7 @@
                 </div>
                 <div style="flex: 10%; align-items: center; justify-items: flex-end;">
                     <span style="width: 30px; height: 30px; line-height: 30px; border-radius: 50%; border: 1px solid blue;">
-                        <i class="material-icons" style="justify-self: flex-end; font-size: 20px; color: black; text-align: center;">Search</i>
+                        <i class="material-icons" style="justify-self: flex-end; font-size: 20px; color: black; text-align: center;">search</i>
                     </span>
                 </div>
             </div>
@@ -441,10 +441,30 @@
             </div>
         </section>   
         
+        <!-- open light box for full display of item above -->
         <div style="display: none; width: 100%; background-color: rgb(244, 240, 240)" id="Items-fullimage-lightbox">
-            <div style="display: flex; align-items: center; width: 100%; height: 70px; margin-top: -10px;
-                border-bottom: 2px solid olive;">
-                <div style="margin-left: 100px;">Details</div>
+            <div style="display: flex; align-items: center; gap: 10px; width: 100%; height: 70px; margin-top: -10px;
+                border-bottom: 2px solid olive; background-color: white;">
+                <nav class="navbar">
+                    <button class="hamburger" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li>Kitchen items</li>
+                        <li>Electronics</li>
+                        <li>Living room aesthetics</li>
+                        <li>Furniture</li>
+                        <li>Curtains, rails</li>
+                        <li>Bedding</li>
+                        <li>Interior decor</li>
+                        <li>Art, craft</li>
+                    </ul>
+                </nav>
+                <div style="flex: 70%; justify-self: flex-start;">< Details</div>
+                <i class="material-icons" style="flex: 10%; font-size: 30px; color: black; text-align: center;">search</i>
+                <i class="material-icons" style="flex: 10%; font-size: 30px; color: red; text-align: center;">shop</i>
             </div>
             <div style="width: 90%; margin: auto; border-radius: 15px; margin-top: 20px;
                 display: flex; gap: 20px;"> 
@@ -471,30 +491,38 @@
                 <div style="flex: 40%; max-width: 40%; display: flex; flex-direction: column; border-radius: 15px;
                     background-color: white;">
                     <div style="width: 100%; height: 50px;">
-                    <div>N6,800</div>
+                        <div>N6,800</div>
                     </div>
-                    <div style="width: 100%; height: 80px;">
-                        <div style="display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-                        overflow: hidden; word-break: keep-all; text-overflow: ellipsis;">
-                        Add a description for the itemwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww)</div>
+                    <div style="max-width: 100%;">
+                        <div style="max-width: 100%; overflow-wrap: break-word; font-size: 30px;">
+                            Item name</div>
                     </div>
                     <div style="width: 90%; margin: auto; height: 50px; display: flex; align-items: center;
                         justify-content: center; background-color: gold; color: black">
                         <div>Add To Cart</div>
                     </div> 
                 </div>
+            </div>  
+            <div style="width: 80%; margin: auto; display: flex; flex-direction: column; background-color: white;
+                margin-top: 20px;">
+                <div style="width: 100%; height: 50px; display: flex; align-items: center;
+                    border-bottom: 1px solid olive;">
+                    <div>Product details</div>
+                </div>
+                <div style="width: 100%; height: 200px;">
+                    <div>Description:</div>
+                    <div>Add a description for the itemwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww)</div>
+                </div>
+                <div style="width: 100%; height: 200px;">
+                    <div>Specifications:</div>
+                    <div>Add specification for the itemwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww)</div>
+                </div>
             </div>
-            
-            
         </div>
     </div>
 
-    
-        <!-- open light box for full display of item above -->
-    
 
-
-    <div class="homepage-navlist-container">
+    <div class="homepage-navlist-container" id="homepage-navlist-container">
         <div class="user-homepage-navlist-subdiv">
             <a href="homepage" class="user-homepage-navlist-link">
                 <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
@@ -545,11 +573,13 @@
 
         const ItemsFullimage = document.getElementById("Items-fullimage-lightbox");
         const storesItemsArrangement = document.getElementById("stores-items-arrangement");
+        const homepageNavlist = document.getElementById("homepage-navlist-container");
         function openFullImage() {
             if (storesItemsArrangement.classList.contains("flexDisplay")) {
                 storesItemsArrangement.classList.remove("flexDisplay");
             }
-            ItemsFullimage.classList.add("blockDisplay");
+            ItemsFullimage.classList.add("blockDisplay"); 
+            homepageNavlist.classList.add("noneDisplay");         
         }
 
         // ----------------------------------------------------------------------------------------------------------
@@ -569,6 +599,24 @@
             thumbnails[0].classList.add('active');
         });
 
+
+        // -------------------------------------------------------------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            hamburger.addEventListener('mouseover', () => {
+                navMenu.classList.add('active');
+            });
+            hamburger.addEventListener('mouseout', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+       
     </script>
 
 {% endblock %}

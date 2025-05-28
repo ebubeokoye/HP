@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div>
+        <section style="width: 100%;" id="all-orders-incart">
+            <div style="display: flex; align-items: center; gap: 10px; width: 100%; height: 70px;">
+                <div style="flex: 80%; margin-left: 100px;">< Orders</div>
+                <div style="flex: 10%; color: blue;">Clear Cart</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; width: 70%; margin: auto; height: 50px;
+                background-color: rgb(234, 234, 234); color: white;">
+                <div style="flex: 30%; max-width: 30%; height: 40px; background-color: black; display: flex;
+                align-items: center;">Shopping</div>
+                <div style="flex: 30%; max-width: 30%; height: 40px; display: flex;
+                align-items: center;">Ongoing</div>
+                <div style="flex: 30%; max-width: 30%; height: 40px; display: flex;
+                align-items: center;">Completed</div>
+            </div>
+    
+            <div style="display: flex; flex-direction: column; gap: 20px; width: 70%; margin: auto; padding: 15px;
+                box-sizing: border-box; border: 1px solid olive; border-radius: 15px; margin-top: 20px;">
+                <div style="display: flex; align-items: center; width: 100%; height: 60px; border-bottom: 1px solid olive;">
+                    <div style="flex: 15%; max-width: 15%; display: flex; align-items: center;">
+                        <img src="{{url_for ('static', filename='land-icon.jpg') }}" style="width: 50px; height: 50px;
+                        border-radius: 50%;">
+                    </div>
+                    <div style="flex: 60%; width: 20%; display: flex; flex-direction: column;">
+                        <div style="display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                            overflow: hidden; word-break: keep-all; text-overflow: ellipsis;">
+                            Ados furnitureooooooooooooooooooooooooooo</div>
+                        <div>5 items N105,000</div>
+                    </div>
+                    <div style="flex: 20%; justify-self: end;">View Selection V</div>
+                </div>
+    
+                <div style="width: 100%; display: flex; align-items: center; gap: 20px;">
+                    <i class="material-icons" style="flex: 10%; font-size: 20px; color: black; text-align: center;">bicycle</i>
+                    <div style="flex: 90%; word-break: normal;">
+                        Delivering to KLM10 qjmdnmssmdndne dsmss Iyana ibaja, Lagos, Nigeria</div>
+                </div>
+    
+                <div style="width: 100%; height: 50px; display: flex; justify-content: center; margin-top: 20px;">
+                    <input type="button" value="Checkout" style="width: 50%; height: 50px; background-color: gold;
+                    color: black; border-radius: 15px;" id="checkoutButton"> 
+                </div>
+                <div style="width: 90%; margin: auto; height: 50px; display: flex; align-items: center;
+                    justify-content: center; color: blue">
+                    <div>Clear Selection</div>
+                </div> 
+            </div>
+        </section>
+        
+
+        <section style="width: 100%;">
+            <div style="display: flex; align-items: center; gap: 10px; width: 100%; height: 70px;">
+                <div style="margin-left: 100px;">< Checkout</div>
+            </div>
+            
+            <section style="display: flex; flex-direction: column; gap: 20px; width: 70%; margin: auto; padding: 15px;
+                box-sizing: border-box; margin-top: 20px;">
+                <div style="display: flex; align-items: center; width: 100%; height: 50px;
+                    background-color: rgb(234, 234, 234);">
+                    <div style="margin-left: 70px;">Order Summary</div>
+                </div>
+                <div style="display: flex; align-items: center; width: 100%; height: 60px; border-bottom: 1px solid olive;">
+                    <div style="flex: 15%; max-width: 15%; display: flex; align-items: center;">
+                        <img src="{{url_for ('static', filename='land-icon.jpg') }}" style="width: 50px; height: 50px;
+                        border-radius: 50%;">
+                    </div>
+                    <div style="flex: 60%; width: 20%; display: flex; flex-direction: column;">
+                        <div style="display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                            overflow: hidden; word-break: keep-all; text-overflow: ellipsis;">
+                            Ados furnitureooooooooooooooooooooooooooo</div>
+                        <div>5 items</div>
+                    </div>
+                    <div style="flex: 20%; justify-self: end;" id="toggle-selection-display">Hide Selection V</div>
+                </div>
+
+                <!-- dropdown to view selected items in cart while on payment-->
+                <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"
+                    id="selected-items-dropdown">
+                    <div>Your Items</div>
+                    <div style="display: flex; gap: 10px; width: 100%;" class="counter-group">         
+                        <div style="flex: 70%; display: flex; flex-direction: column;">
+                            <div style="flex: 70%; display: flex; align-items: center;">
+                                <div>A set of Sofa</div>
+                            </div>
+                            <div>N67,000</div>
+                        </div>
+                        <div style="flex: 25%; display: flex; align-items: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; width: 100px;
+                                 height: 30px; border-radius: 15px; background-color: rgb(254, 250, 250)">
+                                <button class="item-counter-btn" onclick="changeValue(this, -1)"> - </button>
+                                <input type="number" class="item-counter-value" id="counter" value="1" readonly>
+                                <button class="item-counter-btn" onclick="changeValue(this, 1)"> + </button>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div style="display: flex; gap: 10px; width: 100%;" class="counter-group">         
+                        <div style="flex: 70%; display: flex; flex-direction: column;">
+                            <div style="flex: 70%; display: flex; align-items: center;">
+                                <div>A set of Wooden outdoor chairs</div>
+                            </div>
+                            <div>N186,000</div>
+                        </div>
+                        <div style="flex: 25%; display: flex; align-items: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; width: 100px;
+                                height: 30px; border-radius: 15px; background-color: rgb(254, 250, 250)">
+                                <button class="item-counter-btn" onclick="changeValue(this, -1)"> - </button>
+                                <input type="number" class="item-counter-value" id="counter" value="1" readonly>
+                                <button class="item-counter-btn" onclick="changeValue(this, 1)"> + </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div style="width: 100%; height: 50px; display: flex; justify-content: center; margin-top: 20px;">
+                    <input type="button" value="Make Payment" style="width: 50%; height: 50px; background-color: gold;
+                    color: black; border-radius: 15px;" id="checkoutButton"> 
+                </div>
+            </section>
+        </section>
+    </div>
+
+
+    <div class="homepage-navlist-container" id="homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="homepage" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="user_vendorsearch_nav" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="user_land_house_nav3" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="user_cart_nav4" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="register-as.html" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutButton = document.getElementById("checkoutButton");
+            const allOrdersIncart = document.getElementById("all-orders-incart");
+            const homepageNavlist = document.getElementById("homepage-navlist-container");
+            checkoutButton.addEventListener('click', () => {
+                allOrdersIncart.classList.add('cartnoneDisplay');
+                homepageNavlist.classList.add('cartnoneDisplay');
+            });
+
+            // --------------------------------------------------------------------------------------------------------
+
+            const toggleSelectionDisplay = document.getElementById("toggle-selection-display");
+            const selectedItemsDropdown = document.getElementById("selected-items-dropdown");
+            toggleSelectionDisplay.addEventListener('click', () => {
+                if (selectedItemsDropdown.classList.contains("cartnoneDisplay")) {
+                    selectedItemsDropdown.classList.remove("cartnoneDisplay");
+                    toggleSelectionDisplay.innerHTML = "Hide Selection V";
+                } else {
+                    selectedItemsDropdown.classList.add("cartnoneDisplay");
+                    toggleSelectionDisplay.innerHTML = "View Selection V";
+                }
+            });
+        });
+
+        // ------------------------------------------------------------------------------------------------------------
+
+
+        function changeValue(button, delta) { 
+            // let the parent element of the button clicked select its own input element
+            const counter = button.parentElement.querySelector(".item-counter-value");
+            // target the specific counter group that the clicked button belongs to
+            const removeFromCart = button.closest(".counter-group");
+            const itemsDropdown = button.closest("#selected-items-dropdown");
+            let value = parseInt(counter.value) || 0;
+            value += delta;
+            counter.value = value;
+
+            if (value === 0) {
+                removeFromCart.classList.add("cartnoneDisplay");
+            } else {
+                removeFromCart.classList.remove("cartnoneDisplay");
+            }
+            // check if all counter groups are hidden
+            const allGroups = itemsDropdown.querySelectorAll(".counter-group");
+            const allHidden = Array.from(allGroups).every(group => group.classList.contains("cartnoneDisplay"));
+            // hide the outer container if all groups are hidden
+            if (allHidden) {
+                itemsDropdown.classList.add("cartnoneDisplay");
+            } else {
+                itemsDropdown.classList.remove("cartnoneDisplay");
+            }
+        }
+    </script>
+{% endblock %}
