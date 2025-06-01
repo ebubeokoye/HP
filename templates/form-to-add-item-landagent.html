@@ -7,6 +7,12 @@
         <form action="agent_housing_listing" method="post" enctype="multipart/form-data"
             style="display: flex; flex-direction: column; gap: 40px; width: 630px; margin: auto;
                 border: 2px solid green;">
+                <div style="width: 620px; margin: auto;">
+                    <p>Property name</p>
+                    <!-- put a measure inplace here eg with javascript to make sure they dont type numbers -->
+                    <input autocomplete="off" name="property location" placeholder="eg., 5 bedroom bungalow" type="text" 
+                    class="house-agent-additem-input">
+                </div>
             <div style="width: 620px; margin: auto;">
                 <p>Category</p>
                 <select name="category" class="house-agent-additem-selectmenu">
@@ -110,10 +116,19 @@
                 <div id="error-message"></div>
             </div>
 
-            <div style="width: 620px; margin: auto;">
-                <p>Description</p>
-                <!-- edit to allow numbers and texts -->
-                <input autocomplete="off" name="property location" type="text"  class="house-agent-additem-input">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%;
+                margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
+                <label for="vendor-item-features" class="for">Key Features (let each be on a new line.)</label>
+                <textarea rows="5" placeholder="eg., -Landmark, -Desirable neighbourhood, -water access, -Infrastructure, -access to transport etc"
+                id="vendor-item-features" style="height: 200px; resize: none;"
+                    class="house-agent-additem-input"></textarea>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%;
+                margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
+                <label for="land-item-description" class="for">More Description (lengthier sentences.)</label>
+                <textarea rows="5" placeholder="eg., eg., benefits of buying this land" id="land-item-description" style="height: 200px; resize: none;"
+                    class="house-agent-additem-input"></textarea>
             </div>
     
             <input type="submit" value="Add property" class="housing-agent-additem-form-button">

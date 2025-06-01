@@ -8,6 +8,12 @@
             style="display: flex; flex-direction: column; gap: 40px; width: 630px; margin: auto;
                 border: 2px solid green;">
             <div style="width: 620px; margin: auto;">
+                <div style="width: 620px; margin: auto;">
+                    <p>Property name</p>
+                    <!-- put a measure inplace here eg with javascript to make sure they dont type numbers -->
+                    <input autocomplete="off" name="property location" placeholder="eg., 5 bedroom bungalow" type="text" 
+                    class="house-agent-additem-input">
+                </div>
                 <p>Category</p>
                 <select name="category" class="house-agent-additem-selectmenu">
                     <option disabled selected value=""></option>
@@ -110,58 +116,99 @@
                 <div id="error-message"></div>
             </div>
             
-            <div style="display: flex; align-items: center; gap: 15px; width: 620px; margin: auto;">
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">POP?</div>
+            <div style="width: 100%;">
+                <div style="display: flex; justify-content: center; gap: 5px; width: 100%;">
+                    <div>Add features</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 200px 200px 200px; justify-content: space-around; gap: 15px;
+                    width: 620px; margin: auto; margin-top: 10px; 
+                    background-color: aliceblue;">
+                    <div style="width: 190px; display: flex; justify-content: center;">       
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <label for="bed-no" style="font-size: 15px;">Bedroom</label> 
+                            <input type="number" placeholder="1,2,3 etc" style="width: 100px; height: 15px;"
+                            id="bed-no">                                    
+                        </div>
+                    </div>
+                    <div style="width: 190px; display: flex; justify-content: center;">       
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <label for="toilet-no" style="font-size: 15px;">Toilet</label> 
+                            <input type="number" placeholder="1,2,3 etc" style="width: 100px; height: 15px;"
+                            id="toilet-no">                                    
+                        </div>
+                    </div>
+                    <div style="width: 190px; display: flex; justify-content: center;">       
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <label for="bathroom-no" style="font-size: 15px;">Bathroom</label> 
+                            <input type="number" placeholder="1,2,3 etc" style="width: 100px; height: 15px;"
+                            id="bathroom-no">                                    
+                        </div>
+                    </div>
+                    <div style="width: 190px;">             
                         <div style="display: flex; align-items: center; gap: 2px;">
                             <input type="checkbox" style="width: 15px; height: 15px;" id="pop-yes">
-                            <label for="pop-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style= "width: 15px; height: 15px;" id="pop-no">
-                            <label for="pop-no" style="font-size: 15px;">no</label>                        
+                            <label for="pop-yes" style="font-size: 15px;">POP</label>                        
                         </div>
                     </div>
-                </div>
-
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">Running clean water?</div>
+                    <div style="width: 190px;"> 
                         <div style="display: flex; align-items: center; gap: 2px;">
                             <input type="checkbox" style="width: 15px; height: 15px;" id="water-yes">
-                            <label for="water-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="water-no">
-                            <label for="water-no" style="font-size: 15px;">no</label>                        
+                            <label for="water-yes" style="font-size: 15px;">Running clean water</label>                        
                         </div>
                     </div>
-                </div>
-
-                <div style="flex: 30%;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="font-size: 16px;">Prepaid meter?</div>
-                        <div style="display: flex; align-items: center; gap: 2px;">
-                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-yes">
-                            <label for="prepaid-yes" style="font-size: 15px;">yes</label>                        
-                        </div>
+                    <div style="width: 190px;">                   
                         <div style="display: flex; align-items: center; gap: 2px;">
                             <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
-                            <label for="prepaid-no" style="font-size: 15px;">no</label>                        
-                        </div>
+                            <label for="prepaid-no" style="font-size: 15px;">Prepaid meter</label>                        
+                        </div>                 
                     </div>
+                    <div style="width: 190px;">                   
+                        <div style="display: flex; align-items: center; gap: 2px;">
+                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
+                            <label for="prepaid-no" style="font-size: 15px;">All romms ensuite</label>                        
+                        </div>                 
+                    </div>
+                    <div style="width: 190px;">                   
+                        <div style="display: flex; align-items: center; gap: 2px;">
+                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
+                            <label for="prepaid-no" style="font-size: 15px;">Swimming pool</label>                        
+                        </div>                 
+                    </div>
+                    <div style="width: 190px;">                   
+                        <div style="display: flex; align-items: center; gap: 2px;">
+                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
+                            <label for="prepaid-no" style="font-size: 15px;">Parking Space</label>                        
+                        </div>                 
+                    </div>
+                    <div style="width: 190px;">                   
+                        <div style="display: flex; align-items: center; gap: 2px;">
+                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
+                            <label for="prepaid-no" style="font-size: 15px;">Governor's Consent</label>                        
+                        </div>                 
+                    </div>
+                    <div style="width: 190px;">                   
+                        <div style="display: flex; align-items: center; gap: 2px;">
+                            <input type="checkbox" style="width: 15px; height: 15px;" id="prepaid-no">
+                            <label for="prepaid-no" style="font-size: 15px;">24 Hours Security</label>                        
+                        </div>                 
+                    </div>
+            
                 </div>
-        
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%;
+                margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
+                <label for="vendor-item-features" class="for">Key Features (let each be on a new line.)</label>
+                <textarea rows="5" placeholder="eg., -Bar, -Furnishings: , -Smart home features etc" id="vendor-item-features" style="height: 200px; resize: none;"
+                    class="house-agent-additem-input"></textarea>
             </div>
 
-
-            <div style="width: 620px; margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
-                <p>Other house facilities eg proximity to road</p>
-                <!-- edit to allow numbers and texts -->
-                <input autocomplete="off" name="property location" type="text"  class="house-agent-additem-input">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%;
+                margin: auto; padding-top: 15px; border-top: 1px solid lightblue;">
+                <label for="house-item-description" class="for">More Description (lengthier sentences.)</label>
+                <textarea rows="5" placeholder="eg., benefits of buying/renting this property" id="house-item-description" style="height: 200px; resize: none;"
+                    class="house-agent-additem-input"></textarea>
             </div>
-    
+
             <input type="submit" value="Add property" class="housing-agent-additem-form-button">
 
         </form>
@@ -279,6 +326,7 @@
             multifilesSlider.style.transform = `translateX(${position}px)`;
         }
 
+        // -------------------------------------------------------------------------------------------------------------
         
     </script>
 {% endblock %}

@@ -1,3 +1,6 @@
+.noneDisplay {
+    display: none !important; 
+}
 .housing-agent-additem-form
 {
     text-align: center;
