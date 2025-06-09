@@ -14,6 +14,10 @@ def registeras():
 def signin():
     return render_template("signin.html")
 
+@app.route("/reg_direction")
+def reg_direction():
+    return render_template("registration-direction.html")
+
 @app.route("/createaccount-user")
 def createaccountuser():
     return render_template("createaccount-user.html")

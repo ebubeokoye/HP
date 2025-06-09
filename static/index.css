@@ -108,10 +108,10 @@
     position: absolute;
     margin-left: 40px;
 }
-.createAccount-container:hover .dropdown-for-createAccount-lp
+/* .createAccount-container:hover .dropdown-for-createAccount-lp
 {
     display: block;
-}
+} */
 .createaccount-user-link
 {
     width: 200px;
