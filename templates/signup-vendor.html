@@ -192,22 +192,22 @@
       <div class="form-container">
         <h1>Let's get you started on <br><strong>Housing&Properties</strong></h1>
         <p>Create your account in a second</p>
-        <form action="{{ url_for ('verify_useremail_otp') }}" method="post">
-          <input type="text" placeholder="First Name" required />
-          <input type="text" placeholder="Last Name" required />
+        <form action="{{ url_for ('verify_vendoremail_otp') }}" method="post">
+          <input type="text" placeholder="First Name"/>
+          <input type="text" placeholder="Last Name"/>
 
           <div class="phone-group">
-            <select name="countryCode" required>
+            <select name="countryCode">
               <option value="+234" selected>🇳🇬 +234</option>
             </select>
-            <input type="tel" name="phone" placeholder="Phone Number" required />
+            <input type="tel" name="phone" placeholder="Phone Number"/>
           </div>
 
-          <input type="email" placeholder="Email Address" required />
-          <input type="password" placeholder="Create Password" required />
+          <input type="email" placeholder="Email Address"/>
+          <input type="password" placeholder="Create Password"/>
 
           <div class="checkbox">
-            <input type="checkbox" required />
+            <input type="checkbox"/>
             <label>I agree to the terms and privacy policy</label>
           </div>
 

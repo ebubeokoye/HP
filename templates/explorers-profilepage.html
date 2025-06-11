@@ -1,0 +1,1069 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div style="position: relative; top: -10px;" id="profile-container">
+        <!-- first section. profile page building blocks -->
+        <section class="profile-blocks-display" id="section1"
+            style="position: absolute; top: 0; width: 100%;">
+            <div style="display: flex; width: 100%; height: 80px; background-color: #f7f2f2;">
+                <h2 style="flex: 80%; margin: auto; margin-left: 100px;">Profile</h2>
+                <div style="flex: 20%; margin: auto; margin-left: 50px; color: green;">Share</div>
+            </div>
+            <div style="width: 800px; margin: auto; height: 200px; background-color: #f7f2f2; margin-top: 30px;
+                border-radius: 15px; padding: 20px; box-sizing: border-box;">
+                <div style="display: flex;">
+                    <i class="material-icons" style="font-size: 50px;">house</i>
+                    <div style="margin-left: 600px;">4.0</div>
+                </div>
+                <div style="margin-top: 20px;">Store name</div>
+                <div>Store full address</div>
+            </div>
+    
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 800px; margin: auto; height: 250px;
+                background-color: #f7f2f2; margin-top: 30px; border-radius: 15px; padding: 20px; box-sizing: border-box;">
+                <div>Set up your store</div>
+                <div>You have a to-do list to set up your store fully</div>
+    
+                <div style="display: flex; align-items: center; gap: 2px;">            
+                    <input type="checkbox" id="storeinfo-checkbox" style="width: 18px; height: 18px;">
+                    <label for="storeinfo-checkbox">KYC/Business verification</label>         
+                </div>
+    
+                <div style="display: flex; align-items: center; gap: 2px;">            
+                    <input type="checkbox" id="storeinfo-checkbox" style="width: 18px; height: 18px;">
+                    <label for="storeinfo-checkbox">Add store information</label>         
+                </div>
+    
+                <div style="display: flex; align-items: center; gap: 2px;">            
+                    <input type="checkbox" id="storeinfo-checkbox" style="width: 18px; height: 18px;">
+                    <label for="storeinfo-checkbox">Set up store operations</label>         
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 2px;">            
+                    <input type="checkbox" id="storeinfo-checkbox" style="width: 18px; height: 18px;"> 
+                    <label for="storeinfo-checkbox">Create your menu</label>         
+                </div>
+    
+                <a href="vendor_kyc_form">
+                    <div>Continue Setup ></div>
+                </a>
+    
+            </div>
+    
+            <div style="width: 800px; margin: auto; position: relative;">
+                <div style="position: absolute; z-index: 1; bottom: 0; display: none; width: 800px; margin: auto;
+                    height: 300px; background-color: black; color: white; padding: 20px; box-sizing: border-box;
+                    border-radius: 15px;"
+                    id="notification-request">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="margin-top: 40px;">Allow notifications/order alert?</div>
+                        <div style="margin-top: 30px;">Allow</div>
+                        <div style="margin-top: 30px;" id="dont-allow-notification">Don't allow</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div style="width: 800px; margin: auto; border-top: 2px solid #aaa; margin-top: 30px;"
+                onclick="changeBlockDisplay(2)"> 
+                <div style="display: flex; align-items: center; text-overflow: ellipsis;
+                    margin-top: 30px; width: 800px; height: 80px;"
+                    class="personal-profile-accordion">
+                    <div style="flex: 70%;">KYC/Business verification</div>
+                    <div style=" flex: 20%; text-align: center; background-color: lightgreen; border: 1px solid green;
+                        border-radius: 15px; padding: 5px;">Rejected</div>
+                    <div style="margin-left: 450px; flex: 10%;"> > </div>
+                </div>      
+            </div>
+    
+            <div style="width: 800px; margin: auto; margin-top: 30px;">
+                <div style="display: flex; align-items: center; white-space: nowrap; text-overflow: ellipsis;
+                    border-top: 2px solid #aaa; margin-top: 30px; width: 800px; height: 80px; "
+                    class="personal-profile-accordion">
+                    <div style=" flex: 90%;">Store Profile</div>
+                    <div style="margin-left: 600px; flex: 10%;"> v </div>
+                </div>
+    
+                <div style="display: none; width: 800px; margin: auto;">
+                    <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                        margin-top: 30px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(3)">
+                        Store details
+                    </div>
+    
+                    <a id="store-operations-block"
+                        onclick="changeBlockDisplay(4)">
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;">
+                            Store operations
+                        </div>
+                    </a>
+    
+                    <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                        margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                        onclick="changeBlockDisplay(5)">
+                        Your Wallet
+                    </div>
+    
+                    <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                        margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                        onclick="changeBlockDisplay(6)">
+                        Manage users
+                    </div>
+    
+                    <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                        margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                        onclick="changeBlockDisplay(7)">
+                        Add new location
+                    </div>
+                </div>
+    
+                <div style="width: 800px; margin: auto; margin-top: 30px;">
+                    <div style="display: flex; align-items: center; border-top: 2px solid #aaa; margin-top: 30px;
+                        width: 800px; height: 80px;"
+                        class="personal-profile-accordion">
+                        <div style="flex: 90%;">Personal Profile</div>
+                        <div style="margin-left: 600px; flex: 10%;"> v </div>
+                    </div>
+                    
+                    <div style="display: none; width: 800px; margin: auto;">
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(8)">
+                            Personal details
+                        </div>
+    
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(9)">
+                            Change password
+                        </div>
+    
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(10)">
+                            Handbook
+                        </div>
+                    </div>
+                </div>
+    
+                <div style="width: 800px; margin: auto; margin-top: 30px;">
+                    <div style="display: flex; align-items: center; border-top: 2px solid #aaa; margin-top: 30px;
+                        width: 800px; height: 80px; "
+                        class="personal-profile-accordion">
+                        <div style="flex: 90%;">App Preferences</div>
+                        <div style="margin-left: 600px; flex: 10%;"> v </div>
+                    </div>
+    
+                    <div style="display: none; width: 800px; margin: auto;">
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(11)">
+                            Notifications
+                        </div>
+    
+                        <div style="width: 800px; height: 80px; background-color: #f7f2f2; border-radius: 15px;
+                            margin-top: 20px; padding-left: 20px; display: flex; align-items: center;"
+                            onclick="changeBlockDisplay(12)">
+                            Reset PIN
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 50px; border-top: 2px solid #aaa">          
+                    <div style="width: 700px; margin: auto; height: 50px; border: 1px solid red; margin-top: 30px;
+                        border-radius: 15px; padding-left: 40px; display: flex; align-items: center;"
+                            id="logout">
+                        <div>Logout</div>
+                    </div>                 
+                </div>
+    
+                <div style="width: 800px; margin: auto; margin-top: 40px; margin-bottom: 50px; text-align: center;">
+                    <div>v1.0</div>
+                </div>
+            </div>
+    
+            <!-- when logout is clicked, this appears at the middle of the viewport -->
+            <div style="display: none; flex-direction: column; align-items: center; position: fixed; top: 0; left: 0;
+                width: 100%; height: 100%; background-color: rgba(0,0,0,0.3);" id="modal-to-logout">
+                <div style="width: 800px;
+                    margin: auto; height: 200px; color: white; background-color: rgb(56, 55, 55); z-index: 1;">
+                    <div style="padding: 30px; margin: auto;">
+                        <div>Hold on...</div>
+                        <div style="margin-top: 20px;">Are you sure you want to log out?</div>
+                        <div style="display: flex; justify-content: center; width: 800px; margin-top: 70px;
+                            margin-left: 50px;">
+                            <a id="cancel-logout-btn">
+                                <div>NO</div>
+                            </a>
+                            <a href="after_logout_page" style="margin-left: 50px; text-decoration: none; color: white;">
+                                <div>YES</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="status" style="margin-bottom: 100px;">Current: section1</div> -->
+        </section>
+
+    <!-- second section. KYC business verification -->
+        <section class="profile-blocks-display" style="position: absolute; width: 100%;" id="section2">
+            <div style="display: flex; width: 110%; height: 70px;
+                margin-left: -9px; background-color: #959ca3;">
+                <div style="flex: 30%; margin: auto; margin-left: 100px;"> < KYC/Business verification</div>
+            </div>
+            <form action="{{ url_for ('vendor_profilepage') }}" method="post"
+                style="display: flex; flex-direction: column; gap: 20px; width: 800px; margin: auto; margin-top: 30px;
+                padding: 10px;"> 
+                <div>
+                    <div>Registered Business name</div>
+                    <input autocomplete="off" autofocus name="store name"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div> 
+                <div>
+                    <div>Company Registration No</div>
+                    <input autocomplete="off" autofocus name="store name"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div>   
+                <div>
+                    <div>Tax Identification Number</div>
+                    <input autocomplete="off" autofocus name="store name"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div>   
+                <div>
+                    <div>Registered address</div>
+                    <input autocomplete="off" autofocus name="store name"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div>   
+                <div>
+                    <input type="submit" value="Verify" style="width: 800px; height: 50px;
+                        color: white; background-color: #0056b3; margin-top: 35px; border-radius: 15px;">
+                </div> 
+            </form>  
+        </section>
+
+    <!-- third section. store details form-->
+        <section class="profile-blocks-display" style="position: absolute; width: 100%;" id="section3">
+            
+            <div style="display: flex; width: 100%; margin: auto; height: 70px; background-color: #959ca3;">
+                <div style="flex: 100%; margin: auto; margin-left: 100px;"> < Vendor details</div>
+            </div>
+                
+            <form action="{{ url_for ('vendor_profilepage') }}" method="post" enctype="multipart/form-data"
+                style="display: flex; flex-direction: column; gap: 20px; width: 800px; margin: auto;
+                    padding: 10px;" class="profilepage-forms">                
+    
+                <div style="position: relative; width: 200px; height: 200px; border-radius: 50%;
+                    background-color: #e4e7eb;">                 
+                    <input type="file" style="position: absolute; left: 0; top: 0; width: 200px; height: 200px;
+                        border-radius: 50%; opacity: 0; z-index: 1;" id="logoimage-fileInput">
+                    <img src="land-icon.jpg" style="position: absolute; left: 0; top: 0; width: 200px;
+                        height: 200px; border-radius: 50%; display: none; z-index: 2; object-fit: cover;"
+                        id="logoImgPreview">
+                </div>
+                <div id="logoerror-message"></div>
+                    
+                <div>
+                    <div>Store name</div>
+                    <input autocomplete="off" autofocus name="store name" placeholder="e.g Home Ventures"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div>
+    
+                <div>
+                    <div>Description</div>
+                    <input autocomplete="off" autofocus name="Description" placeholder="e.g We sell Lands/rent/house items"
+                        style="width: 800px; height:50px; background-color: #e4e7eb; margin-top: 15px;
+                        border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+                </div>
+    
+                <div style="width: 800px;">
+                    <div style="color: red;">Cover Image</div>
+                    <div style="position: relative; margin-top: 15px; width: 800px; height: 400px;
+                        border-radius: 15px; background-color: #e4e7eb;">                 
+                        <input type="file" accept=".jpg, .png" style="position: absolute; left: 0; top: 0;
+                            width: 800px; height: 400px; border-radius: 15px; opacity: 0;"
+                            id="coverimage-fileInput">
+                        <img src="land-icon.jpg" style="position: absolute; left: 0; top: 0; width: 800px;
+                            height: 400px; display: none; object-fit: cover;" id="imagePreview">
+                    </div>
+                </div>
+    
+                <div id="error-message"></div>
+                    
+    
+                <div>
+                    <input type="submit" value="Save Changes" style="width: 800px; height: 50px;
+                        color: white; background-color: #0056b3; margin-top: 25px; border-radius: 15px;">
+                </div> 
+            </form>
+        </section>
+    
+
+    <!-- fourth section. store operations-->
+        <section class="profile-blocks-display" style="position: absolute; width: 100%; top: 0;" id="section4">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; margin-top: -10px;
+                background-color: #959ca3;">
+                <div style="margin: auto; margin-left: 100px;"> < Store operations</div>
+            </div>
+            
+            <div style="display: flex; width: 800px; margin: auto; height: 60px; border-bottom: 2px solid #959ca3;">
+                <div style="flex: 100%; margin: auto;"> Delivery/Order Information</div>
+            </div>
+       
+            <form style="display: flex; flex-direction: column; gap: 20px; width: 800px; margin: auto;
+                margin-top: 20px;" id="store-operations-form" class="profilepage-forms">
+    
+                <div style="display: flex; width: 800px; height: 15px;">
+                    <div style="flex: 100%; margin: auto;"> Specify opening times on specific days</div>
+                </div>
+    
+                <div style="display: grid; grid-template-columns: 240px 240px 240px; row-gap: 20px; column-gap: 20px;
+                        padding: 10px; width: 800px;">
+                    <div style="width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 100%; margin: auto;">Day</div>
+                        </div>
+                        <input type="text" value="default" readonly style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                    </div>
+                        
+                    <div style="width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 100%; margin: auto;">Open</div>
+                        </div>
+                        <input name="one" type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                    </div>
+                    
+                    <div style="width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 100%; margin: auto;">Close</div>
+                        </div>
+                        <input name="two" type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                    </div>   
+                    
+                    <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 100%; margin: auto;">Day</div>
+                        </div>
+                        <select name="select-options" type="text" 
+                            style="width: 240px; height: 40px; background-color: #959ca3;
+                            border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                            border-bottom-left-radius: 15px;">
+                            <div style="position: absolute; top: -20px; width: 300px; height: 300px;">
+                                <option disabled selected value="">Select</option>
+                                <option value="Sunday">Sunday</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                            </div>
+                        </select>
+                    </div>
+                
+                    <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 100%; margin: auto;">Open</div>
+                        </div>
+                        <input name="three" type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; width: 240px; height: 100px;">
+                        <div style="display: flex; width: 240px; height: 40px;">
+                            <div style="flex: 90%; margin: auto;">Close</div>
+                            <div style="flex: 10%; margin: auto; margin-left: 20px;">
+                                <div style="display: flex; justify-content: center; align-items: center;
+                                    width: 30px; height: 30px; border-radius: 50%; background-color: #959ca3;">
+                                    <i class="material-icons" style="font-size: 20px; color: white; text-align: center;"
+                                    >delete</i>
+                                </div>
+                            </div>             
+                        </div>            
+                        <input name="four" type="time" style="width: 240px; height: 40px; background-color: #959ca3;
+                        border-bottom: 2px solid #0056b3; border-bottom-right-radius: 15px;
+                        border-bottom-left-radius: 15px;">
+                    </div>     
+                </div>
+                <div style="color: #0056b3; margin-top: -10px;">+Add specific days</div>
+
+                <div style="margin-top: 15px;">
+                    <div style="display: flex;">
+                        <div style="flex: 80%;">Payment Information</div>
+                        <div style="flex: 20%;">What is this?</div>
+                    </div>
+    
+                    <div style="display: flex; width: 800px; height: 40px; border-radius: 15px; background-color: #959ca3;
+                        margin-top: 15px;">
+                        <div style="margin: auto; margin-left: 20px;">No bank added yet</div>
+                    </div>
+                </div>
+
+                <a>
+                    <div style="color: #0056b3;">+Add new bank account</div>
+                </a>
+
+                <div>
+                    <input type="submit" value="Save Changes" style="width: 800px; height: 50px;
+                        color: white; background-color: #0056b3; margin-top: 25px; border-radius: 15px;">
+                </div> 
+            </form>  
+        </section>  
+        
+    <!-- fifth section. wallet -->
+        <section class="profile-blocks-display" style="position: absolute; top: 0; width: 100%; margin: auto;
+            background-color: mediumaquamarine;" id="section5">
+
+            <div style="display: flex; width: 100%; height: 70px; background-color: #f7f2f2;">
+                <div style="flex: 80%; margin: auto; margin-left: 100px;"> < Wallet </div>
+                <div style="flex: 20%; margin: auto; color: #0056b3;"> + Add money</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 800px; margin: auto;
+                margin-top: 20px; height: 1000px">
+                <div style="display: flex; flex-direction: column; gap: 40px; width: 800px; height: 150px;
+                    border-radius: 15px; background-color: white;">
+                    <div>Wallet Balance</div>
+                    <div>N 0</div>
+                </div>
+
+                <div style="display: flex; justify-content: center; width: 800px; margin: auto; height: 70px;
+                    border-radius: 15px; background-color: darkseagreen;">
+                    <div style="margin: auto;">Withdraw Money</div>
+                </div>
+                <div style="display: flex; justify-content: center; width: 800px; margin: auto; height: 70px;
+                    border-bottom: 2px solid #959ca3; color: green;">
+                    <div style="margin: auto;"> Create Transaction PIN > </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column;">
+                    <div style="display: flex; width: 800px;">
+                        <div style="flex: 70%;">Transaction History</div>
+                        <div style="flex: 30%;">Filter</div>
+                    </div>
+                    <div style="margin: auto; margin-top: 100px; margin-bottom: 50px;">
+                        <div>No Transactions yet</div>
+                    </div>              
+                </div>
+            </div>
+        </section>
+
+    <!-- sixth section. Manage Users -->
+        <section class="profile-blocks-display" style="position: absolute; top: 0; width: 100%; margin: auto;
+            display: none;" id="section6">
+
+            <div style="display: flex; width: 110%; height: 70px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Manage Users</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 25px; width: 800px; margin: auto; margin-top: 30px;">
+                <div style="display: flex; width: 800px; margin: auto;">
+                    <div style="flex: 80%; margin: auto;">Added Users</div>
+                    <div style="flex: 20%; margin: auto;"> + Invite new user</div>
+                </div>
+
+                <div style="display: flex; width: 800px; height: 60px; margin: auto; background-color: #bfd4eb;
+                    border-top: 3px solid #0056b3; padding: 10px; margin-bottom: 50px;">
+                    
+                    <i class="material-icons" style="flex: 5%; font-size: 20px; margin: auto; margin-left: 0;
+                        color: white;">person</i>
+                    
+                    <div style="flex: 85%; margin: auto; margin-left: -15px;">Darlington Miles</div>
+
+                    <div style="flex: 10%; margin: auto; ">
+                        <div style="display: flex; width: 50px; margin: auto; height: 30px; padding: 3px; 
+                            border: 2px solid seagreen; border-radius: 15px;">
+                            <div style="flex: 100%; margin: auto;">Admin</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- 7th section. New location -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section7">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < New Location</div>
+            </div>
+
+            <form style="width: 500px; margin: auto; margin-top: 25px;
+                display: flex; flex-direction: column; gap: 20px;">
+                <div style="width: 400px; margin: auto;">
+                    <div>Store name</div>
+                    <input style="width: 400px; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                    margin-top: 10px;">
+                </div>
+                
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Store email address</div>
+                    <input type="email" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Store phone number</div>
+                    <input type="tel" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Store address</div>
+                    <input style="width: 400px; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                    margin-top: 10px;">
+                </div>
+
+                <div style="display: flex; gap: 50px; width: 400px; margin: auto; margin-top: 15px;">
+                    <div style="flex: 40%;">
+                        <div>Admin first name</div>
+                        <input style="width: 100%; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                        margin-top: 10px;">
+                    </div>
+    
+                    <div style="flex: 40%;">
+                        <div>Admin last name</div>
+                        <input style="width: 100%; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                        margin-top: 10px;">
+                    </div>
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Admin phone number</div>
+                    <input style="width: 400px; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                    margin-top: 10px;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Admin email address</div>
+                    <input style="width: 400px; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                    margin-top: 10px;">
+                </div>
+
+                <div style="width: 400px; margin: auto; height: 100px; display: flex; flex-direction: column;
+                    background-color: #bfd4eb; margin-top: 15px;">
+                    <div style="margin: auto; margin-left: 10px;">By creating this vendor, your bank and menu</div>
+                    <div style="margin: auto; margin-left: 10px;">information will be duplicated</div>
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 25px;">
+                    <input type="submit" value="Add Location" style="width: 400px; height: 50px; margin: auto;
+                    background-color: #0056b3;">
+                </div>
+            </form>       
+        </section>
+
+    <!-- 8th section. Personal details -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section8">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Personal details</div>
+            </div>
+            <form style="width: 500px; margin: auto; margin-top: 25px; display: flex; flex-direction: column;
+                gap: 20px;">
+                    
+                <div style="display: flex; gap: 50px; width: 400px; margin: auto; margin-top: 15px;">
+                    <div style="flex: 40%;">
+                        <div>Admin first name</div>
+                        <input style="width: 100%; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                        margin-top: 10px;">
+                    </div>
+        
+                    <div style="flex: 40%;">
+                        <div>Admin last name</div>
+                        <input style="width: 100%; height: 37px; border-radius: 15px; background-color: #f7f2f2;
+                        margin-top: 10px;">
+                    </div>
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Phone number</div>
+                    <input type="tel" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Email address</div>
+                    <input type="email" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 25px;">
+                    <input type="submit" value="Save Changes" style="width: 400px; height: 50px; margin: auto; margin-top: 10px;
+                    background-color: #0056b3;">
+                </div>
+            </form>
+
+            <div style="width: 400px; margin: auto; margin-top: 25px; display: flex; justify-content: center;">
+                <i class="material-icons" style="font-size: 20px; color: white; color: red;">delete</i>
+                <div style="color: red; margin-left: 15px;">Delete Account</div>
+            </div>
+        </section>
+
+    <!-- 9th section. Change Password -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section9">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Change Password</div>
+            </div>
+            
+            <form style="width: 500px; margin: auto; margin-top: 25px; display: flex; flex-direction: column;
+                gap: 20px;">
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Old password</div>
+                    <input type="password" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Create password</div>
+                    <input type="password" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 15px;">
+                    <div>Confirm password</div>
+                    <input type="password" style="width: 400px; height: 37px; border-radius: 15px; margin-top: 10px;
+                    background-color: #f7f2f2;">
+                </div>
+
+                <div style="width: 400px; margin: auto; margin-top: 25px;">
+                    <input type="submit" value="Change Password" style="width: 400px; height: 50px; margin: auto;
+                    margin-top: 25px; background-color: #0056b3;">
+                </div>
+            </form>
+        </section>
+
+
+    <!-- 10th section. Handbook -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section10">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Handbook</div>
+            </div>
+            <div>Coming in.......</div>
+        </section>
+
+    <!-- 11th section. Notifications -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section11">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Notifications</div>
+            </div>
+            <div>Coming in.......</div>
+        </section>
+
+    <!-- 12th section. Reset pin -->
+        <section class="profile-blocks-display" style="width: 100%; position: absolute;" id="section12">
+            <div style="display: flex; width: 110%; height: 70px; margin-left: -9px; background-color: #f7f2f2;">
+                <div style="margin: auto; margin-left: 100px;"> < Reset pin</div>
+            </div>
+            <div>Coming in.......</div>
+        </section>
+
+    </div>
+    
+
+    
+    <div style="position: relative;">
+        <div style="position: fixed; bottom: 50px; right: 100px; width: 50px; height: 50px; border-radius: 50%;
+            background-color: #0056b3; display: flex; justify-content: center; align-items: center; z-index: 1;">
+            <i class="material-icons" style="font-size: 35px; color: white; text-align: center;">message</i>
+        </div>
+    </div>
+
+    <div class="agent-homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <div style="color: black; position: absolute;">Orders</div>
+            <a href="housing_agent_homepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">house listing</div>
+            <a href="agent_housing_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Appointments</div>
+            <a href="agent_housing_listing" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Insights</div>
+            <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+
+            <div style="color: black; position: absolute;">Account</div>
+            <a href="houseagent_profilepage" class="agent-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>   
+    </div>
+
+
+    
+    
+
+
+    <script>
+
+        let notificationRequest = document.getElementById("notification-request");
+        document.addEventListener('DOMContentLoaded', function() {
+            notificationRequest.style.display = "block";
+            document.addEventListener('wheel', preventDefaultScrolling, {passive: false});
+            document.addEventListener('touchmove', preventDefaultScrolling, {passive: false});
+            document.addEventListener('keydown', preventScrollKeys);
+        });
+
+        function preventDefaultScrolling(e) {
+            e.preventDefault();
+            return false;
+        }
+        // prevent scrolling with  arrow/space keys
+        function preventScrollKeys(e) {
+            // Space: 32, PageUp: 33, PageDown: 34, End: 35, Home: 36, Left: 37, Up: 38, Right: 39, Down: 40
+            const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+            if (keys.includes(e.keyCode)) {
+                return false;
+            }
+        }
+
+        let dontAllowNotification = document.getElementById("dont-allow-notification");
+        dontAllowNotification.addEventListener('click', function() {
+            notificationRequest.style.display = "none";
+            document.removeEventListener('wheel', preventDefaultScrolling, {passive: false});
+            document.removeEventListener('touchmove', preventDefaultScrolling, {passive: false});
+            document.removeEventListener('keydown', preventScrollKeys);
+        });
+
+
+        // ----------------------------------------------------------------------------------------------------------
+
+
+        let profileBlockIndex = 1;
+        changeActiveBlock(profileBlockIndex);
+
+        function changeBlockDisplay(n) {
+            // we will called the function changeActiveBlock() below so that when it is declared further below,
+            // it will be executed within this function changeBlockDisplay()
+            changeActiveBlock(profileBlockIndex = n);
+        }
+
+        function changeActiveBlock(n) {
+            let i;
+            let displayBlock = document.getElementsByClassName("profile-blocks-display");
+            // change all the slides display to none
+            for (i=0; i<displayBlock.length; i++) {
+                displayBlock[i].style.display = 'none';
+            }
+            // this is the slide that gets displayed. since indexing starts from 0, to get the slides
+            // index will have to remove one from the values(1,2 or 3) they are passing in. so then we 
+            // change the visibility of that slide back to visible. of which this will also make the first
+            // slide a default display because AnsSlideIndex will be 1, 1-1 = 0
+            displayBlock[profileBlockIndex-1].style.display = 'block';
+            
+            window.scrollTo(0, 0);
+            updateParentHeight(displayBlock[profileBlockIndex-1].parentElement);      
+        } 
+        // this function will be called above
+        function updateParentHeight(container) {
+            // reset height for measurement
+            container.style.height = 'auto';
+            // calculate needed height based on visible children
+            let maxHeight = 0;
+            const children = container.children;
+
+            for (let i = 0; i<children.length; i++) {
+                const child = children[i];
+                if (child.style.display !== 'none') {
+                    const childBottom = child.offsetTop + child.offsetHeight;
+                    maxHeight = Math.max(maxHeight, childBottom);
+                }
+            }
+            const padding = 50;
+            maxHeight += padding;
+
+            container.style.height = maxHeight + 'px';
+
+            // let hasVisibleChildren = false;
+            // Array.from(container.children).forEach(child => {
+            //     if (child.style.display !== 'none') {
+            //         hasVisibleChildren = true;
+            //         // const childRect = child.getBoundingClientRect();
+            //         // const childBottom = childRect.height + (child.offsetTop || 0);
+            //         const childBottom = child.offsetTop + child.offsetHeight;
+            //         maxHeight = Math.max(maxHeight, childBottom);
+            //         const padding = 20;
+            //         maxHeight += padding;
+            //     }
+            // });
+            // apply appropriate size
+            // if (hasVisibleChildren) {
+            //     // void container.offsetHeight;
+            //     container.style.height = maxHeight + 'px';
+            // } else {
+            //     container.style.height = '0px';        
+            // }
+        }
+
+        // -----------------------------------------------------------------------------------------------------
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let maxHeight = 0;
+            const profileContainer = document.getElementById("profile-container");
+            let ProfileAccordion = document.getElementsByClassName("personal-profile-accordion");
+            
+            profileContainer.style.height = 'auto';
+            for (i=0; i<ProfileAccordion.length; i++) {
+                ProfileAccordion[i].addEventListener('click', function() {
+                    let displayPersonalProfile = this.nextElementSibling;
+
+                    // because the accordion is inside an element whose display is toggled and parent
+                    // height adjusted automatically, there wont be need for the commented lines in the if and else
+                    // block. but the will serve if we are dealing with a normal case
+                    if (displayPersonalProfile.style.display === "block") {
+                        
+                        // below is the current height of parent with all the children. adjust the height
+                        // first before removing display
+                        // const currentParentHeight = profileContainer.scrollHeight;
+                        // below is the height of the child element before its undisplayed
+                        // const childHeight = displayPersonalProfile.offsetTop + displayPersonalProfile.offsetHeight;
+                        // maxHeight = Math.max(maxHeight, childHeight);
+                        // padding = 50;
+                        
+                        // profileContainer.style.maxHeight = (currentParentHeight - maxHeight) + padding + 'px';
+
+                        displayPersonalProfile.style.display = "none";                            
+
+                    } else {
+                        // add display first before adjusting height
+                        displayPersonalProfile.style.display = "block";
+                        // this next line (void) forces reflow before measuring ie it demarcates the browser 
+                        // changes causing the one above to happen before this one below 
+                        // void profileContainer.offsetHeight;
+                        // profileContainer.style.maxHeight = profileContainer.scrollHeight + 'px';
+                    }
+                });
+            }       
+        });
+
+
+        // ---------------------------------------------------------------------------------------------------------
+       
+
+        let logoimagefileInput = document.getElementById("logoimage-fileInput");
+        let logoImgPreview = document.getElementById("logoImgPreview");
+        let logoErrorMessage = document.getElementById("logoerror-message");
+
+        logoimagefileInput.addEventListener('change', function() {
+            logoErrorMessage.style.display = "none";
+    
+            if (logoimagefileInput.files.length > 0) {
+                const file = logoimagefileInput.files[0];
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    logoImgPreview.src = e.target.result;
+                    logoImgPreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            logoErrorMessage.textContent = message;
+            logoErrorMessage.style.display = "block";
+        }
+
+        // ---------------------------------------------------------------------------------------------------------
+
+        let coverimagefileInput = document.getElementById("coverimage-fileInput");
+        let imagePreview = document.getElementById("imagePreview");
+        let errorMessage = document.getElementById("error-message");
+
+        coverimagefileInput.addEventListener('change', function() {
+            errorMessage.style.display = "none";
+    
+            if (coverimagefileInput.files.length > 0) {
+                const file = coverimagefileInput.files[0];
+
+                const fileType = file.type;
+                if (fileType !== 'image/jpg' && fileType !== 'image/png') {
+                    showError('Please select only JPG or PNG images.');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                if (file.size > 1048576) {
+                    showError('File size exceeds 1MB, Please choose a smaller image');
+                    coverimagefileInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) { 
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = "block";
+        }
+
+        // ---------------------------------------------------------------------------------------------------------
+
+       
+        const storeoperationsForm = document.getElementById("store-operations-form");
+        const storeoperationsFormElements = storeoperationsForm.elements;
+
+        const STORAGE_KEY = "persistentFormData"
+
+        function saveFormData() {
+            const formData = {};
+
+            for (let i=0; i<storeoperationsFormElements.length; i++) {
+                const element = storeoperationsFormElements[i];
+
+                if (element.type === 'submit' || !element.name) {
+                    continue;
+                } else {                 
+                    formData[element.name] = element.value;
+                }
+            }
+            // the key value pairs in formData are converted to a string of value and assigned the key called
+            // STORAGE_KEY. we save it in loca storage too so that key values in forData can be accessed universally
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+        }
+
+        function loadFormData() {
+           
+            // the STORAGE_KEY key is saved in the variable savedData
+            const savedData  = localStorage.getItem(STORAGE_KEY);
+
+            // lets checck if it has a value
+            if (!savedData) {
+                return;
+            }
+            // lets convert the savedData back to its original key value form for the elements in the form
+            const formData = JSON.parse(savedData);
+            
+            for (let i=0; i<storeoperationsFormElements.length; i++) {
+                const element = storeoperationsFormElements[i];
+                if (!element.name || element.type === 'submit') {
+                    continue;
+                }
+                if (formData[element.name] !== undefined) {
+                    element.value = formData[element.name];
+                }
+            }
+        }
+
+        function clearFormData() {
+            localStorage.removeItem(STORAGE_KEY);
+            storeoperationsForm.reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadFormData);
+
+        storeoperationsForm.addEventListener('input', saveFormData);
+
+        storeoperationsForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = '/vendor_profilepage';
+        });
+
+   
+        // --------------------------------------------------------------------------------------------------------
+
+        let logOut = document.getElementById("logout");
+        let modalToLogout = document.getElementById("modal-to-logout");
+        logOut.addEventListener('click', function() {
+
+            modalToLogout.style.display = "flex";
+            cancelLogoutBtn = document.getElementById("cancel-logout-btn");
+
+            cancelLogoutBtn.addEventListener('click', function() {
+                modalToLogout.style.display = "none";
+            });
+        });
+
+        
+        // --------------------------------------------------------------------------------------------------------
+
+        // create a dictionary of all the sections displayed 
+        const sections = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9'];
+
+        // initialize the history state when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // set up initial history state based on URL hash (if any) of the current page 
+            const initialSection =window.location.hash.substring(1) ||'section1';
+            navigateToSection(initialSection, true);
+
+            // now, after your html button or input or href has been clicked to go to a next section, when you 
+            // now need to go back to the previous section with the arrow:
+
+            // lets handle popstate events (browser back/forward buttons). if this button is clicked, the  browser
+            // retrieves the previously saved entry (state object) from it's history stack, restores
+            // the url from that entry and fires a popstate event
+            window.addEventListener('popstate', (event) => {
+                // lets check if theres a previous section aka state object(event.state) aka event.state.section
+                if (event.state && event.state.section) {
+                    // event.state is the stateObject parameter associated with history entry when it was
+                    // created. it is the previous section to a current section. This parameter is passed
+                    // to history.pushState or history.replaceState,
+                    //  event.state.section specifically accesses a property named section from that 
+                    // stateObject
+                    navigateToSection(event.state.section, true);
+                }
+            });
+        });
+        // function to handle section navigation. the section parameter in the state object has a value 
+        // called sectionId which is the Id of the previous section
+        function navigateToSection(sectionId, replaceState = false) {
+            // validate section ID- lets check if the array named sections contains the section we're
+            // navigating to
+            if (!sections.includes(sectionId)) {
+                sectionId = 'section1';
+            }
+            // hide all sections in my created array called sections
+            sections.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
+            // show the target section
+            document.getElementById(sectionId).style.display = 'block';
+
+            // call this below function to adjust the height of the parent container. this function was
+            // first created and used up up in changeBlockDisplay() function
+            updateParentHeight(sectionId.parentElement);  
+
+            // update the status update display div
+            document.getElementById('status').textContent = `Current: ${sectionId}`;
+            // update the url and browser history
+            const url = `#${sectionId}`;
+            const state = {section: sectionId};
+            const title = `section: ${sectionId}`;
+
+            if (replaceState) {
+                // replace the current state instead of adding a new one
+                window.history.replaceState(state, title, url);
+            } else {
+                window.history.pushState(state, title, url);
+            }
+        }
+
+    </script>
+{% endblock %}

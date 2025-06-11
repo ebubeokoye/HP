@@ -62,6 +62,13 @@ def verify_houseagentemail_otp():
         return render_template("verify-houseagentemail-otp.html")
     else:
         return render_template("verify-houseagentemail-otp.html")
+    
+@app.route("/verify_explorersemail_otp", methods=["GET", "POST"])
+def verify_explorersemail_otp():
+    if request.method == "POST":
+        return render_template("verify-explorersemail-otp.html")
+    else:
+        return render_template("verify-explorersemail-otp.html")
 
 
 
@@ -297,6 +304,14 @@ def vendor_storeoperations():
         return render_template("vendor-storeoperations.html")
     else:
         return render_template("vendor-storeoperations.html")
+    
+# this section is for the explorers after they've registered/logged in
+@app.route("/explorers_profilepage", methods=["GET", "POST"])
+def explorers_profilepage():
+    if request.method == "POST":
+        return render_template("explorers-profilepage.html")
+    else:
+        return render_template("explorers-profilepage.html")
 
 # This if for the after logout, the page that serves them a login option back   
 @app.route("/after_logout_page")
