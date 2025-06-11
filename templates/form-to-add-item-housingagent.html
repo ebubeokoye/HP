@@ -11,8 +11,8 @@
                 <div style="width: 620px; margin: auto;">
                     <p>Property name</p>
                     <!-- put a measure inplace here eg with javascript to make sure they dont type numbers -->
-                    <input autocomplete="off" name="property location" placeholder="eg., 5 bedroom bungalow" type="text" 
-                    class="house-agent-additem-input">
+                    <input autocomplete="off" name="property location" placeholder="eg., 5 bedroom bungalow in Lekki"
+                    type="text" class="house-agent-additem-input">                
                 </div>
                 <p>Category</p>
                 <select name="category" class="house-agent-additem-selectmenu">
@@ -42,12 +42,28 @@
                 <!-- put a measure inplace here eg with javascript to make sure they dont type numbers -->
                 <input autocomplete="off" name="property location" type="text"  class="house-agent-additem-input">
             </div>
-    
-            <div style="width: 620px; margin: auto;">
-                <p>Price</p>
-                <!-- look for how to put money amount in a form -->
-                <input autocomplete="off" name="property location" type="number"  class="house-agent-additem-input">
+            
+            <div style="display: flex; justify-content: center; gap: 20px; width: 620px; margin: auto;">
+                <div style="flex: 20%;">
+                    <div>Rent</div>
+                    <!-- look for how to put money amount in a form -->
+                    <input autocomplete="off" name="property location" type="number" placeholder="N" 
+                    style="width: 80%; height: 30px; margin-top: 5px; border: 1px solid green; border-radius: 5px;">
+                </div>
+                <div style="flex: 20%;">
+                    <div>Agency/Agreement</div>
+                    <!-- look for how to put money amount in a form -->
+                    <input autocomplete="off" name="property location" type="number" placeholder="N"
+                    style="width: 80%; height: 30px; margin-top: 5px; border: 1px solid green; border-radius: 5px;">
+                </div>
+                <div style="flex: 20%;">
+                    <div>Service charge</div>
+                    <!-- look for how to put money amount in a form -->
+                    <input autocomplete="off" name="property location" type="number" placeholder="N"
+                    style="width: 80%; height: 30px; margin-top: 5px; border: 1px solid green; border-radius: 5px;">
+                </div>
             </div>
+            
 
             <div style="margin: auto;">Upload property image</div>
             <!-- let it have the same width as other inputs -->

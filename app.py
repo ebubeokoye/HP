@@ -20,19 +20,19 @@ def reg_direction():
 
 @app.route("/createaccount-user")
 def createaccountuser():
-    return render_template("createaccount-user.html")
+    return render_template("signup-user.html")
 
 @app.route("/createaccount-vendor")
 def createaccountvendor():
-    return render_template("createaccount-vendor.html")
+    return render_template("signup-vendor.html")
 
-@app.route("/createaccount-land-agent")
-def createaccountlandtagent():
-    return render_template("createaccount-land-agent.html")
+@app.route("/createaccount-agents")
+def createaccountagents():
+    return render_template("signup-agents.html")
 
-@app.route("/createaccount-housing-agent")
-def createaccounthousingagent():
-    return render_template("createaccount-housing-agent.html")
+@app.route("/createaccount-explore")
+def createaccountexplore():
+    return render_template("signup-explore.html")
 
 # OTP pages to verify email
 @app.route("/verify_useremail_otp", methods=["GET", "POST"])

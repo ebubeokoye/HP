@@ -1,0 +1,264 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+
+    .left-pane {
+      flex: 1;
+    }
+
+    .left-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right-pane {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+      background-color: #fff;
+    }
+
+    .form-container {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .form-container h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 18px 0;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+    }
+
+    .form-container p {
+      font-size: 16px;
+      margin-bottom: 26px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select[name="Agents"] {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .phone-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .phone-group select {
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 35%;
+      min-width: 90px;
+    }
+
+    .phone-group input[type="tel"] {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 22px;
+      font-size: 14px;
+    }
+
+    .checkbox input {
+      margin-right: 10px;
+    }
+
+    .button {
+      background-color: #0d1b2a;
+      color: white;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .login {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .login a {
+      color: #0d1b2a;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons img {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-pane,
+      .right-pane {
+        width: 100%;
+      }
+
+      .left-pane img {
+        height: 250px;
+      }
+
+      .right-pane {
+        padding: 20px;
+      }
+
+      .phone-group {
+        flex-direction: column;
+      }
+
+      .phone-group select,
+      .phone-group input[type="tel"] {
+        width: 100%;
+      }
+    }
+  </style>
+
+<body>
+
+  <div class="container">
+    <div class="left-pane">
+      <img src="{{ url_for ('static', filename='signupimg2.jpg') }}" alt="Subway scene"> <!-- Replace with actual image -->
+    </div>
+
+    <div class="right-pane">
+      <div class="form-container">
+        <h1>Let's get you started on <br><strong>Housing&Properties</strong></h1>
+        <p>Create your account in a second</p>
+        <form id="agentsForm" method="post">
+          <div>
+            <select name="Agents" id="agentType">
+              <option disabled selected value="">Agent type</option>
+              <option value="land agent">Land agent</option>
+              <option value="house agent">House agent</option>
+            </select>
+          </div>
+          <input type="text" placeholder="First Name"/>
+          <input type="text" placeholder="Last Name"/>
+
+          <div class="phone-group">
+            <select name="countryCode">
+              <option value="+234" selected>🇳🇬 +234</option>
+            </select>
+            <input type="tel" name="phone" placeholder="Phone Number"/>
+          </div>
+
+          <input type="email" placeholder="Email Address"/>
+          <input type="password" placeholder="Create Password"/>
+
+          <div class="checkbox">
+            <input type="checkbox"/>
+            <label>I agree to the terms and privacy policy</label>
+          </div>
+
+          <button class="button" type="submit" onclick="checkSelection()">Create an account</button>
+        </form>
+
+        <div class="login">
+          <p>Already a member? <a href="login.html">Login</a></p>
+        </div>
+
+        <hr>
+
+        <div class="social-icons">
+          <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
+    //   Add commentMore actions
+    }
+
+    document.getElementById('agentsForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const select = document.getElementById("agentType");
+      const selectedValue = select.value;
+      let route;
+      if (selectedValue === "land agent") {
+        route = "/verify_landagentemail_otp";
+      } else if (selectedValue === "house agent") {
+        route = "/verify_houseagentemail_otp";
+      }
+      this.action = route;
+      this.submit();
+    });
+  </script>
+</body>
+{% endblock %}

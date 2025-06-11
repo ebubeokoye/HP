@@ -2,276 +2,186 @@
 
 {% block body %}
 
-<style>Add commentMore actions
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet" />Add commentMore actions
+
+  <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+    /* html, body {
+      height: 90%;
+    } */
 
     body {
-      margin: 0;
-      font-family: 'Merriweather', serif;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff7ee;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
-    }
-
-    .navbar {
-      background-color: #0d1b2a;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .navbar .logo img {
-      height: 60px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .signin-btn {
-      background: white;
-      color: black !important;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #0d1b2a;
-        padding: 10px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
+      padding: 20px;
     }
 
     .container {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-    }
-
-    .left-pane {
-      flex: 1;
-    }
-
-    .left-pane img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .right-pane {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 40px;
-      background-color: #fff;
-    }
-
-    .form-container {
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .form-container h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      margin: 0 0 18px 0;
-      line-height: 1.5;
-      letter-spacing: 0.5px;
-    }
-
-    .form-container p {
-      font-size: 16px;
-      margin-bottom: 26px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      letter-spacing: 0.4px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .checkbox {
-      display: flex;
-      align-items: center;
-      margin-bottom: 22px;
-      font-size: 14px;
-    }
-
-    .checkbox input {
-      margin-right: 10px;
-    }
-
-    .button {
-      background-color: #0d1b2a;
-      color: white;
-      padding: 14px;
-      width: 100%;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .login {
-      margin-top: 18px;
+      max-width: 800px;
       text-align: center;
-      font-size: 14px;
     }
 
-    .login a {
-      color: #0d1b2a;
-      text-decoration: none;
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 40px;
       font-family: 'Inter', sans-serif;
-      font-weight: 600;
     }
 
-    hr {
-      margin: 30px 0;
-      border: none;
-      border-top: 1px solid #ddd;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      margin-bottom: 40px;
     }
 
-    .social-icons img {
-      width: 48px;
-      height: 48px;
+    .card {
+      background-color: #fef7ec;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 30px 20px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+    }
+
+    .continue-btn {
+      background-color: #f0ad00;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .continue-btn:hover {
+      background-color: #d69200;
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
       }
 
-      .left-pane,
-      .right-pane {
-        width: 100%;
+      .card {
+        padding: 20px 15px;
       }
 
-      .left-pane img {
-        height: 250px;
+      h1 {
+        font-size: 1.6rem;
       }
 
-      .right-pane {
-        padding: 20px;
+      .card h2 {
+        font-size: 1rem;
+      }
+
+      .card p {
+        font-size: 0.78rem;
       }
     }
   </style>
 
 <body>
-  <!-- <nav class="navbar">
-    <div class="logo">
-      <img src="img/logo.png" alt="Housing & Properties" />
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-links" id="nav-links">
-      <a href="#">Rent</a>
-      <a href="#">Buy</a>
-      <a href="#">Sell</a>
-      <a href="#">Resources</a>
-      <a href="#">FAQ</a>
-      <a class="signin-btn" href="#">Sign In / Register</a>
-    </div>
-  </nav> -->
-
   <div class="container">
-    <div class="left-pane">
-      <img src="{{url_for ('static', filename='signupimg2.jpg') }}" alt="Subway scene"> <!-- Replace with actual image source -->
-    </div>
+    <h1>Create Your Free Account</h1>
+    <p class="subtitle">Tell us what you are here for – we'll guide you</p>
 
-    <div class="right-pane">
-      <div class="form-container">
-        <h1>Let's get you started on <br><strong>Housing&Properties</strong></h1>
-        <p>Create your account in a second</p>
-        <form>
-          <input type="text" placeholder="First Name" required />
-          <input type="text" placeholder="Last Name" required />
-          <input type="email" placeholder="Email Address" required />
-          <input type="password" placeholder="Create Password" required />
-          <div class="checkbox">
-            <input type="checkbox" required />
-            <label>I agree to the terms and privacy policy</label>
-          </div>
-          <button class="button" type="submit">Create an account</button>
-        </form>
-        <div class="login">
-          <p>Already a member? <a href="login.html">Login</a></p>
-        </div>
-        <hr>
-        <div class="social-icons">
-          <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
-          <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-        </div>
+    <div class="card-grid">
+      <div class="card" id="buyer-card">Add commentMore actions
+        <img src="img/houseicon.png" alt="Home Icon" />
+        <h2>Buy or Rent a Property</h2>
+        <p>Explore verified listings, book viewings</p>
+      </div>
+      <div class="card" id="agents-card">
+        <img src="img/moneyicon.png" alt="Sofa Icon" />
+        <h2>Sell or Rent Out Property</h2>
+        <p>List your property, manage inquiries</p>
+      </div>
+      <div class="card" id="explore-card">
+        <img src="img/settingsicon.png" alt="Wrench Icon" />
+        <h2>Offer a Service</h2>
+        <p>Get booked for repairs, cleaning</p>
+      </div>
+      <div class="card" id="vendor-card">
+        <img src="img/couchicon.png" alt="Sell Icon" />
+        <h2>Sell Household Items</h2>
+        <p>List products, grow your customer base</p>
       </div>
     </div>
-  </div>
 
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('active');
-    //   Add commentMore actions
-    }
-  </script>
+    <button class="continue-btn">Continue</button>
+  </div>
 </body>
+
+
+<script>
+  const buyerCard = document.getElementById("buyer-card");
+  buyerCard.addEventListener("click", () => {
+    window.location.href = '/createaccount-user';
+  });
+
+  const agentsCard = document.getElementById("agents-card");
+  agentsCard.addEventListener("click", () => {
+    window.location.href = '/createaccount-agents';
+  });
+
+  const exploreCard = document.getElementById("explore-card");
+  exploreCard.addEventListener("click", () => {
+    window.location.href = '/createaccount-explore';
+  });
+
+  const vendorCard = document.getElementById("vendor-card");
+  vendorCard.addEventListener("click", () => {
+    window.location.href = '/createaccount-vendor';
+  });
+  
+</script>
 {% endblock %}
